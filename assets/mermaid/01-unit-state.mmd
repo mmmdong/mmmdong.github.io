@@ -1,0 +1,25 @@
+stateDiagram-v2
+    direction LR
+    [*] --> IDLE : Init()
+
+    IDLE : IDLE / 대기
+    MOVE : MOVE / 추격
+    ATTACK : ATTACK / 공격
+    SKILL : SKILL / 스킬
+    DEAD : DEAD / 사망
+    NONE : NONE / 정지
+
+    IDLE --> MOVE : 타겟 확보
+    MOVE --> ATTACK : 거리 <= 공격 사거리
+    MOVE --> IDLE : 타겟 소실 또는 이동 불가
+    ATTACK --> MOVE : 거리 > 공격 사거리
+    ATTACK --> IDLE : 타겟 사망
+    IDLE --> SKILL : 스킬 발동
+    MOVE --> SKILL : 스킬 발동
+    ATTACK --> SKILL : 스킬 발동
+    SKILL --> IDLE : Duration 경과
+    IDLE --> DEAD : HP 0
+    MOVE --> DEAD : HP 0
+    ATTACK --> DEAD : HP 0
+    DEAD --> [*] : 이펙트 정리 후 종료
+    NONE --> [*] : scaleCts 취소
