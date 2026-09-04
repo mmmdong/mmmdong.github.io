@@ -1,0 +1,13 @@
+flowchart TD
+    A["SetDropItemList(stageIndex)"] --> B["STAGE.StageDrop.DropItemIndexMap 조회"]
+    B --> C{"DropRates[i] > 0?"}
+    C -- 아니오 --> C2["건너뜀"]
+    C -- 예 --> D["GetDropId(DropIDs[i], hashSet)"]
+    D --> E{"LinkItemMap에<br/>ID가 있는가?"}
+    E -- "예 (그룹)" --> F["하위 LinkItemID 재귀 순회"]
+    F --> D
+    E -- "아니오 (말단)" --> G["hashSet.Add(dropId)<br/>중복 자동 제거"]
+    G --> H["DropItemListOrderBy(hashSet)"]
+    H --> I["재화(CostMap) 우선"]
+    H --> J["장비(EquipMap)는 등급 내림차순"]
+    I & J --> K["월드맵 보상 리스트 노출"]
