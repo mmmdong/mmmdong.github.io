@@ -50,6 +50,7 @@ collection: portfolio
 ### 3-1. DFS 알고리즘을 활용한 데이터 처리 및 UX 최적화
 
 #### 사례 1 — 실시간 가챠 확률 산출 시스템 최적화
+<img src="/images/portfolio/hidden-heroes/summon-probability.png" alt="소환 확률표 팝업" style="width:100%; max-width:360px; border-radius:6px; margin:16px 0;"/>
 
 **개요**
 
@@ -168,6 +169,7 @@ private void GetDropId(int ID, Dictionary<int, float> dict, float dropPer)
 </details>
 
 #### 사례 2 — 월드맵 드랍 아이템 가시성 개선
+<img src="/images/portfolio/hidden-heroes/world-drop.jpg" alt="월드맵 드랍 아이템 리스트" style="width:100%; max-width:360px; border-radius:6px; margin:16px 0;"/>
 
 **개요**
 
@@ -276,6 +278,10 @@ private void GetDropId(int ID, HashSet<int> hashSet)
 ---
 
 ### 3-2. UI 아키텍처 리팩터링 및 고도화
+<div style="display:flex; gap:8px; flex-wrap:wrap; margin:16px 0;">
+  <img src="/images/portfolio/hidden-heroes/ui-refactor-1.jpg" alt="UI 리팩터링 전후 1" style="flex:1; min-width:180px; max-width:320px; border-radius:6px;"/>
+  <img src="/images/portfolio/hidden-heroes/ui-refactor-2.jpg" alt="UI 리팩터링 전후 2" style="flex:1; min-width:180px; max-width:320px; border-radius:6px;"/>
+</div>
 
 **개요**
 
@@ -388,6 +394,7 @@ public override void RefreshUI()
 ---
 
 ### 3-3. '미확인 아이템 감정' 핵심 콘텐츠 개발
+<img src="/images/portfolio/hidden-heroes/appraise.jpg" alt="미확인 아이템 감정 연출" style="width:100%; max-width:360px; border-radius:6px; margin:16px 0;"/>
 
 **개요**
 
