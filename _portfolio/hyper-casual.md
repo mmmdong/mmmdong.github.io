@@ -22,6 +22,11 @@ collection: portfolio
 
 ## 1. Dance Mob — Clicker Game
 
+<div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
+  <img src="/images/portfolio/mondayoff/dance-mob-1.jpg" alt="Dance Mob 플레이 화면" style="flex:1; min-width:180px; border-radius:6px;"/>
+  <img src="/images/portfolio/mondayoff/dance-mob-2.jpg" alt="Dance Mob 군중 연출" style="flex:1; min-width:180px; border-radius:6px;"/>
+</div>
+
 <div style="background:#fafafa; padding:12px 16px; border-radius:4px; margin-bottom:16px;">
   <strong>플랫폼</strong> iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 3.0 (iOS) · 🌎 Global<br/>
   <strong>링크</strong> <a href="https://apps.apple.com/us/app/dance-mob-clicker-game/id6447021543">App Store</a>
@@ -57,6 +62,11 @@ collection: portfolio
 
 ## 2. Number Store — Idle
 
+<div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
+  <img src="/images/portfolio/mondayoff/number-store-1.jpg" alt="Number Store 플레이 화면" style="flex:1; min-width:180px; border-radius:6px;"/>
+  <img src="/images/portfolio/mondayoff/number-store-2.jpg" alt="Number Store 상점 성장" style="flex:1; min-width:180px; border-radius:6px;"/>
+</div>
+
 <div style="background:#fafafa; padding:12px 16px; border-radius:4px; margin-bottom:16px;">
   <strong>플랫폼</strong> AOS / iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 2.7 (AOS) · 2.8 (iOS) · 📥 <strong>500K+</strong> · 🌎 Global<br/>
   <strong>링크</strong> <a href="https://play.google.com/store/apps/details?id=com.mondayoff.numberstoreidle&hl=ko-KR">Google Play</a> ·
@@ -91,6 +101,11 @@ collection: portfolio
 ---
 
 ## 3. Sweep Coin Tower
+
+<div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
+  <img src="/images/portfolio/mondayoff/sweep-coin-1.jpg" alt="Sweep Coin Tower 플레이 화면" style="flex:1; min-width:180px; border-radius:6px;"/>
+  <img src="/images/portfolio/mondayoff/sweep-coin-2.jpg" alt="Sweep Coin Tower 코인 연출" style="flex:1; min-width:180px; border-radius:6px;"/>
+</div>
 
 <div style="background:#fafafa; padding:12px 16px; border-radius:4px; margin-bottom:16px;">
   <strong>플랫폼</strong> AOS / iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 3.4 (AOS) · <strong>4.4 (iOS)</strong> · 📥 100K+ · 🌎 Global<br/>
