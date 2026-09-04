@@ -54,7 +54,7 @@ redirect_from:
 
   <div style="flex:1; min-width:280px;">
 
-    <img src="/images/portfolio/eterna-ai.png" alt="Eterna-AI" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
+    <img src="/images/portfolio/eterna-ai.jpg" alt="Eterna-AI" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
     <p style="font-size:0.85em; color:#666; margin-top:0;">2025.11 ~ 2026.03 | Voyager Inc.</p>
 
     <strong>Eterna-AI</strong>
@@ -65,7 +65,7 @@ redirect_from:
 
     <br/>
 
-    <img src="/images/portfolio/pixel-hero.png" alt="픽셀 영웅 전설" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
+    <img src="/images/portfolio/pixel-hero.jpg" alt="픽셀 영웅 전설" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
     <p style="font-size:0.85em; color:#666; margin-top:0;">2024.05 ~ 2024.11 | Game Crit Studio (Dreamplay Games)</p>
 
     <strong><a href="https://play.google.com/store/apps/details?id=com.dreamplay.pixelheroiclegend.google&hl=ko">픽셀 영웅 전설</a></strong>
@@ -78,7 +78,7 @@ redirect_from:
 
     <br/>
 
-    <img src="/images/portfolio/mondayoff.png" alt="MondayOff" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
+    <img src="/images/portfolio/mondayoff.jpg" alt="MondayOff" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
     <p style="font-size:0.85em; color:#666; margin-top:0;">2023.10 ~ 2024.12 | MondayOFF</p>
 
     <strong>MondayOff - Hyper Casual Games</strong>
@@ -91,7 +91,7 @@ redirect_from:
 
   <div style="flex:1; min-width:280px;">
 
-    <img src="/images/portfolio/miunhwa-heroes.png" alt="미확인 용사단" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
+    <img src="/images/portfolio/miunhwa-heroes.jpg" alt="미확인 용사단" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
     <p style="font-size:0.85em; color:#666; margin-top:0;">2025.01 ~ 2025.04 | Game Crit Studio (Dreamplay Games)</p>
 
     <strong><a href="https://play.google.com/store/apps/details?id=com.dreamplay.hiddenheroes.google&hl=ko">미확인 용사단</a></strong>
@@ -104,7 +104,7 @@ redirect_from:
 
     <br/>
 
-    <img src="/images/portfolio/return-hero.png" alt="귀환병 전기" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
+    <img src="/images/portfolio/return-hero.jpg" alt="귀환병 전기" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
     <p style="font-size:0.85em; color:#666; margin-top:0;">2024.03 ~ 2024.05 | Game Crit Studio (Dreamplay Games)</p>
 
     <strong><a href="https://play.google.com/store/apps/details?id=com.dreamplay.returnhero.google&hl=ko">귀환병 전기</a></strong>
