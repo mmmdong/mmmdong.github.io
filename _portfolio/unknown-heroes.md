@@ -4,8 +4,8 @@ excerpt: "하이브리드 방치형 RPG. DFS 기반 가챠 확률 산출, UI 아
 collection: portfolio
 ---
 
-<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
-  <table style="border:none; margin:0;">
+<div class="pf-panel">
+  <table>
     <tr><td><strong>프로젝트 유형</strong></td><td>상용 출시 · 팀 프로젝트</td></tr>
     <tr><td><strong>기간</strong></td><td>2025.01 ~ 2025.04 (4개월) · 2025.04 출시</td></tr>
     <tr><td><strong>팀 구성</strong></td><td>7명 (기획 1, 아트 3, 개발 3)</td></tr>

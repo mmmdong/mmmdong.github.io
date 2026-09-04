@@ -4,8 +4,8 @@ excerpt: "2D 픽셀 아트 방치형 RPG. 라이브 서비스 유지보수와 �
 collection: portfolio
 ---
 
-<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
-  <table style="border:none; margin:0;">
+<div class="pf-panel">
+  <table>
     <tr><td><strong>프로젝트 유형</strong></td><td>상용 서비스 · 라이브 유지보수 및 신규 컨텐츠</td></tr>
     <tr><td><strong>기간</strong></td><td>2024.03 ~ 2024.05 (3개월)</td></tr>
     <tr><td><strong>팀 구성</strong></td><td>4명 (기획 1, 아트 1, 개발 2)</td></tr>

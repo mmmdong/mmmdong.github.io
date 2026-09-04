@@ -4,8 +4,8 @@ excerpt: "1인 개발로 3종 글로벌 출시. 대량 오브젝트 환경에서
 collection: portfolio
 ---
 
-<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
-  <table style="border:none; margin:0;">
+<div class="pf-panel">
+  <table>
     <tr><td><strong>프로젝트 유형</strong></td><td>상용 출시 · <strong>1인 개발</strong>(기획 및 클라이언트 전담) · 3종</td></tr>
     <tr><td><strong>기간</strong></td><td>2022.10 ~ 2023.12</td></tr>
     <tr><td><strong>사용 소프트웨어</strong></td><td>Unity, Git, Miro, Slack</td></tr>
@@ -27,7 +27,7 @@ collection: portfolio
   <img src="/images/portfolio/mondayoff/dance-mob-2.jpg" alt="Dance Mob 군중 연출" style="flex:1; min-width:180px; border-radius:6px;"/>
 </div>
 
-<div style="background:#fafafa; padding:12px 16px; border-radius:4px; margin-bottom:16px;">
+<div class="pf-sub">
   <strong>플랫폼</strong> iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 3.0 (iOS) · 🌎 Global<br/>
   <strong>링크</strong> <a href="https://apps.apple.com/us/app/dance-mob-clicker-game/id6447021543">App Store</a>
 </div>
@@ -67,7 +67,7 @@ collection: portfolio
   <img src="/images/portfolio/mondayoff/number-store-2.jpg" alt="Number Store 상점 성장" style="flex:1; min-width:180px; border-radius:6px;"/>
 </div>
 
-<div style="background:#fafafa; padding:12px 16px; border-radius:4px; margin-bottom:16px;">
+<div class="pf-sub">
   <strong>플랫폼</strong> AOS / iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 2.7 (AOS) · 2.8 (iOS) · 📥 <strong>500K+</strong> · 🌎 Global<br/>
   <strong>링크</strong> <a href="https://play.google.com/store/apps/details?id=com.mondayoff.numberstoreidle&hl=ko-KR">Google Play</a> ·
   <a href="https://apps.apple.com/us/app/number-store-idle/id6458929630">App Store</a>
@@ -107,7 +107,7 @@ collection: portfolio
   <img src="/images/portfolio/mondayoff/sweep-coin-2.jpg" alt="Sweep Coin Tower 코인 연출" style="flex:1; min-width:180px; border-radius:6px;"/>
 </div>
 
-<div style="background:#fafafa; padding:12px 16px; border-radius:4px; margin-bottom:16px;">
+<div class="pf-sub">
   <strong>플랫폼</strong> AOS / iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 3.4 (AOS) · <strong>4.4 (iOS)</strong> · 📥 100K+ · 🌎 Global<br/>
   <strong>링크</strong> <a href="https://play.google.com/store/apps/details?id=com.mondayoff.cointower&hl=ko-KR">Google Play</a> ·
   <a href="https://apps.apple.com/us/app/sweep-coin-tower/id6446337932">App Store</a>

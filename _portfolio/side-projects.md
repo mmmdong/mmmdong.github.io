@@ -4,7 +4,7 @@ excerpt: "Unity 입문 전 C++/WinAPI로 진행한 모작과, Unity를 처음 �
 collection: portfolio
 ---
 
-<div style="background:#e8f4f8; border-left:4px solid #3498db; padding:12px 16px; border-radius:4px; margin-bottom:28px;">
+<div class="pf-hero">
 Unity 입문 전 <strong>C++ / WinAPI</strong> 기반으로 진행한 모작 프로젝트와, <strong>Unity</strong>를 처음 배우며
 완성한 개인 프로젝트를 정리했습니다. 기초적인 게임 구조 설계 능력과 자기주도적 문제 해결 과정을 담고 있습니다.
 </div>
