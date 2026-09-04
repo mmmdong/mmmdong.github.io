@@ -11,27 +11,17 @@ redirect_from:
 🎮 <strong>Unity 3D/2D 게임 개발자 김동현 포트폴리오</strong>
 </div>
 
-<div style="display:flex; gap:32px; margin-bottom:32px; flex-wrap:wrap;">
-  <div style="flex:1; min-width:220px;">
-    <h2>Contact</h2>
-    <ul style="list-style:none; padding:0;">
-      <li>📮 <strong>이메일</strong> : <a href="mailto:clxlzl1234@gmail.com">clxlzl1234@gmail.com</a></li>
-      <li>📞 <strong>전화번호</strong> : 010-6299-6530</li>
-      <li>📓 <strong>Notion</strong> : <a href="https://www.notion.so/mmmdong/Unity-Programmer-Kim-Dong-Hyun-33c08b60233e805f929ad17f7caf3207">포트폴리오 원문</a></li>
-    </ul>
-  </div>
-  <div style="flex:2; min-width:280px;">
-    <h2>About Me</h2>
-    <p>
-      안녕하십니까 저는 '귀환병 전기', '픽셀영웅전설' 등 다수의 캐주얼 RPG를 런칭하고 라이브 서비스를 운영해 온 유니티 개발자입니다. <strong>UniRx(R3)</strong>와 <strong>UniTask</strong>를 활용한 비동기 최적화 및 안정적인 아키텍처 설계에 강점이 있습니다.
-    </p>
-    <p>
-      <strong>Web 기반의 네트워크 통신</strong>부터 <strong>Spine Event</strong>를 활용한 정교한 액션 연출, <strong>멀티플랫폼(AOS, iOS, Steam) 대응</strong>까지 개발 전 과정을 직접 수행한 풀사이클 경험을 보유하고 있습니다. 기술적 집요함과 원활한 소통을 바탕으로 프로젝트의 완성도를 책임지는 든든한 동료가 되겠습니다.
-    </p>
-    <p>
-      최근에는 <strong>Claude Code</strong>와 <strong>Oh My Claude Code(OMC)</strong>를 실제 개발 워크플로에 도입해 코드 리뷰·리팩터링·문서화·검증을 에이전트 기반으로 자동화하고 있습니다. 이 포트폴리오 사이트 역시 해당 워크플로로 설계·구축했습니다.
-    </p>
-  </div>
+<div style="margin-bottom:32px;">
+  <h2>About Me</h2>
+  <p>
+    안녕하십니까 저는 '귀환병 전기', '픽셀영웅전설' 등 다수의 캐주얼 RPG를 런칭하고 라이브 서비스를 운영해 온 유니티 개발자입니다. <strong>UniRx(R3)</strong>와 <strong>UniTask</strong>를 활용한 비동기 최적화 및 안정적인 아키텍처 설계에 강점이 있습니다.
+  </p>
+  <p>
+    <strong>Web 기반의 네트워크 통신</strong>부터 <strong>Spine Event</strong>를 활용한 정교한 액션 연출, <strong>멀티플랫폼(AOS, iOS, Steam) 대응</strong>까지 개발 전 과정을 직접 수행한 풀사이클 경험을 보유하고 있습니다. 기술적 집요함과 원활한 소통을 바탕으로 프로젝트의 완성도를 책임지는 든든한 동료가 되겠습니다.
+  </p>
+  <p>
+    최근에는 <strong>Claude Code</strong>와 <strong>Oh My Claude Code(OMC)</strong>를 실제 개발 워크플로에 도입해 코드 리뷰·리팩터링·문서화·검증을 에이전트 기반으로 자동화하고 있습니다. 이 포트폴리오 사이트 역시 해당 워크플로로 설계·구축했습니다.
+  </p>
 </div>
 
 <div class="pf-panel">
