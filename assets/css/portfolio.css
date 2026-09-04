@@ -40,10 +40,10 @@ html[data-theme="dark"] {
   --pf-badge-fg       : #1b2831;
   --pf-heading        : #ffffff;
   --pf-body           : #f2f4f5;
-  --pf-muted          : #c3cbd1;
+  --pf-muted          : #ced5da;
   --pf-accent         : #8ddcf1;
   --pf-accent-quiet   : #9aa1a6;
-  --pf-tag-bg         : #45505a;
+  --pf-tag-bg         : #3c454e;
   --pf-tag-fg         : #dce8f1;
   --pf-tag-border     : #6a747d;
   --pf-key-bg         : #4d4029;
