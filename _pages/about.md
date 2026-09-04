@@ -50,71 +50,119 @@ redirect_from:
 
 ## Projects
 
-<div style="display:flex; gap:32px; flex-wrap:wrap;">
+<p style="color:#666; font-size:.9em;">카드를 클릭하면 상세 페이지로 이동합니다. 각 상세 페이지에는 문제-해결-결과 서술과 실제 코드, 구조 다이어그램이 들어 있습니다.</p>
 
-  <div style="flex:1; min-width:280px;">
+<div class="pf-grid">
 
-    <img src="/images/portfolio/eterna-ai.jpg" alt="Eterna-AI" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
-    <p style="font-size:0.85em; color:#666; margin-top:0;">2025.11 ~ 2026.03 | Voyager Inc.</p>
-
-    <strong>Eterna-AI</strong>
+  <div class="pf-card">
+    <a href="/portfolio/eterna/"><img src="/images/portfolio/eterna-ai.jpg" alt="Eterna-AI"/></a>
+    <h3><a href="/portfolio/eterna/">Eterna-AI</a></h3>
+    <p class="pf-meta">2025.11 ~ 2026.03 | Voyager Inc.</p>
+    <div class="pf-tags"><span class="pf-tag">Unity</span><span class="pf-tag">C#</span><span class="pf-tag">Steamworks</span><span class="pf-tag">SteamAPI</span><span class="pf-tag">IAP</span><span class="pf-tag">Jenkins</span></div>
     <ul>
-      <li>한 줄 설명: AI 소셜 채팅 앱</li>
-      <li>역할/기술 태그: Unity, C#, Steamworks, SteamAPI, IAP</li>
+      <li>AI 소셜 채팅 앱 (AOS / iOS / Steam)</li>
+      <li>Steam 로그인·SDK 연동, 플랫폼 JWT 브릿지 설계</li>
+      <li>Steam / Mobile 통합 IAP 파이프라인</li>
+      <li>Jenkins 5단계 빌드·배포 자동화</li>
     </ul>
-
-    <br/>
-
-    <img src="/images/portfolio/pixel-hero.jpg" alt="픽셀 영웅 전설" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
-    <p style="font-size:0.85em; color:#666; margin-top:0;">2024.05 ~ 2024.11 | Game Crit Studio (Dreamplay Games)</p>
-
-    <strong><a href="https://play.google.com/store/apps/details?id=com.dreamplay.pixelheroiclegend.google&hl=ko">픽셀 영웅 전설</a></strong>
-    <ul>
-      <li>한 줄 설명: 방치형 캐주얼 RPG 게임</li>
-      <li>사용 SDK 및 스택: Unity, C#, 뒤끝채팅, Azure PlayFab, IAP</li>
-      <li>AOS : ★4.6 &nbsp; iOS : ★4.0</li>
-      <li>국내 AOS 다운로드 : 50K+</li>
-    </ul>
-
-    <br/>
-
-    <img src="/images/portfolio/mondayoff.jpg" alt="MondayOff" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
-    <p style="font-size:0.85em; color:#666; margin-top:0;">2023.10 ~ 2024.12 | MondayOFF</p>
-
-    <strong>MondayOff - Hyper Casual Games</strong>
-    <ul>
-      <li>하이퍼/하이브리드 캐주얼 게임 개발</li>
-      <li>사용 SDK 및 스택 : Unity, C#, IAP, App Lovin MAX</li>
-    </ul>
-
+    <a class="pf-more" href="/portfolio/eterna/">자세히 보기 →</a>
   </div>
 
-  <div style="flex:1; min-width:280px;">
-
-    <img src="/images/portfolio/miunhwa-heroes.jpg" alt="미확인 용사단" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
-    <p style="font-size:0.85em; color:#666; margin-top:0;">2025.01 ~ 2025.04 | Game Crit Studio (Dreamplay Games)</p>
-
-    <strong><a href="https://play.google.com/store/apps/details?id=com.dreamplay.hiddenheroes.google&hl=ko">미확인 용사단</a></strong>
+  <div class="pf-card">
+    <a href="/portfolio/unknown-heroes/"><img src="/images/portfolio/miunhwa-heroes.jpg" alt="미확인 용사단"/></a>
+    <h3><a href="/portfolio/unknown-heroes/">미확인 용사단</a></h3>
+    <p class="pf-meta">2025.01 ~ 2025.04 | Game Crit Studio (Dreamplay Games)</p>
+    <div class="pf-tags"><span class="pf-tag">Unity</span><span class="pf-tag">C#</span><span class="pf-tag">UniRx</span><span class="pf-tag">UniTask</span><span class="pf-tag">뒤끝채팅</span><span class="pf-tag">PlayFab</span></div>
     <ul>
-      <li>한 줄 설명: 하이브리드 방치형 RPG</li>
-      <li>사용 SDK 및 스택: Unity, C#, 뒤끝채팅, Azure PlayFab, IAP</li>
-      <li>AOS : ★3.3 &nbsp; iOS : ★4.3</li>
-      <li>국내 AOS 다운로드 : 10K+</li>
+      <li>하이브리드 방치형 RPG · ⭐ 3.3(AOS) / 4.3(iOS) · 📥 10K+</li>
+      <li>DFS 기반 가챠 확률 산출 — 프레임 드랍 해소</li>
+      <li>UniRx 반응형 UI 아키텍처 리팩터링</li>
+      <li>슬롯머신 방식 아이템 감정 시스템</li>
     </ul>
+    <a class="pf-more" href="/portfolio/unknown-heroes/">자세히 보기 →</a>
+  </div>
 
-    <br/>
-
-    <img src="/images/portfolio/return-hero.jpg" alt="귀환병 전기" style="width:100%; border-radius:8px; margin-bottom:8px;"/>
-    <p style="font-size:0.85em; color:#666; margin-top:0;">2024.03 ~ 2024.05 | Game Crit Studio (Dreamplay Games)</p>
-
-    <strong><a href="https://play.google.com/store/apps/details?id=com.dreamplay.returnhero.google&hl=ko">귀환병 전기</a></strong>
+  <div class="pf-card">
+    <a href="/portfolio/pixel-heroic-legend/"><img src="/images/portfolio/pixel-hero.jpg" alt="픽셀 영웅 전설"/></a>
+    <h3><a href="/portfolio/pixel-heroic-legend/">픽셀 영웅 전설</a></h3>
+    <p class="pf-meta">2024.05 ~ 2024.11 | Game Crit Studio (Dreamplay Games)</p>
+    <div class="pf-tags"><span class="pf-tag">Unity</span><span class="pf-tag">C#</span><span class="pf-tag">R3</span><span class="pf-tag">UniTask</span><span class="pf-tag">뒤끝채팅</span><span class="pf-tag">PlayFab</span></div>
     <ul>
-      <li>한 줄 설명: 방치형 캐주얼 RPG 게임</li>
-      <li>사용 SDK 및 스택: Unity, C#, Azure PlayFab</li>
-      <li>AOS : ★3.3 &nbsp; iOS : ★4.1</li>
-      <li>국내 AOS 다운로드 : 10K+</li>
+      <li>방치형 파티 RPG · ⭐ 4.6(AOS) / 4.0(iOS) · 📥 50K+</li>
+      <li>전투 코어 엔진 신규 개발 (R3 상태 제어 + UniTask)</li>
+      <li>PVP 전 과정 — 리더보드 호출 최적화, 난이도별 매칭</li>
     </ul>
+    <a class="pf-more" href="/portfolio/pixel-heroic-legend/">자세히 보기 →</a>
+  </div>
 
+  <div class="pf-card">
+    <a href="/portfolio/return-hero/"><img src="/images/portfolio/return-hero.jpg" alt="귀환병 전기"/></a>
+    <h3><a href="/portfolio/return-hero/">귀환병 전기</a></h3>
+    <p class="pf-meta">2024.03 ~ 2024.05 | Game Crit Studio (Dreamplay Games)</p>
+    <div class="pf-tags"><span class="pf-tag">Unity</span><span class="pf-tag">C#</span><span class="pf-tag">UniTask</span><span class="pf-tag">PlayFab</span><span class="pf-tag">CloudScript</span></div>
+    <ul>
+      <li>방치형 캐주얼 RPG · ⭐ 3.3(AOS) / 4.1(iOS) · 📥 10K+</li>
+      <li>랭킹 보상 정산 자동화 — 인앱 매출 약 8% 상승</li>
+      <li>월드보스 신규 컨텐츠 — 인앱 매출 약 5% 상승</li>
+    </ul>
+    <a class="pf-more" href="/portfolio/return-hero/">자세히 보기 →</a>
+  </div>
+
+  <div class="pf-card">
+    <a href="/portfolio/hyper-casual/"><img src="/images/portfolio/mondayoff.jpg" alt="MondayOFF Hyper Casual"/></a>
+    <h3><a href="/portfolio/hyper-casual/">Hyper Casual Games</a></h3>
+    <p class="pf-meta">2022.10 ~ 2023.12 | MondayOFF</p>
+    <div class="pf-tags"><span class="pf-tag">Unity</span><span class="pf-tag">C#</span><span class="pf-tag">IAP</span><span class="pf-tag">AppLovin MAX</span><span class="pf-tag">1인 개발</span></div>
+    <ul>
+      <li>3종 글로벌 출시 · ⭐ 최고 4.4 · 📥 최대 500K+</li>
+      <li>기획 · 클라이언트 개발 전담</li>
+      <li>대량 오브젝트 환경의 성능 최적화 (풀링 · 배칭 · 이벤트 기반 연산)</li>
+    </ul>
+    <a class="pf-more" href="/portfolio/hyper-casual/">자세히 보기 →</a>
+  </div>
+
+  <div class="pf-card">
+    <h3><a href="/portfolio/side-projects/">Side Projects</a></h3>
+    <p class="pf-meta">Unity 입문기 · C++ / WinAPI 모작</p>
+    <div class="pf-tags"><span class="pf-tag">Unity</span><span class="pf-tag">C#</span><span class="pf-tag">C++</span><span class="pf-tag">WinAPI</span><span class="pf-tag">FMOD</span></div>
+    <ul>
+      <li>MergeCube · Cubic Music — UniRx 옵저버 패턴, 오브젝트 풀링</li>
+      <li>HELLTAKER — 엔진 없이 입력·충돌·애니메이션 프레임 직접 구현</li>
+      <li>River City Girls · The Witch's House — 픽셀 충돌, Z-order, 상태 관리 매니저</li>
+    </ul>
+    <a class="pf-more" href="/portfolio/side-projects/">자세히 보기 →</a>
+  </div>
+
+</div>
+
+---
+
+## 공통 모듈
+
+여러 프로젝트에 반복 이식한 모듈입니다. 설계 판단의 근거와 실제 코드를 정리했습니다.
+
+<div class="pf-grid">
+
+  <div class="pf-card">
+    <h3><a href="/portfolio/chat-system/">실시간 채팅 시스템</a></h3>
+    <div class="pf-tags"><span class="pf-tag">뒤끝 SDK</span><span class="pf-tag">Socket</span><span class="pf-tag">UniTask</span><span class="pf-tag">PlayFab</span></div>
+    <ul>
+      <li>차단 목록을 PlayFab에 두어 서버 이원화 회피</li>
+      <li>닉네임 Base64 인코딩으로 한글 깨짐 방지</li>
+      <li>유저=JSON / 시스템=구분자+msgKey 로 포맷 분리 (로컬라이징 대응)</li>
+    </ul>
+    <a class="pf-more" href="/portfolio/chat-system/">자세히 보기 →</a>
+  </div>
+
+  <div class="pf-card">
+    <h3><a href="/portfolio/applovin/">광고 수익화 모듈</a></h3>
+    <div class="pf-tags"><span class="pf-tag">AppLovin MAX</span><span class="pf-tag">UniTask</span></div>
+    <ul>
+      <li>호출부는 <code>ShowRewardedAD(보상함수)</code> 한 줄</li>
+      <li>CancellationTokenSource 가드로 중복 로드 차단</li>
+      <li>로드 실패·재생 실패를 단일 경로로 수렴</li>
+    </ul>
+    <a class="pf-more" href="/portfolio/applovin/">자세히 보기 →</a>
   </div>
 
 </div>
