@@ -17,4 +17,10 @@
 <!-- 포트폴리오 카드 그리드 -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/portfolio.css"/>
 
+<!-- 라이트 모드 고정: 테마 스크립트가 localStorage/시스템 설정을 읽기 전에 덮어쓴다 -->
+<script>
+  try { localStorage.setItem("theme", "light"); } catch (e) {}
+  document.documentElement.setAttribute("data-theme", "light");
+</script>
+
 <!-- end custom head snippets -->
