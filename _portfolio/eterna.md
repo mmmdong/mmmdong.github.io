@@ -1,0 +1,539 @@
+---
+title: "Eterna — AI 대화형 라이프스타일 플랫폼"
+excerpt: "Steam 플랫폼 연동(로그인·IAP)과 Jenkins 기반 빌드/배포 자동화. 멀티플랫폼 대응.<br/><img src='/images/portfolio/eterna-ai.jpg'>"
+collection: portfolio
+---
+
+<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
+  <table style="border:none; margin:0;">
+    <tr><td><strong>프로젝트 유형</strong></td><td>AI 대화형 라이프스타일 플랫폼 · 멀티플랫폼(AOS / iOS / Windows Steam)</td></tr>
+    <tr><td><strong>기간</strong></td><td>2025.12 ~ 2026.03 (4개월)</td></tr>
+    <tr><td><strong>팀 구성</strong></td><td>14명 (기획 1, 아트 4, 클라 4, 서버 5)</td></tr>
+    <tr><td><strong>사용 소프트웨어</strong></td><td>Unity, Git, Jenkins, Jira, Slack, Trello</td></tr>
+    <tr><td><strong>사용 언어 · 스택</strong></td><td>C#, Steamworks SDK, Steam API, Unity IAP, LLM/BYOK, Speech(iOS), Groovy</td></tr>
+    <tr><td><strong>담당 역할</strong></td><td>스팀 플랫폼 연동(로그인 / API) 및 결제 시스템(IAP) 구축, CI/CD 빌드 자동화</td></tr>
+    <tr><td><strong>성과</strong></td><td>Dev Complete · 서비스 런칭부터 종료(Sunsetting)까지 전 과정 대응</td></tr>
+  </table>
+</div>
+
+> **표기 안내** — 노션 포트폴리오에는 프로젝트명이 "Voyager"로 적혀 있으나,
+> `ProjectSettings.asset` 확인 결과 **Voyager는 회사명(`companyName`)이고 제품명은 `Eterna`**입니다.
+> 이 페이지는 실제 프로젝트 설정을 기준으로 표기했습니다.
+
+## 1) 프로젝트 개요
+
+### 핵심 컨셉
+
+**고도화된 AI 엔진 기반의 실시간 상호작용** — 가상 공간 꾸미기와 AI 캐릭터 '미러'와의 대화를 결합한
+하이브리드 라이프스타일 앱. 아고라(Agora) 시스템을 통한 다중 유저 및 AI 캐릭터 간의 복합 커뮤니티 구축.
+
+### 주요 특징
+
+- **소셜 인터랙션 확장:** 개별 AI와의 대화를 넘어 타 유저 및 AI가 참여하는 그룹 채팅 시스템 구현
+- **크로스 플랫폼 서비스:** Unity 기반의 모바일 및 PC(Steam) 통합 클라이언트 개발 및 서비스 안정화
+- **안정적인 서비스 마무리:** 비즈니스 전략 변화에 따른 셧다운(Shut-down) 프로세스 이행 및 유저 데이터 자산 보호
+
+---
+
+## 2) 개발 과정
+
+**Work Management** `Jira` — 애자일/스프린트 기반 티켓 시스템으로 파트 간 진척도 정밀 추적
+
+**Version Control** `Git` — 기능별 브랜치 운영으로 14명 규모의 병렬 개발 효율 확보
+
+**CI/CD** `Jenkins` — 빌드 자동화 파이프라인 구축으로 수동 작업 제거 및 배포 안정성 확보
+
+---
+
+## 3) 핵심 기술 구현
+
+### 3-1. Steam 로그인 및 SDK 연동
+
+**개요**
+
+- 글로벌 Steam 플랫폼 런칭을 위한 **Steamworks SDK 통합 및 유저 인증 로직 구축**
+- 모바일과 PC 환경을 아우르는 멀티 플랫폼 인증 프로세스 설계
+
+**문제 상황**
+
+- 기존 모바일 중심(Google/Apple OAuth)의 문자열 기반 인증 구조와
+  Steam의 **비동기 바이트 배열(Byte Array) 티켓 인증 방식 간의 이질성** 발생
+- Steam 실행 시 매니저 초기화 타이밍과 인증 티켓 수신 콜백 간의 동기화 문제로 인한 간헐적 인증 실패 리스크
+
+**해결 전략**
+
+- **인증 레이어 추상화:** `Platform` 추상 클래스를 설계하고 `Steam`, `Android`, `iOS` 플랫폼별 상속 구조를 구현하여,
+  기존 모바일 로직을 유지하면서도 새로운 플랫폼을 유연하게 확장
+- **비동기 흐름 제어:** `UniTask.WaitUntil`을 활용해 SteamManager 초기화 상태를 확정적으로 대기한 후
+  티켓을 요청하도록 설계하여 타이밍 이슈 해결
+- **데이터 무결성 확보:** 수신된 티켓 바이트 배열을 유효 길이(`m_cubTicket`)만큼 정밀하게 슬라이싱하여
+  서버 전송 데이터의 정확도 향상
+- **플랫폼 종속성 분리:** 플랫폼 서버에서 Steam Web API 검증 후 **자체 JWT를 발급**하는 브릿지 구조를 설계하여,
+  게임 서버가 특정 플랫폼에 종속되지 않도록 아키텍처 개선
+
+**결과**
+
+- 별도의 조작 없는 자동 로그인 환경을 구축하여 **스팀 유저 진입 경험 최적화**
+- 플랫폼 확장 시 서버 코드 변경을 최소화할 수 있는 **유지보수 효율적인 인증 시스템 완성**
+- (개인적으로 느낀점) 인증과 서버 비즈니스 로직의 레이어를 분리함으로써 얻는 설계적 이점을 실무에 적용했으며,
+  향후 글로벌 원빌드 전략 수립을 위한 기술적 토대 마련
+
+![스팀 로그인 시퀀스](/images/diagrams/07-steam-login-sequence.svg)
+
+<details markdown="1">
+
+<summary>코드 — Steam 티켓 발급과 플랫폼 토큰 교환 (<code>Assets/00_ET/Scripts/Platform/SteamPlatform.cs</code>, <code>PlatformManager.cs</code>)</summary>
+
+```csharp
+/// <summary>
+/// 스팀 로그인
+/// </summary>
+public override async Task Init()
+{
+#if STEAMWORKS_NET
+    CurrentPlatformType = ePlatformType.Steam;
+    LoginState = ePlatformLoginState.None;
+
+    // 초기화 완료를 확정 대기해 콜백 타이밍 이슈를 제거한다
+    await UniTask.WaitUntil(() => SteamManager.Initialized);
+    LoginState = ePlatformLoginState.SteamLoggedIn;
+
+    Subscribe();
+    RequestSteamTicketAndLogin();
+#endif
+}
+
+/// <summary>
+/// 스팀 로그인 티켓 요청
+/// </summary>
+private void RequestSteamTicketAndLogin()
+{
+    if (!SteamManager.Initialized)
+    {
+        Debug.LogError("Steam not initialized.");
+        return;
+    }
+
+    // 로그인 시도마다 새 티켓 발급 권장
+    _ticketHandle = SteamUser.GetAuthTicketForWebApi(Application.identifier);
+
+    if (_ticketHandle == HAuthTicket.Invalid)
+        Debug.LogError("GetAuthTicketForWebApi failed.");
+}
+
+/// <summary>
+/// 로그인 티켓 콜백
+/// </summary>
+private void OnGetTicketForWebApiResponse(GetTicketForWebApiResponse_t cb)
+{
+    if (cb.m_eResult != EResult.k_EResultOK)
+    {
+        Debug.LogError($"GetTicketForWebApiResponse failed: {cb.m_eResult}");
+        return;
+    }
+
+    // IMPORTANT: m_rgubTicket 전체가 아니라, m_cubTicket 길이만큼만 사용
+    string ticketHex = BitConverter.ToString(cb.m_rgubTicket, 0, cb.m_cubTicket)
+        .Replace("-", string.Empty);
+
+    RawPlatformAccessToken = ticketHex;
+}
+
+//////////////////// 플랫폼 대응 코드 ////////////////////
+
+/// <summary>
+/// 스팀에서 받은 티켓으로 플랫폼에 전달할 바디 생성.
+/// 계정 타입별로 분기하되 전송 인터페이스는 하나로 유지한다.
+/// </summary>
+private bool TryBuildTokenExchangeRequest(
+    eAccountType type, string transferToken, out string url, out string reqJson)
+{
+    url = string.Empty;
+    reqJson = string.Empty;
+
+    string gameCode    = PlatformConstClass.GetEternaGameCode();
+    string countryCode = Main.Singleton.ISO3166_ContryCode;
+    string deviceId    = PlatformConstClass.GetDeviceId();
+
+    switch (type)
+    {
+        case eAccountType.Google:
+        case eAccountType.Apple:
+            // ... 모바일 OAuth 바디 구성 ...
+            return true;
+
+        case eAccountType.Steam:
+        {
+            url = PlatformConstClass.GetSteamTokenChangeUrl();   // <PLATFORM_ENDPOINT>
+
+            var body = new SteamTokenExchangeRequest
+            {
+                gameCode    = gameCode,
+                SteamTicket = transferToken,
+#if STEAMWORKS_NET
+                appid       = Steamworks.SteamUtils.GetAppID().ToString(),
+#endif
+                countryCode = countryCode,
+                deviceId    = deviceId
+            };
+
+            reqJson = JsonUtility.ToJson(body);
+            return true;
+        }
+
+        default:
+            Debug.LogError($"[PlatformManager] Unsupported token exchange type: {type}");
+            return false;
+    }
+}
+```
+
+</details>
+
+---
+
+### 3-2. 인앱 결제(IAP) 시스템 구축 — Steam / Mobile 통합
+
+**개요**
+
+- 모바일(AOS/iOS)과 PC(Steam) 환경을 아우르는 **통합 결제 파이프라인 설계 및 구현**
+- 플랫폼별로 상이한 결제 프로세스를 단일 인터페이스로 캡슐화하여 일관된 유저 구매 경험 제공
+
+**문제 상황**
+
+- **플랫폼 이질성:** 기존 모바일 중심의 IAP 흐름과 Steam의 통화/현지화 조회, 구매 콜백,
+  인벤토리 동기화 방식이 달라 기존 로직의 재사용 불가
+- **데이터 이중 관리:** Steam Inventory 시스템과 기존 게임 서버 인벤토리 간의 소유권 데이터 충돌 및 중복 지급 리스크
+
+**해결 전략**
+
+- **결제 상태 머신 통합:** 플랫폼별 결제 단계를 `Init` → `Pending` → `Validate` → `Confirm`의
+  공통 라이프사이클로 정의하고, 내부 구현만 플랫폼별로 분기 처리
+- **Steam 결제 프로세스 최적화:** `RequestPrices`를 통한 실시간 가격/통화 동기화로 상점 UI 포맷 통일.
+  `MicroTxnAuthorizationResponse`를 활용해 결제 승인 여부 판정 및 성공/실패 UX 동기화
+- **무결성 및 중복 지급 방지:** Steam Inventory를 결제 트리거로 활용하되, 서버 검증 완료 후 `ConsumeItem`을
+  호출하여 영수증 소모 처리를 수행하는 **지급 확정(Confirm) 프로세스** 구축.
+  최종 아이템 소유권 데이터를 게임 서버 인벤토리로 일원화하여 데이터 무결성 확보
+
+**결과**
+
+- 플랫폼과 관계없이 동일한 상점 플로우를 유지하여 **유저 구매 이탈 방지 및 UX 최적화**
+- 네트워크 끊김이나 비정상 종료 시에도 `Pending` 상태를 추적해 아이템을 안전하게 재지급하는 **결제 안정성 확보**
+- (스스로 느낀점) 결제와 같은 민감한 데이터는 클라이언트보다 서버 중심의 상태 관리가 보안 및 재처리에 유리함을
+  체감했으며, 이를 통해 플랫폼 확장에 유연한 결제 아키텍처를 자산화함
+
+![IAP 클래스 구조](/images/diagrams/08-iap-architecture.svg)
+
+<details markdown="1">
+
+<summary>코드 — Steam / Mobile 결제 콜백 (<code>Assets/01_REIW/Scripts/IAP/Platform/PC/IAP_SteamPlatform.cs</code>, <code>Mobile/IAP_MobilePlatform.cs</code>)</summary>
+
+```csharp
+/////////////////////// Steam ///////////////////////
+
+public override async UniTask Init()
+{
+    await base.Init();
+
+    resPrices                = CallResult<SteamInventoryRequestPricesResult_t>.Create(OnRequestPricesResult);
+    _crStartPurchase         = CallResult<SteamInventoryStartPurchaseResult_t>.Create(OnStartPurchaseResult);
+    _cbInventoryResultReady  = Callback<SteamInventoryResultReady_t>.Create(cb => OnInventoryResultReady(cb).Forget());
+    Callback<MicroTxnAuthorizationResponse_t>.Create(OnMicTxnAuthResponse);
+
+    RefreshPrices();  // 상점 초기화
+    GetAllItems();    // 현재 소유중인 아이템(Pending 중인 아이템)
+}
+
+/// <summary>
+/// 결제 완료/실패 콜백
+/// </summary>
+private void OnMicTxnAuthResponse(MicroTxnAuthorizationResponse_t cb)
+{
+    var ok = Convert.ToBoolean(cb.m_bAuthorized);
+
+    if (ok)
+    {
+        curPurchaseInfo.orderID = cb.m_ulOrderID;
+        GetAllItems();
+        SendPurchaseToPlatformAsync().Forget();
+        // 로딩 팝업 제거는 ConfirmPurchase에서 진행
+    }
+    else
+    {
+        CommonAlertUI.ShowOneButton("notice_shop_purchase_fail".ToGlobalText());
+        ClearConfirmAction();
+        UIManager.Hide<LoadingPopupUI>(UIList.LoadingPopupUI);
+    }
+}
+
+/// <summary>
+/// 인벤토리 초기화 콜백 — 서버 검증 후 ConsumeItem으로 영수증을 소모한다
+/// </summary>
+private async UniTask OnInventoryResultReady(SteamInventoryResultReady_t cb)
+{
+    if (cb.m_result != EResult.k_EResultOK)
+    {
+        SteamInventory.DestroyResult(cb.m_handle);
+        return;
+    }
+
+    uint count = 0;
+    SteamInventory.GetResultItems(cb.m_handle, null, ref count);
+
+    var items = new SteamItemDetails_t[count];
+    if (count > 0 && SteamInventory.GetResultItems(cb.m_handle, items, ref count))
+    {
+        foreach (var it in items)
+        {
+            curPurchaseInfo.instanceID = it.m_itemId;
+            curPurchaseInfo.quantity   = it.m_unQuantity;
+
+            SteamInventory.ConsumeItem(out _, curPurchaseInfo.instanceID, curPurchaseInfo.quantity);
+        }
+    }
+
+    SteamInventory.DestroyResult(cb.m_handle);
+    isInvenInit = true;
+}
+
+/// <summary>
+/// 상점 초기화 콜백 — 통화/현지화 가격을 실시간 동기화
+/// </summary>
+private void OnRequestPricesResult(SteamInventoryRequestPricesResult_t cb, bool ioFailure)
+{
+    if (ioFailure || cb.m_result != EResult.k_EResultOK) return;
+
+    currency = cb.m_rgchCurrency.TrimEnd('\0');
+
+    var count = SteamInventory.GetNumItemsWithPrices();
+    if (count == 0) return;
+
+    var defs       = new SteamItemDef_t[count];
+    var curPrices  = new ulong[count];
+    var basePrices = new ulong[count];
+
+    if (SteamInventory.GetItemsWithPrices(defs, curPrices, basePrices, count))
+    {
+        foreach (var def in defs)
+        {
+            if (SteamInventory.GetItemPrice(def, out ulong currentPrice, out ulong basePrice))
+            {
+                float price = currentPrice / 100;
+                var iapProduct = new IAPProduct(def.ToString(), $"{currency} {price}", currency);
+                productDict.TryAdd(iapProduct.productId, iapProduct);
+            }
+        }
+    }
+}
+
+/////////////////////// Mobile IAP ///////////////////////
+
+/// <summary>
+/// 이전 구매 내역 — 서버에서 이미 지급된 Pending 주문을 Confirm 처리한다
+/// </summary>
+private void OnPurchasesFetched(Orders orders)
+{
+    foreach (var order in orders.PendingOrders)
+    {
+        storeController.ConfirmPurchase(order);
+    }
+}
+
+/// <summary>
+/// 서버에서 구매 처리가 완료되었을 때, 마켓으로 해당 아이템에 대해 Confirm 시킨다.
+/// </summary>
+protected override void ConfirmPurchase(PURCHASE_VERIFY_ACK ack)
+{
+    if (!IsSuccess(ack)) return;
+
+    if (orderMap.TryGetValue(ack.PreChargeNo, out var order))
+    {
+        item = ack.ItemID.Value;
+        storeController.ConfirmPurchase(order);
+        orderMap.Remove(ack.PreChargeNo);
+    }
+    else
+    {
+        Debug.LogError($"{ack.PreChargeNo}가 orderMap에 없음");
+    }
+}
+```
+
+</details>
+
+---
+
+### 3-3. Jenkins 기반 Steam 빌드 및 배포 자동화
+
+**개요**
+
+- Steam 플랫폼 출시 및 라이브 대응력 강화를 위한 **전체 빌드/배포 프로세스 자동화 환경 구축**
+- Unity 빌드부터 SteamCMD를 활용한 스팀 업로드까지의 **파이프라인 설계 및 구현**
+
+**문제 상황**
+
+- **수동 프로세스의 한계:** 빌드 후 VDF 설정, 경로 지정, Steam 업로드 등 전 과정이 수동으로 진행되어
+  배포 시마다 막대한 리소스 소모 및 휴먼 에러(Git 브랜치 혼동, 설정 누락 등) 리스크 상존
+- **검증 일관성 결여:** 빌드 환경이나 브랜치 혼선으로 인해 개발팀과 QA팀이 서로 다른 빌드를 검사하게 되는
+  버전 관리의 불확실성 발생
+
+**해결 전략**
+
+- **파이프라인 단계별 구조화:** Jenkins Pipeline(Groovy)을 활용하여
+  (1) Git Branch 최신화, (2) Unity 빌드 호출, (3) 출력 경로 정규식 추출, (4) VDF 동적 생성,
+  (5) SteamCMD 업로드의 5단계 자동화 공정 구축
+- **동적 설정 생성:** 고정된 경로가 아닌, 빌드마다 생성되는 산출물 경로를 자동으로 파싱하여
+  `depot/app VDF` 파일을 실시간 생성하는 유연한 배포 로직 구현
+- **실시간 협업 최적화:** 빌드 성공/실패 여부를 Slack 알림과 연동하여 커밋 히스토리, 브랜치 정보,
+  다운로드 링크를 자동 공유함으로써 **개발-QA 간 커뮤니케이션 비용 최소화**
+
+**결과**
+
+- 배포 소요 시간 획기적 단축 및 **휴먼 에러 0% 달성**으로 라이브 서비스 안정성 극대화
+- 플랫폼·환경별 동일 브랜치 빌드의 일관된 배포로 **빌드 무결성 및 검증 신뢰도 확보**
+- (스스로 느낀점) CI/CD의 핵심은 단순 빌드를 넘어 배포 설정 및 결과 공유까지의 '흐름'을 자동화하는 데 있음을
+  체감했으며, Jenkins 런타임 특성(`@NonCPS` 등)을 고려한 안정적인 스크립트 작성 역량 확보
+
+![Jenkins 빌드 파이프라인](/images/diagrams/09-jenkins-pipeline.svg)
+
+> ⚠️ **출처 표기** — 아래 Groovy 코드는 Jenkins 서버에 상주하는 파이프라인 스크립트로,
+> Unity 프로젝트 저장소에 포함되지 않습니다. **개인 기록(노션) 기준이며 실소스 대조는 수행하지 않았습니다.**
+> App ID, Depot ID, 계정 정보, Slack 채널명은 플레이스홀더로 치환했습니다.
+
+<details markdown="1">
+
+<summary>코드 — Jenkins Pipeline (Groovy) · 실소스 대조 미수행</summary>
+
+```groovy
+// 정규식 처리를 담당할 함수를 파이프라인 외부에 정의한다.
+// Matcher 객체가 이 함수 안에서만 살다 사라지므로 CPS 직렬화 에러를 일으키지 않는다.
+@NonCPS
+def extractOutputPath(String logText) {
+    def matcher = (logText =~ /eterna-build-outputFolderPath\s*:\s*(.*)/)
+    return matcher ? matcher[0][1].trim() : "링크 추출 실패"
+}
+
+pipeline {
+    agent { node { label 'win2' } }
+
+    parameters {
+        string(name: 'BRANCH',      defaultValue: 'dev', description: '빌드할 Git 브랜치 이름')
+        choice(name: 'BUILD_TYPE',  choices: ['Release', 'Debug'],            description: '빌드 타입')
+        choice(name: 'ENVIRONMENT', choices: ['Dev', 'Qa', 'Stg', 'Prod'],    description: '빌드 환경')
+        booleanParam(name: 'UseProfile', defaultValue: false, description: '프로파일링 사용 여부')
+    }
+
+    environment {
+        PROJECT_PATH   = '<NODE_PROJECT_PATH>'
+        SLACK_CHANNEL  = '<SLACK_CHANNEL>'
+        STEAM_APP_ID   = '<STEAM_APP_ID>'
+        STEAM_DEPOT_ID = '<STEAM_DEPOT_ID>'
+    }
+
+    stages {
+        stage('1. Prepare Repo') {
+            steps {
+                script {
+                    env.PIPELINE_BUILD_NUMBER = env.BUILD_NUMBER
+
+                    build job: '1. Eterna_Win_Pull', parameters: [
+                        string(name: 'BRANCH',       value: "${params.BRANCH}"),
+                        string(name: 'BUILD_NUMBER', value: "${env.PIPELINE_BUILD_NUMBER}"),
+                    ]
+
+                    // Git 정보 추출 (슬랙 알림에 활용)
+                    dir(env.PROJECT_PATH) {
+                        env.GIT_HASH   = bat(script: "@git rev-parse --short HEAD",        returnStdout: true).trim()
+                        env.GIT_MSG    = bat(script: "@git log -1 --pretty=format:%%s",    returnStdout: true).trim()
+                        env.GIT_AUTHOR = bat(script: "@git log -1 --pretty=format:%%an",   returnStdout: true).trim()
+                    }
+                }
+            }
+        }
+
+        stage('2. Unity Build') {
+            steps {
+                build job: '2. Eterna_Win_Build', parameters: [
+                    string(name: 'BRANCH',       value: "${params.BRANCH}"),
+                    string(name: 'BUILD_TYPE',   value: "${params.BUILD_TYPE}"),
+                    string(name: 'ENVIRONMENT',  value: "${params.ENVIRONMENT}"),
+                    string(name: 'BUILD_NUMBER', value: "${env.PIPELINE_BUILD_NUMBER}"),
+                    booleanParam(name: 'UseProfile', value: "${params.UseProfile}"),
+                ]
+            }
+        }
+
+        stage('4. Prepare Steam VDF') {
+            steps {
+                script {
+                    dir(env.PROJECT_PATH) {
+                        def logContent = readFile("Logs/unity_upload_build_result.log")
+                        env.LOCAL_LINK = extractOutputPath(logContent)
+
+                        if (env.LOCAL_LINK == "링크 추출 실패") {
+                            error "로그에서 출력 경로를 찾을 수 없습니다!"
+                        }
+
+                        // 빌드마다 달라지는 산출물 경로로 VDF를 실시간 생성한다
+                        def depotVdfContent = """
+"DepotBuildConfig"
+{
+    "DepotID" "${STEAM_DEPOT_ID}"
+    "contentroot" "${PROJECT_PATH}\\${env.LOCAL_LINK}"
+    "FileMapping"
+    {
+        "LocalPath" "*"
+        "DepotPath" "."
+        "recursive" "1"
+    }
+}
+"""
+                        writeFile file: "SteamConfig/depot_build_${STEAM_DEPOT_ID}.vdf",
+                                  text: depotVdfContent, encoding: "UTF-8"
+                    }
+                }
+            }
+        }
+
+        stage('5. Upload to Steam') {
+            steps {
+                script {
+                    def steamCmdPath = "<STEAMWORKS_SDK_PATH>/builder/steamcmd.exe"
+                    def appVdfPath   = "${PROJECT_PATH}\\SteamConfig\\app_build_${STEAM_APP_ID}.vdf"
+
+                    // +run_app_build_http 를 쓰면 http 통신을 사용하여 업로드가 더 안정적이다
+                    bat """
+                    "${steamCmdPath}" +login <STEAM_BUILD_ACCOUNT> <STEAM_BUILD_PASSWORD> ^
+                        +run_app_build_http "${appVdfPath}" +quit
+                    """
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            slackSend(color: '#36a64f', channel: "${env.SLACK_CHANNEL}",
+                message: """✅ *빌드 및 배포 성공: #${env.PIPELINE_BUILD_NUMBER}*
+> *S3:* <${env.S3_LINK}|다운로드 링크>
+> *Commit:* `${env.GIT_HASH}` - ${env.GIT_MSG}
+> *Author / Branch:* ${env.GIT_AUTHOR} / ${params.BRANCH}
+> *Environment:* ${params.ENVIRONMENT}""")
+        }
+        failure {
+            slackSend(color: '#EB4646', channel: "${env.SLACK_CHANNEL}",
+                message: """❌ *빌드 실패: #${env.PIPELINE_BUILD_NUMBER}*
+> *Commit:* `${env.GIT_HASH}` - ${env.GIT_MSG}
+> *Author / Branch:* ${env.GIT_AUTHOR} / ${params.BRANCH}""")
+        }
+    }
+}
+```
+
+</details>
+
+---
+
+## 관련 공통 모듈
+
+- [광고 수익화 모듈](/portfolio/applovin/) — AppLovin MAX 보상형 광고
