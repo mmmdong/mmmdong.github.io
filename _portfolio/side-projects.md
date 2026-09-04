@@ -13,6 +13,8 @@ Unity 입문 전 <strong>C++ / WinAPI</strong> 기반으로 진행한 모작 프
 
 ## 1. MergeCube
 
+<img src="/images/portfolio/side-projects/mergecube.jpg" alt="MergeCube" style="width:100%; max-width:640px; border-radius:6px; margin-bottom:12px;"/>
+
 | 항목 | 내용 | 항목 | 내용 |
 |---|---|---|---|
 | 분류 | 개인 포트폴리오 | 인원 | 1인 |
@@ -36,6 +38,8 @@ Unity 입문 전 <strong>C++ / WinAPI</strong> 기반으로 진행한 모작 프
 ---
 
 ## 2. Cubic Music
+
+<img src="/images/portfolio/side-projects/cubic-music.jpg" alt="Cubic Music" style="width:100%; max-width:640px; border-radius:6px; margin-bottom:12px;"/>
 
 | 항목 | 내용 | 항목 | 내용 |
 |---|---|---|---|
@@ -61,6 +65,8 @@ Unity 입문 전 <strong>C++ / WinAPI</strong> 기반으로 진행한 모작 프
 
 ## 3. HELLTAKER (모작)
 
+<img src="/images/portfolio/side-projects/helltaker.jpg" alt="HELLTAKER 모작" style="width:100%; max-width:640px; border-radius:6px; margin-bottom:12px;"/>
+
 | 항목 | 내용 | 항목 | 내용 |
 |---|---|---|---|
 | 분류 | 개인 포트폴리오 | 인원 | 1인 |
@@ -84,6 +90,8 @@ Unity 입문 전 <strong>C++ / WinAPI</strong> 기반으로 진행한 모작 프
 ---
 
 ## 4. River City Girls (모작 · 팀)
+
+<img src="/images/portfolio/side-projects/river-city-girls.jpg" alt="River City Girls 모작" style="width:100%; max-width:640px; border-radius:6px; margin-bottom:12px;"/>
 
 | 항목 | 내용 | 항목 | 내용 |
 |---|---|---|---|
@@ -110,6 +118,8 @@ Unity 입문 전 <strong>C++ / WinAPI</strong> 기반으로 진행한 모작 프
 ---
 
 ## 5. The Witch's House (모작 · 팀)
+
+<img src="/images/portfolio/side-projects/witchs-house.jpg" alt="The Witch's House 모작" style="width:100%; max-width:640px; border-radius:6px; margin-bottom:12px;"/>
 
 | 항목 | 내용 | 항목 | 내용 |
 |---|---|---|---|
