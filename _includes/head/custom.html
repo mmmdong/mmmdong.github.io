@@ -19,10 +19,14 @@
 
 <!-- 다크 모드 기본값: 방문자가 토글로 선택한 적이 없으면 dark 로 시작한다 -->
 <script>
+  // default.html 이 data-theme="dark" 를 박아 두므로(무JS 기본값) 여기서는
+  // 저장된 선택이 light 일 때만 속성을 걷어낸다. 속성을 무조건 다시 씌우면
+  // 라이트를 고른 방문자에게 최초 페인트에서 다크 플래시가 남는다.
   try {
-    if (!localStorage.getItem("theme")) { localStorage.setItem("theme", "dark"); }
+    var t = localStorage.getItem("theme");
+    if (!t) { localStorage.setItem("theme", "dark"); t = "dark"; }
+    if (t === "light") { document.documentElement.removeAttribute("data-theme"); }
   } catch (e) {}
-  document.documentElement.setAttribute("data-theme", "dark");
 </script>
 
 <!-- end custom head snippets -->
