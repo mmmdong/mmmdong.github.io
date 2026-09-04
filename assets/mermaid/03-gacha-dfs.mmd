@@ -1,0 +1,11 @@
+flowchart TD
+    A["SetData(TABLE.Summon)"] --> B["티어별 DropIDs / DropPers 순회"]
+    B --> C["GetDropId(ID, dict, dropPer)"]
+    C --> D{"LinkItemMap에<br/>ID가 있는가?"}
+    D -- "예 (그룹 노드)" --> E["하위 LinkItemID 순회<br/>확률 누적 곱: dropPer x LinkItemPer"]
+    E --> C
+    D -- "아니오 (말단 아이템)" --> F{"dict에 이미<br/>있는 아이템?"}
+    F -- 예 --> G["확률 합산<br/>dict[id] += tempDropPer"]
+    F -- 아니오 --> H["신규 등록<br/>dict.Add(id, tempDropPer)"]
+    G & H --> I["평탄화된 최종 확률표"]
+    I --> J["OrderByDescending 후<br/>스크롤러 ReloadData"]

@@ -1,0 +1,17 @@
+flowchart LR
+    P["파라미터 입력<br/>BRANCH / BUILD_TYPE<br/>ENVIRONMENT / UseProfile"] --> S1
+
+    subgraph PIPE["Jenkins Pipeline"]
+      direction LR
+      S1["1. Prepare Repo<br/>Git 최신화 + 커밋 정보 추출"]
+      S2["2. Unity Build<br/>하위 잡 호출"]
+      S3["3. Deploy<br/>S3 업로드 + 로그에서 경로 추출"]
+      S4["4. Prepare Steam VDF<br/>depot / app VDF 동적 생성"]
+      S5["5. Upload to Steam<br/>SteamCMD run_app_build_http"]
+      S1 --> S2 --> S3 --> S4 --> S5
+    end
+
+    S3 -. "@NonCPS 정규식으로<br/>출력 경로 파싱" .-> S4
+    S5 --> R{"결과"}
+    R -- 성공 --> OK["Slack 알림<br/>S3 링크 · 커밋 · 브랜치 · 환경"]
+    R -- 실패 --> NG["Slack 실패 알림<br/>커밋 · 작성자 · 환경"]

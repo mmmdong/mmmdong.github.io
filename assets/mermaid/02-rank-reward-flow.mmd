@@ -1,0 +1,19 @@
+flowchart TD
+    A["시즌 종료 트리거"] --> B["GetEntireUserListAsync()"]
+    B --> C["던전별 리더보드 페이징 호출<br/>1페이지 = 100명"]
+    C --> C1["TreasureDgRank"]
+    C --> C2["RaidDgRank"]
+    C --> C3["DefenceDgRank"]
+    C --> C4["OffenceDgRank"]
+    C --> C5["SkillDgRank"]
+    C --> C6["PVPRank"]
+    C1 & C2 & C3 & C4 & C5 & C6 --> D{"페이지 결과가<br/>비었는가?"}
+    D -- 아니오 --> C
+    D -- 예 --> E["SendPVPRankScore()"]
+    E --> F["WaitForSendRankUIDAsync()<br/>UID 수집 완료 대기"]
+    F --> G["컨텐츠별 보상 우편 발송<br/>Send_*_RankingReward_PostAsync"]
+    G --> H{"발송 건수 == 대상 건수?"}
+    H -- 아니오 --> H2["UniTask.Yield<br/>다음 프레임 재확인"]
+    H2 --> H
+    H -- 예 --> I["DungeonSeason + 1<br/>SetTitleData"]
+    I --> J["시즌 종료"]
