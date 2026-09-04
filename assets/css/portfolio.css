@@ -25,12 +25,13 @@
   --pf-key-bg         : #fff3e0;
   --pf-key-fg         : #7a4e0c;
   --pf-key-border     : #f0d3a3;
+  --pf-shadow         : rgba(24, 44, 66, .16);
 }
 
 html[data-theme="dark"] {
-  --pf-surface        : #3a3a3a;
-  --pf-surface-alt    : #3f3f3f;
-  --pf-surface-sub    : #414141;
+  --pf-surface        : #545454;
+  --pf-surface-alt    : #565656;
+  --pf-surface-sub    : #515151;
   --pf-surface-info   : #2c4551;
   --pf-border         : #63696d;
   --pf-border-strong  : #7c8388;
@@ -40,7 +41,7 @@ html[data-theme="dark"] {
   --pf-heading        : #ffffff;
   --pf-body           : #f2f4f5;
   --pf-muted          : #c3cbd1;
-  --pf-accent         : #5fc9e6;
+  --pf-accent         : #8ddcf1;
   --pf-accent-quiet   : #9aa1a6;
   --pf-tag-bg         : #45505a;
   --pf-tag-fg         : #dce8f1;
@@ -48,6 +49,7 @@ html[data-theme="dark"] {
   --pf-key-bg         : #4d4029;
   --pf-key-fg         : #f6d49a;
   --pf-key-border     : #7a663f;
+  --pf-shadow         : rgba(0, 0, 0, .45);
 }
 
 /* --- 문단 박스 (인라인 style 대체) --------------------------- */
@@ -154,7 +156,7 @@ html[data-theme="dark"] {
   transition: box-shadow .15s ease, transform .15s ease, border-left-color .15s ease;
 }
 .pf-card:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .22);
+  box-shadow: 0 6px 18px var(--pf-shadow);
   transform: translateY(-2px);
   border-left-color: var(--pf-accent);
 }
@@ -210,7 +212,7 @@ html[data-theme="dark"] {
 /* --- 다이어그램 -------------------------------------------- */
 /* SVG 9종은 밝은 배경 전제로 렌더됐다. 코드 블록과 마찬가지로
    다크 테마에서도 밝은 판 위에 올려 가독성을 유지한다. */
-.page__content img[src^="/images/diagrams/"] {
+img[src^="/images/diagrams/"] {
   display: block;
   margin: 18px auto;
   max-width: 100%;

@@ -37,16 +37,8 @@ redirect_from:
 <div class="pf-panel">
   <h3 style="margin-top:0;">🧩 기술 스택</h3>
   <ul>
-    <li>Unity(C#), JAVA, Jenkins, Git</li>
-    <li>R3, UniTask 를 이용한 비동기 로직 및 상태 관리</li>
-    <li>Web방식의 통신을 이용한 유저 데이터 관리</li>
-    <li>싱글턴, 옵저버, MVC 등 다양한 디자인 패턴을 이용한 구조 설계</li>
-    <li>뒤끝 SDK(Socket)를 활용한 채팅 구현</li>
-    <li>Spine Event를 이용한 2D 전투 효과 구현</li>
-    <li>모바일 IAP 구현</li>
-    <li>Steamworks SDK 연동</li>
-    <li>AppLovinMax SDK 를 이용한 광고 수익화 로직 구현</li>
-    <li><strong>Claude Code · Oh My Claude Code(OMC)</strong> 기반 AI 에이전트 개발 워크플로 — 코드 리뷰 · 리팩터링 · 문서 자동화 · 검증 게이트</li>
+    {% for item in site.data.tech_stack %}<li>{{ item }}</li>
+    {% endfor %}
   </ul>
 </div>
 
