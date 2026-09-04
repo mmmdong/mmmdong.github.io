@@ -1,0 +1,246 @@
+---
+title: "공통 모듈 — 광고 수익화 (AppLovin MAX)"
+excerpt: "AppLovin MAX 보상형 광고 통합 관리. 세 게임에 동일 인터페이스로 이식된 공통 모듈."
+collection: portfolio
+---
+
+<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
+  <table style="border:none; margin:0;">
+    <tr><td><strong>모듈 성격</strong></td><td>공통 모듈 — 귀환병 전기 · 픽셀 영웅 전설 · 미확인 용사단에 이식</td></tr>
+    <tr><td><strong>사용 스택</strong></td><td>AppLovin MAX SDK, UniTask, C#</td></tr>
+    <tr><td><strong>출처</strong></td><td><code>Assets/**/Ad/AdManager.cs</code> (세 프로젝트 모두 존재)</td></tr>
+    <tr><td><strong>적용 컨텐츠</strong></td><td>재화 획득, 버프, 보상 2배, 무료 소환 등</td></tr>
+  </table>
+</div>
+
+## 개요
+
+보상형 광고를 게임 로직에서 **콜백 하나로 소비**할 수 있게 캡슐화한 싱글턴 모듈입니다.
+호출부는 `AdManager.Instance.ShowRewardedAD(보상함수)` 한 줄이면 되고,
+로드 상태 관리·재시도·중복 로드 방지는 모듈 내부에서 처리합니다.
+
+```csharp
+// 호출부는 이게 전부다
+AdManager.Instance.ShowRewardedAD(() => {
+    // 광고 시청 완료 후 실행할 보상 로직
+});
+```
+
+## 설계 포인트
+
+### 1. 중복 로드 방지 — CancellationTokenSource 가드
+
+광고 로드 요청이 여러 경로에서 동시에 들어올 수 있습니다.
+`LoadAdAsync()`는 진행 중인 토큰이 살아 있으면 즉시 반환해 **중복 로드를 차단**하고,
+`isOnAd`가 내려간 뒤에야 실제 로드를 수행합니다.
+
+### 2. 광고 재생 중 로드 회피
+
+`await UniTask.WaitUntil(() => !isOnAd)` — 광고가 재생 중일 때는 다음 광고를 로드하지 않습니다.
+`OnRewardedAdHiddenEvent`(광고 창이 닫힘)에서 `isOnAd = false`가 되면 대기가 풀립니다.
+
+### 3. 실패 경로 일원화
+
+로드 실패(`OnRewardedAdLoadFailedEvent`)와 재생 실패(`OnRewardedAdFailedToDisplayEvent`)가
+모두 같은 `LoadAdAsync()`로 수렴합니다. 실패 종류에 따라 분기하지 않아 상태가 단순해집니다.
+
+### 4. 플랫폼별 Ad Unit 분기
+
+`ONESTORE` / `UNITY_ANDROID` / `UNITY_IOS` 전처리기로 Unit ID를 분기합니다.
+
+> ⚠️ 실제 Ad Unit ID는 수익화 계정을 식별하므로 아래 코드에서 **플레이스홀더로 치환**했습니다.
+
+---
+
+## 프로젝트별 재시도 정책 차이
+
+같은 모듈이지만 프로젝트마다 재시도 정책이 다릅니다. 실제 소스 기준으로 정리하면 이렇습니다.
+
+| 프로젝트 | 재시도 방식 | 비고 |
+|---|---|---|
+| **귀환병 전기** | 지수 백오프 `Math.Pow(2, Math.Min(2, retryAttempt))` | 상한이 2이고 `retryAttempt < 1` 조건이라 사실상 1회 재시도 |
+| **미확인 용사단** | 즉시 재로드 (`LoadAdAsync().Forget()`) | 백오프 없음. `isOnAd` 가드가 폭주를 막는 구조 |
+
+<details markdown="1">
+
+<summary>코드 — 보상형 광고 통합 관리 (<code>Assets/Scripts/Ad/AdManager.cs</code>, 미확인 용사단)</summary>
+
+```csharp
+using Cysharp.Threading.Tasks;
+using System;
+using System.Threading;
+using UnityEngine;
+
+public class AdManager : Singleton<AdManager>, IInstantiable
+{
+    public string adUnitId;
+    private Action action;
+    private CancellationTokenSource adCts;
+    private bool isOnAd;
+
+    public override void Init()
+    {
+        if (MaxSdk.IsInitialized())
+            return;
+
+        base.Init();
+
+        // 플랫폼별 Ad Unit 분기 (실제 ID는 마스킹)
+#if ONESTORE
+        adUnitId = "<APPLOVIN_AD_UNIT_ONESTORE>";
+#elif UNITY_EDITOR || UNITY_ANDROID
+        adUnitId = "<APPLOVIN_AD_UNIT_ANDROID>";
+#elif UNITY_IOS
+        adUnitId = "<APPLOVIN_AD_UNIT_IOS>";
+#else
+        adUnitId = "<APPLOVIN_AD_UNIT_ANDROID>";
+#endif
+
+        // Attach callback
+        MaxSdkCallbacks.Rewarded.OnAdLoadedEvent          += OnRewardedAdLoadedEvent;
+        MaxSdkCallbacks.Rewarded.OnAdLoadFailedEvent      += OnRewardedAdLoadFailedEvent;
+        MaxSdkCallbacks.Rewarded.OnAdDisplayedEvent       += OnRewardedAdDisplayedEvent;
+        MaxSdkCallbacks.Rewarded.OnAdClickedEvent         += OnRewardedAdClickedEvent;
+        MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent     += OnRewardedAdRevenuePaidEvent;
+        MaxSdkCallbacks.Rewarded.OnAdHiddenEvent          += OnRewardedAdHiddenEvent;
+        MaxSdkCallbacks.Rewarded.OnAdDisplayFailedEvent   += OnRewardedAdFailedToDisplayEvent;
+        MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent  += OnRewardedAdReceivedRewardEvent;
+
+        // Load the first rewarded ad
+        var strArr = new string[] { adUnitId };
+        MaxSdk.InitializeSdk(strArr);
+        LoadAdAsync().Forget();
+    }
+
+    /// <summary>
+    /// 보상형 광고 호출 함수
+    /// </summary>
+    /// <param name="act">광고 시청 후 콜백할 함수</param>
+    public void ShowRewardedAD(Action act = null)
+    {
+        LoadAdAsync().Forget();
+
+        if (!MaxSdk.IsRewardedAdReady(adUnitId))
+        {
+            COMMON.OnPopUpToast("ALERT_NO_ADS_TXT");
+            COMMON.Ad_Log("아직 광고가 로드된게 없음");
+        }
+
+        action = act;
+        // ... 광고 표시 ...
+    }
+
+    /// <summary>
+    /// 로드 진입점 — 진행 중인 요청이 있으면 즉시 반환해 중복 로드를 차단한다.
+    /// 광고 재생 중(isOnAd)에는 대기했다가 종료 후 로드한다.
+    /// </summary>
+    private async UniTask LoadAdAsync()
+    {
+        if (adCts != null)
+        {
+            if (!adCts.IsCancellationRequested)
+                return;                     // 이미 로드 진행 중 → 중복 차단
+        }
+
+        adCts = new CancellationTokenSource();
+
+        await UniTask.WaitUntil(() => !isOnAd, cancellationToken: adCts.Token);
+
+        LoadRewardedAd();
+        adCts?.Cancel();
+    }
+
+    private void LoadRewardedAd()
+    {
+        MaxSdk.LoadRewardedAd(adUnitId);
+    }
+
+    /// <summary>
+    /// 로드 실패 — 재생 실패와 동일한 경로로 수렴시킨다
+    /// </summary>
+    private void OnRewardedAdLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo)
+    {
+        LoadAdAsync().Forget();
+    }
+
+    /// <summary>
+    /// 재생 실패 — 다음 광고를 미리 로드
+    /// </summary>
+    private void OnRewardedAdFailedToDisplayEvent(
+        string adUnitId, MaxSdkBase.ErrorInfo errorInfo, MaxSdkBase.AdInfo adInfo)
+    {
+        LoadAdAsync().Forget();
+    }
+
+    /// <summary>
+    /// 광고 창이 닫힘 — 대기 중이던 LoadAdAsync 가 풀린다
+    /// </summary>
+    private void OnRewardedAdHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
+    {
+        isOnAd = false;
+    }
+
+    /// <summary>
+    /// 보상 지급 — 호출부가 넘긴 콜백을 실행한다
+    /// </summary>
+    private void OnRewardedAdReceivedRewardEvent(
+        string adUnitId, MaxSdk.Reward reward, MaxSdkBase.AdInfo adInfo)
+    {
+        action?.Invoke();
+    }
+}
+```
+
+</details>
+
+<details markdown="1">
+
+<summary>코드 — 지수 백오프 재시도 (<code>Assets/Script/Manager/AdManager.cs</code>, 귀환병 전기)</summary>
+
+```csharp
+int retryAttempt;
+
+/// <summary>
+/// 로드 실패 시 지수적으로 지연을 늘려 재시도한다.
+/// AppLovin 권장 방식이나, 이 프로젝트에서는 상한을 낮게 잡아
+/// 유저 대기 시간이 길어지지 않도록 조정했다.
+/// </summary>
+private void OnRewardedAdLoadFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo)
+{
+    retryAttempt++;
+
+    // AppLovin 원안은 Math.Min(6, ...) 이지만 상한을 2로 낮춰
+    // 최대 지연을 4초 수준으로 제한
+    double retryDelay = Math.Pow(2, Math.Min(2, retryAttempt));
+
+    if (retryAttempt < 1)
+    {
+        ReLoadRewardedAdAsync((float)retryDelay).Forget();
+    }
+    else
+    {
+        retryAttempt = 0;
+    }
+}
+
+/// <summary>
+/// 광고 로드 재시도
+/// </summary>
+private async UniTaskVoid ReLoadRewardedAdAsync(float retryDelay)
+{
+    await UniTask.Delay(TimeSpan.FromSeconds(retryDelay));
+    MaxSdk.LoadRewardedAd(adUnitId);
+}
+```
+
+</details>
+
+---
+
+## 적용 결과
+
+재화·버프·보상 2배 등 서로 다른 보상 로직을 **콜백 하나로 교체**할 수 있어,
+신규 광고 지점 추가 시 UI 버튼에 `ShowRewardedAD(보상함수)`만 연결하면 됩니다.
+
+세 프로젝트에 동일한 인터페이스로 이식되었고, 프로젝트별 정책 차이(재시도 상한)는
+`OnRewardedAdLoadFailedEvent` 하나만 바꾸는 선에서 흡수되었습니다.
