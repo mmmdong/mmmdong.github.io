@@ -17,10 +17,12 @@
 <!-- 포트폴리오 카드 그리드 -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/portfolio.css"/>
 
-<!-- 라이트 모드 고정: 테마 스크립트가 localStorage/시스템 설정을 읽기 전에 덮어쓴다 -->
+<!-- 다크 모드 기본값: 방문자가 토글로 선택한 적이 없으면 dark 로 시작한다 -->
 <script>
-  try { localStorage.setItem("theme", "light"); } catch (e) {}
-  document.documentElement.setAttribute("data-theme", "light");
+  try {
+    if (!localStorage.getItem("theme")) { localStorage.setItem("theme", "dark"); }
+  } catch (e) {}
+  document.documentElement.setAttribute("data-theme", "dark");
 </script>
 
 <!-- end custom head snippets -->

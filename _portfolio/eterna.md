@@ -4,8 +4,8 @@ excerpt: "Steam 플랫폼 연동(로그인·IAP)과 Jenkins 기반 빌드/배포
 collection: portfolio
 ---
 
-<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
-  <table style="border:none; margin:0;">
+<div class="pf-panel">
+  <table>
     <tr><td><strong>프로젝트 유형</strong></td><td>AI 대화형 라이프스타일 플랫폼 · 멀티플랫폼(AOS / iOS / Windows Steam)</td></tr>
     <tr><td><strong>기간</strong></td><td>2025.12 ~ 2026.03 (4개월)</td></tr>
     <tr><td><strong>팀 구성</strong></td><td>14명 (기획 1, 아트 4, 클라 4, 서버 5)</td></tr>

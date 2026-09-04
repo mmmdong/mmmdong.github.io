@@ -4,8 +4,8 @@ excerpt: "AppLovin MAX 보상형 광고 통합 관리. 세 게임에 동일 인�
 collection: portfolio
 ---
 
-<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
-  <table style="border:none; margin:0;">
+<div class="pf-panel">
+  <table>
     <tr><td><strong>모듈 성격</strong></td><td>공통 모듈 — 귀환병 전기 · 픽셀 영웅 전설 · 미확인 용사단에 이식</td></tr>
     <tr><td><strong>사용 스택</strong></td><td>AppLovin MAX SDK, UniTask, C#</td></tr>
     <tr><td><strong>출처</strong></td><td><code>Assets/**/Ad/AdManager.cs</code> (세 프로젝트 모두 존재)</td></tr>

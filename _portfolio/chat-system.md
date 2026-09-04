@@ -4,8 +4,8 @@ excerpt: "뒤끝 SDK(Socket) 기반 채널별 실시간 메시징. 유저 채팅
 collection: portfolio
 ---
 
-<div style="background:#f5f5f5; border-left:4px solid #888; padding:16px 20px; border-radius:4px; margin-bottom:28px;">
-  <table style="border:none; margin:0;">
+<div class="pf-panel">
+  <table>
     <tr><td><strong>모듈 성격</strong></td><td>공통 모듈 — 픽셀 영웅 전설 · 미확인 용사단에 적용</td></tr>
     <tr><td><strong>사용 스택</strong></td><td>뒤끝 SDK(Socket), UniTask, Azure PlayFab, C#</td></tr>
     <tr><td><strong>출처</strong></td><td><code>Assets/Scripts/Managers/ChattingManager.cs</code>, <code>Common/COMMON.Chat.cs</code>, <code>Common/COMMON.Reward.cs</code></td></tr>
