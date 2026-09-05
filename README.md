@@ -26,3 +26,12 @@ docker compose up
 ```
 
 GitHub Pages classic 으로 배포됩니다.
+
+### 주의: Gemfile.lock
+
+`Gemfile.lock` 은 `.gitignore` 대상이고 저장소에 없어야 합니다.
+`Dockerfile` 은 `Gemfile` 만 복사해 이미지 안에서 젬을 해석하는데,
+`docker compose` 는 저장소를 `/usr/src/app` 에 바인드 마운트하므로
+호스트에 `Gemfile.lock` 이 있으면 그게 이미지의 해석 결과를 덮어씁니다.
+버전이 어긋나면 `Bundler::GemNotFound` 로 기동이 실패합니다.
+컨테이너 밖에서 `bundle install` 을 돌렸다면 생성된 `Gemfile.lock` 을 지우십시오.
