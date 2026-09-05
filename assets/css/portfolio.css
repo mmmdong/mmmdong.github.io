@@ -100,3 +100,7 @@ img[src^="/images/diagrams/"] {
   .pf-card h3,
   .pf-card h4 { font-size: 1.15em; }
 }
+
+/* 커버 없는 최근글 카드. recent-post.html 이 style 속성을 통째로 생략하므로
+   여기서 바탕을 준다. 커버가 있으면 인라인 background 단축속성이 이겨서 이 값은 덮인다. */
+.recent-item-img { background-color: var(--grey5); }

@@ -28,6 +28,8 @@ about-author: Unity 기반 캐주얼 RPG 를 다수 런칭하고 라이브 서�
 email: clxlzl1234@gmail.com # Add your Email address
 website: https://mmmdong.github.io # Add your website
 github: mmmdong # Add your Github handle
+phone: "010-6299-6530"
+notion: https://www.notion.so/mmmdong/Unity-Programmer-Kim-Dong-Hyun-33c08b60233e805f929ad17f7caf3207
 
 # Newsletter
 
@@ -67,4 +69,4 @@ plugins:
   - jekyll-sitemap
 
 include: [_pages]
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/", "Dockerfile", "docker-compose.yaml", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "_config_docker.yml", "images/", "_portfolio/", "vendor/"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/", "Dockerfile", "docker-compose.yaml", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "_config_docker.yml", "_portfolio/", "vendor/"]
