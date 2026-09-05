@@ -1,13 +1,19 @@
     <meta charset="UTF-8">
-    <script>
-    /* 다크가 기본값이다(레이아웃의 <html data-theme="dark">). 저장된 선택이
-       라이트일 때만 속성을 걷어낸다. 매번 다시 씌우면 라이트를 고른 방문자에게
-       첫 페인트에서 다크가 번쩍인다.
-       저장소 계약: sessionStorage / 'theme' / {nightShift}
+    {% comment %}
+      다크가 기본값이다(레이아웃의 html data-theme="dark"). 저장된 선택이
+      라이트일 때만 속성을 걷어낸다. 매번 다시 씌우면 라이트를 고른 방문자에게
+      첫 페인트에서 다크가 번쩍인다.
+      저장소 계약: sessionStorage / 'theme' / {nightShift}
 
-       주석은 반드시 블록 주석이어야 한다. _layouts/compress.html 이
-       site.compress_html 설정과 무관하게 <pre> 밖의 개행을 공백으로 접기 때문에,
-       // 주석을 쓰면 한 줄로 눌리면서 뒤따르는 코드 전체가 주석이 된다. */
+      아래 스크립트의 주석은 반드시 블록 주석이어야 한다. _layouts/compress.html 이
+      site.compress_html 설정과 무관하게 pre 밖의 개행을 공백으로 접기 때문에,
+      줄 주석을 쓰면 한 줄로 눌리면서 뒤따르는 코드 전체가 주석이 된다.
+
+      이 설명은 Liquid 주석이라 산출물로 나가지 않는다. 예전에는 JS 블록 주석이라
+      매 페이지 방문자에게 300여 바이트씩 함께 전송됐다.
+    {% endcomment %}
+    <script>
+    /* no-flash theme switch. block comments only -- see head.html */
     try {
       var __t = JSON.parse(sessionStorage.getItem('theme') || '{}');
       if (__t.nightShift === false) { document.documentElement.removeAttribute('data-theme'); }
