@@ -1,21 +1,19 @@
 /*
- * TOC 스크롤스파이. 업스트림 the-mvm 은 Gumshoe 5.1.1 을 CDN 에서 받아 썼다.
- * 여기서는 두 가지 이유로 직접 구현한다.
+ * 목차 스크롤스파이. 스크롤 위치에 맞는 목차 항목을 활성 표시한다.
  *
- * 1) Gumshoe 는 내부에서 document.querySelector(link.hash) 를 호출한다.
- *    kramdown auto_ids 가 한국어 제목에서 만드는 앵커는 '1-프로젝트-개요' 처럼
- *    숫자로 시작하고, CSS 식별자는 숫자로 시작할 수 없다. 그래서 '#1-…' 은
- *    잘못된 선택자이고 querySelector 가 SyntaxError 를 던져 스파이 전체가 죽는다.
- *    (이 저장소 기준 그런 앵커가 8개 글에 걸쳐 37개.) 속성 선택자 [id="1-…"] 는
- *    같은 값을 문제없이 찾는다.
+ * 기성 라이브러리(Gumshoe 등)를 쓰지 않고 직접 구현한 이유가 두 가지 있다.
  *
- * 2) post.html 은 본문을 두 번 렌더한다 — 검색용 사본이 <section class="hidden">
- *    안에 들어가고, 그게 <article> 보다 문서상 먼저 온다. 같은 id 가 두 번
- *    존재하므로 document 전역 조회는 보이지 않는 사본을 집는다. 조회 범위를
- *    <article> 로 한정해야 화면에 보이는 제목을 추적한다.
+ * 1) 그 계열은 대개 내부에서 document.querySelector(link.hash) 를 호출한다.
+ *    kramdown 의 auto_ids 가 한국어 제목에서 만드는 앵커는 '1-프로젝트-개요'
+ *    처럼 숫자로 시작하는데, CSS 식별자는 숫자로 시작할 수 없어 '#1-…' 은
+ *    잘못된 선택자다. querySelector 가 SyntaxError 를 던지면 스파이 전체가
+ *    죽는다. 속성 선택자 [id="1-…"] 는 같은 값을 문제없이 찾는다.
  *
- * 클래스 계약은 업스트림과 동일하다: 활성 항목의 li 에 'active'(.toc .active 가
- * 배경색), 해당 본문 제목에 'underline'.
+ * 2) 외부 CDN 을 하나도 두지 않기 위해서다. 이 사이트는 모든 자산을
+ *    저장소 안에서 제공한다.
+ *
+ * 조회 범위를 <article> 로 한정한다. 본문이 두 번 렌더되는 레이아웃에서
+ * 같은 id 가 중복되면 전역 조회는 보이지 않는 쪽을 집을 수 있다.
  */
 (function () {
   var nav = document.getElementById('toc-content');

@@ -11,6 +11,12 @@ Unity 3D/2D 게임 개발자 김동현 포트폴리오.
 - 라이선스: **MIT** (`LICENSE` 참조). 저작권 고지와 라이선스 전문을 그대로 유지합니다.
 - `assets/css/main.scss` 상단의 디자이너 크레딧도 원본 그대로 둡니다.
 
+### 번들 코드
+
+- `_includes/toc.html` — [allejo/jekyll-toc](https://github.com/allejo/jekyll-toc) 포크, **MIT**.
+  파일 헤더에 출처와 사용법이 있습니다.
+- `assets/js/toc-scrollspy.js`, `assets/js/theme-toggle.js` — 자체 작성.
+
 ## 구조
 
 | 경로 | 내용 |
