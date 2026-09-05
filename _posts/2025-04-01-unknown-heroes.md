@@ -8,7 +8,7 @@ project: true
 group: main
 order: 1
 tags: [Unity, CSharp, UniRx, UniTask, PlayFab, BackEnd-Chat]
-excerpt: "하이브리드 방치형 RPG. DFS 가챠 확률 산출과 UniRx 반응형 UI 리팩터링, 슬롯머신 감정 시스템."
+excerpt: "하이브리드 방치형 RPG. UI 아키텍처 재구성 및 전체 관할. DFS 가챠 확률 산출, UniRx 반응형 UI 리팩터링, 슬롯머신 감정 시스템."
 toc: true
 comments: false
 feature: assets/img/portfolio/miunhwa-heroes.jpg
