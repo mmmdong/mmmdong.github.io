@@ -264,6 +264,12 @@ path.fa-secondary { opacity: .4; }
     border-top: 1px solid var(--border);
   }
 }
+// 제목 없는 묶음은 단순 나열이다. 아래 여백만 줄이고 구분선도 붙이지 않는다.
+.pf-group-plain {
+  margin-bottom: 0;
+
+  + .pf-group { margin-top: 40px; }
+}
 .pf-group-title {
   margin: 0 0 4px;
   padding-left: 12px;
