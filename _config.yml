@@ -48,7 +48,6 @@ kramdown:
   auto_ids: true
   footnote_nr: 1
 encoding: "utf-8"
-mathjax: true
 highlighter: rouge
 compress_html:
   clippings: all
