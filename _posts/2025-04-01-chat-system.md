@@ -3,12 +3,12 @@ layout: post
 title: "실시간 채팅 시스템"
 permalink: /portfolio/chat-system/
 slug: chat-system
-category: portfolio
 date: 2025-04-01
+project: true
 tags: [BackEnd-SDK, Socket, UniTask, PlayFab, CSharp]
-description: "공통 모듈. 뒤끝 SDK 기반 채널별 실시간 메시징."
+excerpt: "공통 모듈. 뒤끝 SDK 기반 채널별 실시간 메시징."
 toc: true
-show_date: true
+comments: false
 ---
 
 <div class="pf-panel">

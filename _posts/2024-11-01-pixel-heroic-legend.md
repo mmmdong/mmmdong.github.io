@@ -3,13 +3,13 @@ layout: post
 title: "픽셀 영웅 전설"
 permalink: /portfolio/pixel-heroic-legend/
 slug: pixel-heroic-legend
-category: portfolio
 date: 2024-11-01
-img: portfolio/pixel-hero.jpg
+project: true
 tags: [Unity, CSharp, R3, UniTask, PlayFab, BackEnd-Chat]
-description: "방치형 파티 RPG. R3 상태 제어 기반 전투 코어 엔진과 PVP 전 과정 구현."
+excerpt: "방치형 파티 RPG. R3 상태 제어 기반 전투 코어 엔진과 PVP 전 과정 구현."
 toc: true
-show_date: true
+comments: false
+feature: assets/img/portfolio/pixel-hero.jpg
 ---
 
 <div class="pf-panel">

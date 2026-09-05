@@ -4,20 +4,24 @@ Unity 3D/2D 게임 개발자 김동현 포트폴리오.
 
 ## 라이선스 및 출처
 
-이 사이트는 **Adam Blog 2.0** Jekyll 테마를 기반으로 합니다.
+이 사이트는 **Moon** Jekyll 테마를 기반으로 합니다.
 
-- **Adam Blog 2.0** — [Armando Maynez](https://github.com/amaynez) ·
-  [the-mvm/the-mvm.github.io](https://github.com/the-mvm/the-mvm.github.io)
-- 상류 원작 **Adam Blog v1.0** — [Artem Sheludko](https://github.com/artemsheludko) ·
-  [artemsheludko/adam-blog](https://github.com/artemsheludko/adam-blog)
-- 라이선스: **GPL-3.0** (`LICENSE` 참조). 이 저장소도 GPL-3.0 을 따릅니다.
+- **Moon** — [Taylan Tatlı](https://github.com/TaylanTatli) ·
+  [TolgaTatli/Moon](https://github.com/TolgaTatli/Moon)
+- 라이선스: **MIT** (`LICENSE` 참조). 저작권 고지와 라이선스 전문을 그대로 유지합니다.
+- `assets/css/main.scss` 상단의 디자이너 크레딧도 원본 그대로 둡니다.
 
-### 자체 구현으로 대체한 부분
+## 구조
 
-- 목차 스크롤스파이: 업스트림은 [Gumshoe](https://github.com/cferdinandi/gumshoe) 를
-  CDN 에서 불러왔으나, 한국어 제목에서 생성되는 숫자 시작 앵커(`#1-…`)에서
-  `querySelector` 가 SyntaxError 를 내며 동작하지 않았다.
-  `assets/js/toc-scrollspy.js` 로 직접 구현해 외부 CDN 의존을 제거했다.
+| 경로 | 내용 |
+|---|---|
+| `/` | 랜딩 |
+| `/about/` | 자기소개 · 기술 스택 · 연락처 |
+| `/projects/` | 포트폴리오 목록 (`project: true` 인 글을 자동 나열) |
+| `/portfolio/<slug>/` | 프로젝트 상세 8건 |
+| `/cv/` | 이력 |
+| `/posts/` | 블로그 목록 |
+| `/tags/` | 태그 |
 
 ## 빌드
 
@@ -27,19 +31,6 @@ docker compose up
 
 GitHub Pages classic 으로 배포됩니다.
 
-### 새 글을 추가할 때
-
-`_config.yml` 의 `permalink: ':title:output_ext'` 에서 `:title` 은 제목이 아니라
-**파일명에서 날짜를 뺀 부분**이다. 파일명을 한글로 두면 URL 에 한글이 그대로 들어간다.
-둘 중 하나를 지킬 것:
-
-- 파일명을 영문 슬러그로 (`2026-01-01-my-post.md`)
-- 또는 front matter 에 `permalink:` 를 직접 지정
-
-현재 프로젝트 8건은 전부 `permalink:` 를 명시하고 있어 이 영향을 받지 않는다.
-블로그 글은 `category: blog` 를 지정하면 `/blog/` 목록에 잡힌다.
-`/portfolio/` 는 슬러그 8건을 명시 조회하므로 새 글이 섞이지 않는다.
-
 ### 주의: Gemfile.lock
 
 `Gemfile.lock` 은 `.gitignore` 대상이고 저장소에 없어야 합니다.
@@ -48,3 +39,29 @@ GitHub Pages classic 으로 배포됩니다.
 호스트에 `Gemfile.lock` 이 있으면 그게 이미지의 해석 결과를 덮어씁니다.
 버전이 어긋나면 `Bundler::GemNotFound` 로 기동이 실패합니다.
 컨테이너 밖에서 `bundle install` 을 돌렸다면 생성된 `Gemfile.lock` 을 지우십시오.
+
+`Gemfile` 은 테마가 제공하던 `jekyll ~> 3.2.1` 대신 `github-pages` 를 씁니다.
+배포 대상이 GitHub Pages classic 이라 그쪽 젬 집합(Jekyll 3.10.0)에 맞춰야 합니다.
+
+### 새 글을 추가할 때
+
+`_config.yml` 의 `permalink: /:title/` 에서 `:title` 은 제목이 아니라
+**파일명에서 날짜를 뺀 부분**입니다. 파일명을 한글로 두면 URL 에 한글이 그대로 들어갑니다.
+둘 중 하나를 지킬 것:
+
+- 파일명을 영문 슬러그로 (`2026-01-01-my-post.md`)
+- 또는 front matter 에 `permalink:` 를 직접 지정
+
+프로젝트 글은 front matter 에 `project: true` 를 넣으면 `/projects/` 목록에 잡힙니다.
+넣지 않으면 `/posts/` 쪽에만 나옵니다.
+
+### 테마에서 걷어낸 것
+
+- **Disqus** — 기본값이 원작자 계정(`disqus_shortname`)이라 그대로 두면
+  방문자 브라우저에서 남의 댓글 서비스가 로드됩니다. 설정과 호출부를 모두 제거했습니다.
+- **Google Analytics** 스니펫 — 쓰지 않습니다.
+- **MathJax** — `mathjax: true` 가 `post.html` 에서 `cdn.mathjax.org` 를 부르는데
+  그 호스트는 서비스가 종료됐습니다. 수식을 쓰지 않으므로 `false` 로 두었습니다.
+
+그 결과 배포 산출물에서 외부 서브리소스 요청이 0건입니다.
+CSS · JS · 폰트(Fira Sans, Font Awesome)는 모두 저장소 안에서 제공됩니다.
