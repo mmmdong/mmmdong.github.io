@@ -1,9 +1,0 @@
-# 사이트 상단 네비게이션 순서.
-# 항목을 지우면 헤더에서 사라지지만 사이트에서 제외되지는 않는다.
-
-main:
-  - title: "Portfolio"
-    url: /portfolio/
-
-  - title: "CV"
-    url: /cv/
