@@ -27,6 +27,19 @@ docker compose up
 
 GitHub Pages classic 으로 배포됩니다.
 
+### 새 글을 추가할 때
+
+`_config.yml` 의 `permalink: ':title:output_ext'` 에서 `:title` 은 제목이 아니라
+**파일명에서 날짜를 뺀 부분**이다. 파일명을 한글로 두면 URL 에 한글이 그대로 들어간다.
+둘 중 하나를 지킬 것:
+
+- 파일명을 영문 슬러그로 (`2026-01-01-my-post.md`)
+- 또는 front matter 에 `permalink:` 를 직접 지정
+
+현재 프로젝트 8건은 전부 `permalink:` 를 명시하고 있어 이 영향을 받지 않는다.
+블로그 글은 `category: blog` 를 지정하면 `/blog/` 목록에 잡힌다.
+`/portfolio/` 는 슬러그 8건을 명시 조회하므로 새 글이 섞이지 않는다.
+
 ### 주의: Gemfile.lock
 
 `Gemfile.lock` 은 `.gitignore` 대상이고 저장소에 없어야 합니다.
