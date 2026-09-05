@@ -9,7 +9,17 @@ layout: default
       <a  class="post-list-title" href="{{ post_url }}">{{ page.title }}</a>
       {% include post_meta.html type="post-card-meta" %}
         <div class="post-excerpt">
-            {{ page.content | markdownify | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> read more</a>
+            {%- comment -%}
+            markdownify 대신 strip_html 로 태그를 걷어낸 뒤 자른다.
+            markdownify 는 제목의 id 까지 복제하는데, 이 섹션은 .hidden(display:none)
+            이면서 <article> 보다 문서상 먼저 온다. 브라우저의 #앵커 이동은 레이아웃
+            유무와 무관하게 첫 번째 일치 id 를 고르므로, 목차 링크가 보이지 않는
+            사본으로 가서 아무 일도 일어나지 않는다 (8개 글에 걸쳐 16개).
+            섹션 자체는 지울 수 없다 — infinite-jekyll.js:88 이 각 글 URL 을 받아
+            .post 를 뽑아 /tag.html · /archive.html 목록에 붙인다.
+            카드 발췌는 평문이면 충분하므로 구조는 남기고 태그만 없앤다.
+            {%- endcomment -%}
+            {{ page.content | strip_html | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> read more</a>
         </div>
   </div>
 </section>
