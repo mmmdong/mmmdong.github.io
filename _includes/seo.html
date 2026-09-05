@@ -7,7 +7,7 @@
     "@type": "WebPage",
     "@id": "{{ site.url }}"},
   "headline": "{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif %}",
-  "abstract": "{{ page.description }}",
+  "abstract": "{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
     "keywords": "{% for tag in page.tags %}{{tag}}{% if forloop.last == false %}, {% endif %}{% endfor %}",
     "wordcount": "{{ words }}",
     {% if page.img %}"image": ["{{ site.url }}/assets/img/{{ page.img }}"],{% endif %}
@@ -15,7 +15,7 @@
   "dateModified": "{{ page.date }}",
   "author": {
     "@type": "Person",
-    "name": "{{ page.author }}"},
+    "name": "{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}"},
   "publisher": {
     "@type":  "Organization",
     "name" : "{{ site.title }}"}
@@ -23,23 +23,25 @@
 </script>
 <!-- Open Graph data -->
 <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
-<meta property="og:type" content="article"/>
+<meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}"/>
 <meta property="og:title" content="{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif %}"/>
-<meta property="og:description" content="{{ page.description }}"/>
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
 {% if page.img %}<meta property="og:image" content="{{ site.url }}/assets/img/{{ page.img }}"/>{% endif %}
-<meta property="og:image:alt" content="{{page.title}}"/>
+{% if page.img %}<meta property="og:image:alt" content="{{page.title}}"/>{% endif %}
 <meta property="og:site_name" content="{{site.title}}" />
+{% if page.date %}
 <meta property="article:published_time" content="{{ page.date }}" />
 <meta property="article:modified_time" content="{{ page.date }}" />
 <meta property="article:tag" content="{% for tag in page.tags %}{{tag}}{% if forloop.last == false %}, {% endif %}{% endfor %}" />
+{% endif %}
 <!-- Schema.org markup for Google -->
 <meta itemprop="name" content="{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif %}">
-<meta itemprop="description" content="{{ page.description }}">
+<meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 {% if page.img %}<meta itemprop="image" content="{{ site.url }}/assets/img/{{ page.img }}">{% endif %}
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{% if page.title %}{{page.title}}{% else %}{{site.title}}{% endif %}">
-<meta name="twitter:description" content="{{ page.description | truncate: 200 }}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description | truncate: 200 }}{% else %}{{ site.description | truncate: 200 }}{% endif %}">
 <meta data-rh="true" name="twitter:label1" content="Word count"/>
 <meta data-rh="true" name="twitter:data1" content="{{ words }}"/>
 {% if page.img %}<meta name="twitter:image:src" content="{{ site.url }}/assets/img/{{ page.img }}">{% endif %}

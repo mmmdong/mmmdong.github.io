@@ -16,8 +16,8 @@ html {
   --background:   #ffffff;
   --shadow:       rgba(32,30,30,.3);
   --github:       #333;
-  --font1: 'Lora', charter, Georgia, Cambria, 'Times New Roman', Times, serif;/* body text */
-  --font2: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* headers and titles   */
+  --font1: charter, Georgia, Cambria, 'Times New Roman', Times, serif;/* body text */
+  --font2: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* headers and titles */
   --font1-light:      400;
   --font1-regular:    400;
   --font1-bold:       600;
@@ -1259,12 +1259,22 @@ path.fa-secondary {
   padding-inline-start: 5px;
   list-style:none;
 }
+/* 활성 항목이 이동해도 목차 폭이 흔들리지 않도록 비활성에도 같은 두께를 둔다 */
+.toc-content li {
+  border-left: 3px solid transparent;
+  padding-left: 5px;
+}
 .toc .active {
-  background-color:var(--grey5)
+  background-color: var(--grey5);
+  /* --grey5 배경은 페이지 배경과 1.15:1(라이트) / 1.19:1(다크) 이라 사실상
+     보이지 않는다. 상태 표시는 --main 왼쪽 경계선이 맡는다 (6.71 / 5.72). */
+  border-left-color: var(--main);
 }
 .underline{
   text-decoration: underline;
-  text-decoration-color: var(--grey4)
+  /* --grey4 는 배경 대비 1.44:1 이라 밑줄이 보이지 않았다 */
+  text-decoration-color: var(--main);
+  text-underline-offset: 3px;
 }
 @media (min-width: 1200px) {
   aside.toc {

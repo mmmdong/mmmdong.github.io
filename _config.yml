@@ -38,7 +38,6 @@ notion: https://www.notion.so/mmmdong/Unity-Programmer-Kim-Dong-Hyun-33c08b60233
 # Paginate
 words_per_minute: 200
 
-
 # Comments
 # Build settings
 markdown: kramdown
@@ -49,23 +48,13 @@ kramdown:
   footnote_nr: 1
 encoding: "utf-8"
 highlighter: rouge
-compress_html:
-  clippings: all
-  startings: [html, head, body]
 
 # Outputting
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
-category_archive:
-  type: liquid
-  path: /categories/
-
-sass:
-  style: compressed
 
 plugins:
   - jekyll-feed
   - jekyll-sitemap
 
 include: [_pages]
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/", "Dockerfile", "docker-compose.yaml", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "_config_docker.yml", "_portfolio/", "vendor/"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "Dockerfile", "docker-compose.yaml", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "_config_docker.yml", "vendor/"]
