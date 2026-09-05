@@ -5,10 +5,169 @@ permalink: /portfolio/
 ---
 
 <div class="small-wrapper">
-  <h1>Portfolio</h1>
-  {% assign projects = site.categories.portfolio %}
-  <ul>
-  {% for p in projects %}<li><a href="{{ p.url }}">{{ p.title }}</a></li>
-  {% endfor %}
-  </ul>
+
+  <p class="pf-hint">제목 또는 썸네일을 클릭하면 상세 페이지로 이동합니다. 각 페이지에는 문제-해결-결과 서술과 실제 코드 발췌, 구조 다이어그램이 들어 있습니다.</p>
+
+  <div class="pf-block">
+    <div class="pf-section">
+      <h2>1. 드림플레이 게임즈</h2>
+      <span class="pf-section-note">2024.03 ~ 2025.04 · Game Crit Studio · 캐주얼 RPG 3종 런칭 및 라이브 운영</span>
+    </div>
+    <div class="pf-list">
+
+    {% assign p = site.posts | where: "slug", "unknown-heroes" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% assign p = site.posts | where: "slug", "pixel-heroic-legend" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% assign p = site.posts | where: "slug", "return-hero" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    </div>
+  </div>
+
+  <div class="pf-block">
+    <div class="pf-section">
+      <h2>2. 먼데이오프</h2>
+      <span class="pf-section-note">2022.10 ~ 2023.12 · 하이퍼캐주얼 3종 · 기획 및 클라이언트 1인 개발</span>
+    </div>
+    <div class="pf-list">
+
+    {% assign p = site.posts | where: "slug", "hyper-casual" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    </div>
+  </div>
+
+  <div class="pf-block">
+    <div class="pf-section">
+      <h2>3. Voyager Games</h2>
+      <span class="pf-section-note">2025.12 ~ 2026.03 · AI 대화형 라이프스타일 플랫폼 · 멀티플랫폼</span>
+    </div>
+    <div class="pf-list">
+
+    {% assign p = site.posts | where: "slug", "eterna" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    </div>
+  </div>
+
+  <div class="pf-block">
+    <div class="pf-section">
+      <h2>4. 공통 모듈</h2>
+      <span class="pf-section-note">여러 프로젝트에 반복 이식한 모듈 · 설계 판단의 근거와 실제 코드</span>
+    </div>
+    <div class="pf-list">
+
+    {% assign p = site.posts | where: "slug", "chat-system" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    {% assign p = site.posts | where: "slug", "applovin" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    </div>
+  </div>
+
+  <div class="pf-block">
+    <div class="pf-section">
+      <h2>5. ETC</h2>
+      <span class="pf-section-note">Unity 입문기 개인 프로젝트 · C++ / WinAPI 모작</span>
+    </div>
+    <div class="pf-list">
+
+    {% assign p = site.posts | where: "slug", "side-projects" | first %}
+    {% if p %}
+    <div class="pf-card">
+      {% if p.img %}
+      <div class="pf-thumb"><a href="{{ p.url }}"><img src="{{ site.baseurl }}/assets/img/{{ p.img }}" alt="{{ p.title }}"/></a></div>
+      {% endif %}
+      <div class="pf-body">
+        <h3><a href="{{ p.url }}">{{ p.title }}</a></h3>
+        <p class="pf-meta">{{ p.description }}</p>
+        <div class="tags"><ul>{% for t in p.tags %}<li><a href="{{ site.baseurl }}/tag.html?tag={{ t | cgi_escape }}">{{ t }}</a></li>{% endfor %}</ul></div>
+      </div>
+    </div>
+    {% endif %}
+
+    </div>
+  </div>
+
 </div>
