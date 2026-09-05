@@ -285,6 +285,20 @@ path.fa-secondary { opacity: .4; }
   font-size: 13px;
   text-align: left;
 }
+// 목록 상단의 코드 저장소 안내. 검색창과 첫 묶음 사이에 놓인다.
+.pf-code-note {
+  margin: 0 0 28px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+
+  a { color: var(--link); }
+  a:hover { color: var(--link-hover); }
+}
+
 .pf-group-tags {
   display: block;
   margin: 6px 0 4px;

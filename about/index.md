@@ -28,3 +28,4 @@ comments: false
 - **Phone** · [{{ site.phone }}](tel:{{ site.phone | remove: '-' }})
 - **GitHub** · [github.com/{{ site.github-url }}](https://github.com/{{ site.github-url }})
 - **Notion** · [Unity Programmer &mdash; Kim Dong Hyun]({{ site.notion }})
+- **코드 발췌** · [portfolio-code](https://github.com/{{ site.github-url }}/portfolio-code) &mdash; 각 프로젝트에서 직접 설계한 핵심 시스템 57개 파일
