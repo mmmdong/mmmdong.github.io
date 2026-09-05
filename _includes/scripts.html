@@ -5,3 +5,18 @@
     <script src="{{ site.url }}/assets/js/jquery.magnific-popup.min.js"></script>
     <script src="{{ site.url }}/assets/js/jquery.fitvid.min.js"></script>
     <script src="{{ site.url }}/assets/js/scripts.js"></script>
+    <script src="{{ site.url }}/assets/js/theme-toggle.js"></script>
+    {% if page.toc %}<script src="{{ site.url }}/assets/js/toc-scrollspy.js"></script>{% endif %}
+    {% if page.search %}
+    <script src="{{ site.url }}/assets/js/jekyll-search.js"></script>
+    <script>
+      SimpleJekyllSearch({
+        searchInput: document.getElementById("search-input"),
+        resultsContainer: document.getElementById("search-results"),
+        json: "{{ site.url }}/search.json",
+        searchResultTemplate:
+          '<li><a href="{url}">{title}</a><p>{description}</p></li>',
+        noResultsText: '검색 결과가 없습니다.'
+      });
+    </script>
+    {% endif %}
