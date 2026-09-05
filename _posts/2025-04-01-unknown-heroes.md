@@ -5,7 +5,7 @@ permalink: /portfolio/unknown-heroes/
 slug: unknown-heroes
 date: 2025-04-01
 project: true
-group: dreamplay
+group: main
 order: 1
 tags: [Unity, CSharp, UniRx, UniTask, PlayFab, BackEnd-Chat]
 excerpt: "하이브리드 방치형 RPG. DFS 가챠 확률 산출과 UniRx 반응형 UI 리팩터링, 슬롯머신 감정 시스템."
