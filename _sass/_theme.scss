@@ -22,6 +22,8 @@
   --border:      #c9cad0;
   --accent:      #B33A2B;
   --shadow:      rgba(0, 0, 0, .18);
+  --menu-bg:     #222222;   // 네비는 라이트에서도 어두운 패널이다 (테마 원본)
+  --menu-text:   #ffffff;
 }
 
 html[data-theme="dark"] {
@@ -36,6 +38,10 @@ html[data-theme="dark"] {
   --border:      #3d444d;
   --accent:      #ffa198;
   --shadow:      rgba(0, 0, 0, .5);
+  // 원본 #222 는 다크 surface(#22272e)와 거의 같은 밝기라 메뉴 경계가 사라진다.
+  // 한 단계 밝게 잡아 떠 보이게 한다.
+  --menu-bg:     #333b45;
+  --menu-text:   #e6edf3;
 }
 
 // ---------------------------------------------------------------- 다크 오버라이드
@@ -87,6 +93,67 @@ html[data-theme="dark"] {
   .author-photo { background-color: var(--surface); }
 
   kbd { color: var(--text); background-color: var(--code-bg); border-color: var(--border); }
+}
+
+// ---------------------------------------------------------------- 버튼 · 태그 · 네비
+// 이 세 계열은 테마 원본이 배경을 흰색으로 못박아 둬서, 다크에서 흰 덩어리로 남았다.
+// 다크 전용 오버라이드가 아니라 아예 토큰으로 몰아 양쪽 테마를 한 곳에서 정한다.
+// (이 파티션이 마지막에 import 되므로 같은 특이도면 여기가 이긴다.)
+
+.social-btn,
+.btn {
+  background: var(--surface);
+  color: var(--link);
+  border-color: var(--border);
+
+  &:hover {
+    color: var(--link-hover);
+    box-shadow: 0 0 1px 0 var(--shadow);
+  }
+  &:visited { color: var(--link); }
+}
+
+.entry-meta,
+.entry-meta a { color: var(--muted); }
+.entry-meta .tag {
+  background-color: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+
+  .count { background-color: var(--code-bg); }
+  &:hover { background-color: var(--code-bg); }
+}
+
+// 맨위로 버튼. jquery.goup 이 containerColor 를 인라인 style 로 박기 때문에
+// !important 가 없으면 이긴다. 화살표는 border 삼각형이라 border-color 로 칠한다.
+.goup-container {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+}
+.goup-arrow {
+  border-color: transparent transparent var(--text) !important;
+}
+
+// 드롭다운 네비
+.dl-menuwrapper button,
+.dl-menuwrapper button:hover,
+.dl-menuwrapper button.dl-active,
+.dl-menuwrapper ul {
+  background: var(--menu-bg);
+}
+.dl-menuwrapper li a,
+.dl-menuwrapper li h4 { color: var(--menu-text); }
+.dl-menuwrapper li p { color: var(--menu-text); opacity: .8; }
+.dl-menuwrapper li a:visited { color: var(--menu-text); }
+.no-touchevents .dl-menuwrapper li a:hover { background: rgba(255, 255, 255, .12); }
+.dl-menuwrapper .dl-menu,
+.dl-menuwrapper .dl-submenu { box-shadow: 0 12px 24px var(--shadow); }
+
+// 구분선 — 원본은 밝은 회색 그라디언트라 다크에서 눈에 띄게 밝다
+hr,
+hr.hr-line {
+  background-image: none;
+  background-color: var(--border);
 }
 
 // ---------------------------------------------------------------- 테마 토글
