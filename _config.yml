@@ -25,9 +25,6 @@ kramdown:
   hard_wrap:        false
 encoding:           "utf-8"
 
-# 수식을 쓰지 않는다. true 로 두면 post.html 이 cdn.mathjax.org 를 부르는데
-# 그 호스트는 서비스가 종료돼 깨진 로드이면서 제3자 요청이 된다.
-mathjax:            false
 
 sass:
   sass_dir:         _sass

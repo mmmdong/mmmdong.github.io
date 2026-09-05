@@ -66,8 +66,9 @@ GitHub Pages classic 으로 배포됩니다.
 - **Disqus** — 기본값이 원작자 계정(`disqus_shortname`)이라 그대로 두면
   방문자 브라우저에서 남의 댓글 서비스가 로드됩니다. 설정과 호출부를 모두 제거했습니다.
 - **Google Analytics** 스니펫 — 쓰지 않습니다.
-- **MathJax** — `mathjax: true` 가 `post.html` 에서 `cdn.mathjax.org` 를 부르는데
-  그 호스트는 서비스가 종료됐습니다. 수식을 쓰지 않으므로 `false` 로 두었습니다.
+- **MathJax** — `post.html` · `page.html` 이 `cdn.mathjax.org` 를 부르고 있었습니다.
+  그 호스트는 서비스가 종료됐습니다. `mathjax: false` 로 꺼두기만 하면 설정 한 줄로
+  되살아나는 잠복 참조가 남으므로, 호출부와 설정 키를 모두 제거했습니다.
 
 그 결과 배포 산출물에서 외부 서브리소스 요청이 0건입니다.
 CSS · JS · 폰트(Fira Sans, Font Awesome)는 모두 저장소 안에서 제공됩니다.
