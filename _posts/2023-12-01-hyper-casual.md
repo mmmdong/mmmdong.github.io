@@ -5,6 +5,8 @@ permalink: /portfolio/hyper-casual/
 slug: hyper-casual
 date: 2023-12-01
 project: true
+group: mondayoff
+order: 1
 tags: [Unity, CSharp, Firebase, IAP, AppLovin-MAX]
 excerpt: "하이퍼캐주얼 3종 1인 개발. 대량 오브젝트 환경의 성능 최적화."
 toc: true

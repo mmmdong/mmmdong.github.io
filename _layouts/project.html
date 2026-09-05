@@ -22,19 +22,66 @@ layout: compress
                     </a>
                 </div>
                 {{ content }}
-                <div class="post-list">
-                    {% for post in site.posts %} 
-                        {% if post.project %}
-                    <ul>
-                        <li class="wow fadeInLeft" data-wow-duration="1.5s">
-                            <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-                            <p>{{ post.excerpt }}</p>
-                            <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
-                        </li>
-                    </ul>
-                      {% endif %}
-                    {% endfor %}
-                </div>
+                {%- comment -%}
+                회사별 묶음. 순서는 _data/project_groups.yml 이 정한다 —
+                그룹 순서도, 그룹 안의 순서(front matter 의 order)도 데이터에 있다.
+                원본 템플릿은 site.posts 를 그냥 훑어 평평하게 나열했다.
+
+                그룹에 속하지 않은 프로젝트가 생기면 마지막 '기타' 묶음으로 떨어진다.
+                조용히 사라지면 글을 써놓고 목록에서 못 찾는 일이 생긴다.
+                {%- endcomment -%}
+                {% assign all_projects = site.posts | where: "project", true %}
+                {% assign grouped_count = 0 %}
+
+                {% for g in site.data.project_groups %}
+                  {% assign items = all_projects | where: "group", g.id | sort: "order" %}
+                  {% if items.size > 0 %}
+                  {% assign grouped_count = grouped_count | plus: items.size %}
+                <section class="pf-group">
+                    <h2 class="pf-group-title">{{ g.name }}</h2>
+                    {% if g.note %}<p class="pf-group-note">{{ g.note }}</p>{% endif %}
+                    <div class="post-list">
+                        <ul>
+                        {% for post in items %}
+                            <li class="wow fadeInLeft" data-wow-duration="1.5s">
+                                <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                                <p>{{ post.excerpt }}</p>
+                                {% if post.tags %}
+                                <span class="pf-group-tags">
+                                {% for tag in post.tags %}<a href="{{ site.url }}/tags/#{{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>{% endfor %}
+                                </span>
+                                {% endif %}
+                                <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+                  {% endif %}
+                {% endfor %}
+
+                {% assign ungrouped = all_projects.size | minus: grouped_count %}
+                {% if ungrouped > 0 %}
+                <section class="pf-group">
+                    <h2 class="pf-group-title">기타</h2>
+                    <p class="pf-group-note">_data/project_groups.yml 에 없는 group 값을 가진 글입니다.</p>
+                    <div class="post-list">
+                        <ul>
+                        {% for post in all_projects %}
+                          {% assign known = false %}
+                          {% for g in site.data.project_groups %}{% if post.group == g.id %}{% assign known = true %}{% endif %}{% endfor %}
+                          {% unless known %}
+                            <li class="wow fadeInLeft" data-wow-duration="1.5s">
+                                <a class="zoombtn" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                                <p>{{ post.excerpt }}</p>
+                                <a href="{{ site.url }}{{ post.url }}" class="btn zoombtn">Read More</a>
+                            </li>
+                          {% endunless %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+                {% endif %}
             </div>
         </div>
     </header>
