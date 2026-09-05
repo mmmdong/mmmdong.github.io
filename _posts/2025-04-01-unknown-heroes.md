@@ -24,6 +24,7 @@ feature: assets/img/portfolio/miunhwa-heroes.jpg
     <tr><td><strong>담당 역할</strong></td><td>가챠/감정 시스템 설계, 실시간 채팅 및 UI 리팩터링</td></tr>
     <tr><td><strong>성과</strong></td><td>⭐ 3.3 (AOS) · 4.3 (iOS) &nbsp;|&nbsp; 📥 10K+ &nbsp;|&nbsp; 🌎 Global</td></tr>
     <tr><td><strong>링크</strong></td><td><a href="https://play.google.com/store/apps/details?id=com.dreamplay.hiddenheroes.google&hl=ko">Google Play Store</a></td></tr>
+    <tr><td><strong>코드</strong></td><td><a href="https://github.com/mmmdong/portfolio-code/tree/main/unknown-heroes">GitHub</a> — UI 아키텍처 · 가챠 확률 · 감정 · 월드맵 드랍 (20개 파일)</td></tr>
   </table>
 </div>
 

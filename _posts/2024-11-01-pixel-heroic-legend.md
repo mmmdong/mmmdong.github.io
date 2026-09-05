@@ -24,6 +24,7 @@ feature: assets/img/portfolio/pixel-hero.jpg
     <tr><td><strong>담당 역할</strong></td><td>전투 코어 로직 설계 및 PVP 시스템 구현, UI/채팅 시스템 개발</td></tr>
     <tr><td><strong>성과</strong></td><td>⭐ 4.6 (AOS) · 4.0 (iOS) &nbsp;|&nbsp; 📥 50K+ &nbsp;|&nbsp; 🌎 Global</td></tr>
     <tr><td><strong>링크</strong></td><td><a href="https://play.google.com/store/apps/details?id=com.dreamplay.pixelheroiclegend.google&hl=ko">Google Play Store</a></td></tr>
+    <tr><td><strong>코드</strong></td><td><a href="https://github.com/mmmdong/portfolio-code/tree/main/pixel-heroic-legend">GitHub</a> — 전투 상태머신 · PVP (16개 파일)</td></tr>
   </table>
 </div>
 

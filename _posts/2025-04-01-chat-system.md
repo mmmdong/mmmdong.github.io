@@ -18,6 +18,7 @@ comments: false
     <tr><td><strong>모듈 성격</strong></td><td>공통 모듈 — 픽셀 영웅 전설 · 미확인 용사단에 적용</td></tr>
     <tr><td><strong>사용 스택</strong></td><td>뒤끝 SDK(Socket), UniTask, Azure PlayFab, C#</td></tr>
     <tr><td><strong>출처</strong></td><td><code>Assets/Scripts/Managers/ChattingManager.cs</code>, <code>Common/COMMON.Chat.cs</code>, <code>Common/COMMON.Reward.cs</code></td></tr>
+    <tr><td><strong>코드</strong></td><td><a href="https://github.com/mmmdong/portfolio-code/tree/main/common-modules/chat-system">GitHub</a> — 채팅 매니저 · 채널 UI (8개 파일)</td></tr>
   </table>
 </div>
 
