@@ -36,8 +36,6 @@ github: mmmdong # Add your Github handle
 # Paginate
 words_per_minute: 200
 
-extensions:
-  mermaid_enable: true
 
 # Comments
 # Build settings
