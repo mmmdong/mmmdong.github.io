@@ -21,11 +21,13 @@
 	<meta name="msapplication-navbutton-color" content="#311e3e">
 	<!-- iOS Safari -->
 	<meta name="apple-mobile-web-app-status-bar-style" content="#311e3e">
-	<!-- 웹폰트를 쓰지 않는다. 업스트림은 Lora / Source Sans Pro 의 @font-face 를
+	{% comment %}
+	웹폰트를 쓰지 않는다. 업스트림은 Lora / Source Sans Pro 의 @font-face 를
 	     여기 인라인해 두었는데, 실제 woff2 는 fonts.gstatic.com 에서 받아온다 —
 	     선언만 인라인일 뿐 자체 호스팅이 아니라서 모든 방문자의 IP 가 매 페이지마다
 	     제3자에게 노출된다. 두 서체는 라틴 전용이라 한국어 본문에는 애초에 쓰이지
-	     않고, --font1/--font2 에 Georgia·Helvetica 대체 스택이 이미 선언돼 있다. -->
+	     않고, --font1/--font2 에 Georgia·Helvetica 대체 스택이 이미 선언돼 있다.
+	{% endcomment %}
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="{{ relativebase }}assets/fonts/font-awesome/css/font-awesome.min.css">
 	<!-- Styles -->
