@@ -1,0 +1,5 @@
+# nav.html 이 이 목록을 상위 메뉴에 덧붙인다.
+- title: Portfolio
+  url: /projects/
+- title: CV
+  url: /cv/

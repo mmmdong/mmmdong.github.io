@@ -3,13 +3,13 @@ layout: post
 title: "Hyper Casual Games"
 permalink: /portfolio/hyper-casual/
 slug: hyper-casual
-category: portfolio
 date: 2023-12-01
-img: portfolio/mondayoff.jpg
+project: true
 tags: [Unity, CSharp, Firebase, IAP, AppLovin-MAX]
-description: "하이퍼캐주얼 3종 1인 개발. 대량 오브젝트 환경의 성능 최적화."
+excerpt: "하이퍼캐주얼 3종 1인 개발. 대량 오브젝트 환경의 성능 최적화."
 toc: true
-show_date: true
+comments: false
+feature: assets/img/portfolio/mondayoff.jpg
 ---
 
 <div class="pf-panel">

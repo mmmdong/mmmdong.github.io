@@ -3,12 +3,12 @@ layout: post
 title: "Side Projects"
 permalink: /portfolio/side-projects/
 slug: side-projects
-category: portfolio
 date: 2021-12-01
+project: true
 tags: [Unity, CSharp, UniRx, Cpp, WinAPI, FMOD]
-description: "Unity 입문기 개인 프로젝트와 C++ / WinAPI 모작 5건."
+excerpt: "Unity 입문기 개인 프로젝트와 C++ / WinAPI 모작 5건."
 toc: true
-show_date: true
+comments: false
 ---
 
 <div class="pf-hero">

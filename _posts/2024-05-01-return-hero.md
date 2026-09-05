@@ -3,13 +3,13 @@ layout: post
 title: "귀환병 전기"
 permalink: /portfolio/return-hero/
 slug: return-hero
-category: portfolio
 date: 2024-05-01
-img: portfolio/return-hero.jpg
+project: true
 tags: [Unity, CSharp, UniTask, PlayFab, CloudScript]
-description: "방치형 캐주얼 RPG. 랭킹 보상 정산 자동화와 월드보스 신규 컨텐츠."
+excerpt: "방치형 캐주얼 RPG. 랭킹 보상 정산 자동화와 월드보스 신규 컨텐츠."
 toc: true
-show_date: true
+comments: false
+feature: assets/img/portfolio/return-hero.jpg
 ---
 
 <div class="pf-panel">
