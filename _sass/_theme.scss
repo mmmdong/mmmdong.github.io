@@ -1,0 +1,243 @@
+// =====================================================================
+//  테마 계층 — 다크 모드 · 목차 · 검색 · 포트폴리오 본문
+//
+//  Moon 의 색은 Sass 변수($white, $color_shark ...)로 들어가 있다. Sass 변수는
+//  컴파일 타임이라 런타임에 바꿀 수 없고, 값을 var(--x) 로 바꾸면 darken()/rgba()
+//  인자로 쓰이는 21곳에서 컴파일이 깨진다. 그래서 원본은 건드리지 않고
+//  html[data-theme="dark"] 오버라이드로 덮는다. 라이트는 테마 원본 그대로다.
+//
+//  이 파티션은 main.scss 에서 마지막에 import 되어야 한다. 순서가 곧 우선순위다.
+// =====================================================================
+
+// ---------------------------------------------------------------- 토큰
+:root {
+  --page-bg:     #D24D57;   // 테마 원본의 붉은 바탕
+  --surface:     #ffffff;
+  --text:        #383838;
+  --heading:     #282828;
+  --link:        #282828;
+  --link-hover:  #D32A20;  // 원본 #FF4136 은 흰 바탕에서 3.46:1 이라 본문 링크로 부족하다
+  --muted:       #616161;   // 원본 #8c8b8b 은 3.0:1. 패널 바탕(#e8e8e8) 위에서도 4.5 를 넘겨야 한다
+  --code-bg:     #e8e8e8;
+  --border:      #c9cad0;
+  --accent:      #B33A2B;
+  --shadow:      rgba(0, 0, 0, .18);
+}
+
+html[data-theme="dark"] {
+  --page-bg:     #14171b;
+  --surface:     #22272e;
+  --text:        #c9d1d9;
+  --heading:     #e6edf3;
+  --link:        #e6edf3;
+  --link-hover:  #ff9f97;
+  --muted:       #9aa4b0;
+  --code-bg:     #2d333b;
+  --border:      #3d444d;
+  --accent:      #ffa198;
+  --shadow:      rgba(0, 0, 0, .5);
+}
+
+// ---------------------------------------------------------------- 다크 오버라이드
+// 대상은 컴파일된 CSS 에서 실제로 색을 거는 셀렉터만이다.
+html[data-theme="dark"] {
+  body { background-color: var(--page-bg); color: var(--text); }
+
+  .container,
+  .wrapper {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 0 6px 0 var(--shadow);
+  }
+
+  h1, h2, h3, h4, h5, h6 { color: var(--heading); }
+  h3.title a { color: var(--heading); }
+
+  a, a:link, a:visited { color: var(--link); }
+  a:hover, a:active { color: var(--link-hover); }
+
+  .post-list li { background: var(--surface); color: var(--text); }
+  .post-list li a { color: var(--link); }
+  .post-list li a:hover { color: var(--link-hover); }
+
+  .entry-meta, .entry-meta a { color: var(--muted); }
+  .entry-meta .tag { border-color: var(--border); }
+  .entry-meta .tag .count,
+  .entry-meta .tag:hover { background-color: var(--code-bg); color: var(--text); }
+
+  p code, li code, p pre, li pre {
+    background-color: var(--code-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .notice { background-color: var(--code-bg); border: 1px solid var(--border); }
+
+  blockquote { border-left: 8px solid var(--border); color: var(--muted); }
+  figcaption { color: var(--muted); }
+  hr { border-color: var(--border); }
+
+  table { color: var(--text); }
+  th, td { border-color: var(--border); }
+  thead th { background: var(--code-bg); }
+
+  .social-btn, .btn { border-color: var(--border); color: var(--link); }
+  .social-btn:hover, .btn:hover { color: var(--link-hover); }
+
+  .img-circle { border-color: var(--surface); }
+  .author-photo { background-color: var(--surface); }
+
+  kbd { color: var(--text); background-color: var(--code-bg); border-color: var(--border); }
+}
+
+// ---------------------------------------------------------------- 테마 토글
+.theme-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 900;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--heading);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 0 4px 0 var(--shadow);
+
+  &:hover { color: var(--link-hover); }
+  // 아이콘은 JS 가 상태에 맞춰 바꾼다. JS 가 없으면 버튼 자체를 숨긴다.
+  html.no-js & { display: none; }
+}
+
+// ---------------------------------------------------------------- 목차
+aside.toc {
+  margin: 0 0 28px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.toc-title { list-style: none; }
+.toc-title svg { width: 20px; color: var(--accent); }
+path.fa-secondary { opacity: .4; }
+
+.toc-content {
+  list-style: none;
+  margin: 8px 0 0;
+  padding-inline-start: 0;
+}
+// 활성 항목이 옮겨가도 폭이 흔들리지 않도록 비활성에도 같은 두께를 둔다
+.toc-content li {
+  border-left: 3px solid transparent;
+  padding-left: 8px;
+}
+.toc-content a {
+  text-decoration: none;
+  color: var(--text);
+}
+.toc-content a:hover { color: var(--link-hover); }
+.toc-item-1 { padding-top: 6px; padding-bottom: 6px; }
+.toc-item-2, .toc-item-3, .toc-item-4, .toc-item-5, .toc-item-6 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.toc-submenu-1, .toc-submenu-2, .toc-submenu-3,
+.toc-submenu-4, .toc-submenu-5 {
+  list-style: none;
+  padding-inline-start: 10px;
+}
+.toc-submenu-1 a { color: var(--muted); }
+
+// 스크롤스파이가 다는 두 표시. --border 급 회색은 배경 대비 1.5:1 수준이라
+// 사실상 보이지 않는다. 상태 표시는 --accent 가 맡는다.
+.toc .active { border-left-color: var(--accent); }
+.underline {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+// ---------------------------------------------------------------- 검색
+.site-search { margin: 0 0 24px; }
+.site-search input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 15px;
+}
+.site-search input::placeholder { color: var(--muted); }
+#search-results {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+
+  li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  a { font-weight: 600; }
+  p { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
+}
+
+// ---------------------------------------------------------------- 포트폴리오 본문
+// 프로젝트 글이 쓰는 클래스는 셋뿐이다: pf-hero, pf-panel, pf-sub.
+.pf-hero {
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  border-left: 4px solid var(--accent);
+  background: var(--code-bg);
+  font-size: 15px;
+}
+.pf-panel {
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+
+  table { margin: 0; width: 100%; }
+  th, td { padding: 6px 8px; }
+  ul { margin-bottom: 0; }
+}
+.pf-sub {
+  margin: 24px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  color: var(--heading);
+  font-weight: 700;
+}
+
+// 접기 블록 — 코드 발췌 21개가 여기 들어간다
+details {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+
+  summary {
+    cursor: pointer;
+    color: var(--heading);
+    font-weight: 600;
+  }
+  &[open] summary { margin-bottom: 10px; }
+}
+
+// 다이어그램은 흰 바탕을 전제로 그려진 SVG 라 다크에서 그대로 두면 읽히지 않는다.
+// 흰 판을 깔아 그림 자체의 대비를 보존한다.
+img[src*="/images/diagrams/"] {
+  display: block;
+  margin: 18px auto;
+  max-width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+}

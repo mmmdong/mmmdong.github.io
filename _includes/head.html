@@ -1,4 +1,18 @@
     <meta charset="UTF-8">
+    <script>
+    /* 다크가 기본값이다(레이아웃의 <html data-theme="dark">). 저장된 선택이
+       라이트일 때만 속성을 걷어낸다. 매번 다시 씌우면 라이트를 고른 방문자에게
+       첫 페인트에서 다크가 번쩍인다.
+       저장소 계약: sessionStorage / 'theme' / {nightShift}
+
+       주석은 반드시 블록 주석이어야 한다. _layouts/compress.html 이
+       site.compress_html 설정과 무관하게 <pre> 밖의 개행을 공백으로 접기 때문에,
+       // 주석을 쓰면 한 줄로 눌리면서 뒤따르는 코드 전체가 주석이 된다. */
+    try {
+      var __t = JSON.parse(sessionStorage.getItem('theme') || '{}');
+      if (__t.nightShift === false) { document.documentElement.removeAttribute('data-theme'); }
+    } catch (e) {}
+    </script>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
     <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
