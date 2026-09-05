@@ -1,7 +1,15 @@
 ---
-title: "Hyper Casual Games (MondayOFF)"
-excerpt: "1인 개발로 3종 글로벌 출시. 대량 오브젝트 환경에서의 성능 최적화가 핵심.<br/><img src='/images/portfolio/mondayoff.jpg'>"
-collection: portfolio
+layout: post
+title: "Hyper Casual Games"
+permalink: /portfolio/hyper-casual/
+slug: hyper-casual
+category: portfolio
+date: 2023-12-01
+img: portfolio/mondayoff.jpg
+tags: [Unity, CSharp, Firebase, IAP, AppLovin-MAX]
+description: "하이퍼캐주얼 3종 1인 개발. 대량 오브젝트 환경의 성능 최적화."
+toc: true
+show_date: true
 ---
 
 <div class="pf-panel">

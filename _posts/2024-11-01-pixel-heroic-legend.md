@@ -1,7 +1,15 @@
 ---
+layout: post
 title: "픽셀 영웅 전설"
-excerpt: "도트 그래픽 기반 방치형 파티 RPG. 전투 코어 엔진 신규 개발과 PVP 시스템 전 과정 담당.<br/><img src='/images/portfolio/pixel-hero.jpg'>"
-collection: portfolio
+permalink: /portfolio/pixel-heroic-legend/
+slug: pixel-heroic-legend
+category: portfolio
+date: 2024-11-01
+img: portfolio/pixel-hero.jpg
+tags: [Unity, CSharp, R3, UniTask, PlayFab, BackEnd-Chat]
+description: "방치형 파티 RPG. R3 상태 제어 기반 전투 코어 엔진과 PVP 전 과정 구현."
+toc: true
+show_date: true
 ---
 
 <div class="pf-panel">

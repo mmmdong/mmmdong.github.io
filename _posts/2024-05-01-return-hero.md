@@ -1,7 +1,15 @@
 ---
+layout: post
 title: "귀환병 전기"
-excerpt: "2D 픽셀 아트 방치형 RPG. 라이브 서비스 유지보수와 월드보스 신규 컨텐츠 개발.<br/><img src='/images/portfolio/return-hero.jpg'>"
-collection: portfolio
+permalink: /portfolio/return-hero/
+slug: return-hero
+category: portfolio
+date: 2024-05-01
+img: portfolio/return-hero.jpg
+tags: [Unity, CSharp, UniTask, PlayFab, CloudScript]
+description: "방치형 캐주얼 RPG. 랭킹 보상 정산 자동화와 월드보스 신규 컨텐츠."
+toc: true
+show_date: true
 ---
 
 <div class="pf-panel">

@@ -1,7 +1,15 @@
 ---
+layout: post
 title: "미확인 용사단"
-excerpt: "하이브리드 방치형 RPG. DFS 기반 가챠 확률 산출, UI 아키텍처 리팩터링, 슬롯머신 감정 시스템.<br/><img src='/images/portfolio/miunhwa-heroes.jpg'>"
-collection: portfolio
+permalink: /portfolio/unknown-heroes/
+slug: unknown-heroes
+category: portfolio
+date: 2025-04-01
+img: portfolio/miunhwa-heroes.jpg
+tags: [Unity, CSharp, UniRx, UniTask, PlayFab, BackEnd-Chat]
+description: "하이브리드 방치형 RPG. DFS 가챠 확률 산출과 UniRx 반응형 UI 리팩터링, 슬롯머신 감정 시스템."
+toc: true
+show_date: true
 ---
 
 <div class="pf-panel">

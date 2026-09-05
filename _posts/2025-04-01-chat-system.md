@@ -1,7 +1,14 @@
 ---
-title: "공통 모듈 — 실시간 채팅 시스템"
-excerpt: "뒤끝 SDK(Socket) 기반 채널별 실시간 메시징. 유저 채팅과 시스템 알림을 서로 다른 포맷으로 처리."
-collection: portfolio
+layout: post
+title: "실시간 채팅 시스템"
+permalink: /portfolio/chat-system/
+slug: chat-system
+category: portfolio
+date: 2025-04-01
+tags: [BackEnd-SDK, Socket, UniTask, PlayFab, CSharp]
+description: "공통 모듈. 뒤끝 SDK 기반 채널별 실시간 메시징."
+toc: true
+show_date: true
 ---
 
 <div class="pf-panel">

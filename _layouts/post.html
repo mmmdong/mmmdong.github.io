@@ -17,9 +17,11 @@ layout: default
   {% include header.html %}
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     {% include schema-meta.html %}
+    {% if page.img %}
     <div class="page-image">
       <div class="cover-image" style="background: url('{{ relativebase }}assets/img/{{ page.img }}') center no-repeat; background-size: cover;"></div>
     </div>
+    {% endif %}
     <div class="wrapper">
       <div class="page-content">
         <div class="header-page">

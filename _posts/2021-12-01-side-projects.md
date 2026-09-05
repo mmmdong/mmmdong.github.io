@@ -1,7 +1,14 @@
 ---
-title: "Side Projects — Unity 입문기와 C++ 모작"
-excerpt: "Unity 입문 전 C++/WinAPI로 진행한 모작과, Unity를 처음 배우며 완성한 개인 프로젝트 5건.<br/>엔진 없이 입력·충돌·애니메이션을 직접 구현한 기록."
-collection: portfolio
+layout: post
+title: "Side Projects"
+permalink: /portfolio/side-projects/
+slug: side-projects
+category: portfolio
+date: 2021-12-01
+tags: [Unity, CSharp, UniRx, Cpp, WinAPI, FMOD]
+description: "Unity 입문기 개인 프로젝트와 C++ / WinAPI 모작 5건."
+toc: true
+show_date: true
 ---
 
 <div class="pf-hero">
