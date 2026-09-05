@@ -180,17 +180,8 @@
 {% endif %}
 
 {% if page.toc %}
-  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@5.1.1/dist/gumshoe.polyfills.min.js"></script>
+  <script src="{{ relativebase }}assets/js/toc-scrollspy.js"></script>
   <script>
-    var spy = new Gumshoe("#toc-content a", {
-      navClass:"active",
-      contentClass:"underline",
-      nested:0,
-      nestedClass:"active",
-      offset:20,
-      reflow:1,
-      events:1
-    });
 
     var coll = document.getElementsByClassName("toc-item-1");
     var i;
