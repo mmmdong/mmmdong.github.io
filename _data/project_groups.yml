@@ -1,0 +1,22 @@
+# /projects/ 의 회사별 묶음. 이 파일의 순서가 곧 화면 순서다.
+# 새 그룹을 넣으려면 여기에 추가하고 포스트 front matter 에 group: <id> 를 쓴다.
+
+- id: dreamplay
+  name: 드림플레이 게임즈
+  note: 2024.03 ~ 2025.04 · Game Crit Studio · 캐주얼 RPG 3종 런칭 및 라이브 운영
+
+- id: mondayoff
+  name: 먼데이오프
+  note: 2022.10 ~ 2023.12 · 하이퍼캐주얼 3종 · 기획 및 클라이언트 1인 개발
+
+- id: voyager
+  name: Voyager Games
+  note: 2025.12 ~ 2026.03 · AI 대화형 라이프스타일 플랫폼 · 멀티플랫폼
+
+- id: side
+  name: Side Projects
+  note: Unity 입문기 개인 프로젝트 · C++ / WinAPI 모작
+
+- id: common
+  name: 공통 모듈
+  note: 여러 프로젝트에 반복 이식한 모듈 · 설계 판단의 근거와 실제 코드

@@ -5,6 +5,8 @@ permalink: /portfolio/side-projects/
 slug: side-projects
 date: 2021-12-01
 project: true
+group: side
+order: 1
 tags: [Unity, CSharp, UniRx, Cpp, WinAPI, FMOD]
 excerpt: "Unity 입문기 개인 프로젝트와 C++ / WinAPI 모작 5건."
 toc: true

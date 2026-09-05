@@ -5,6 +5,8 @@ permalink: /portfolio/return-hero/
 slug: return-hero
 date: 2024-05-01
 project: true
+group: dreamplay
+order: 3
 tags: [Unity, CSharp, UniTask, PlayFab, CloudScript]
 excerpt: "방치형 캐주얼 RPG. 랭킹 보상 정산 자동화와 월드보스 신규 컨텐츠."
 toc: true

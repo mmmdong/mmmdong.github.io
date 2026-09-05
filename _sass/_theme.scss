@@ -253,6 +253,51 @@ path.fa-secondary { opacity: .4; }
   p { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
 }
 
+// ---------------------------------------------------------------- 프로젝트 묶음
+// /projects/ 를 회사별로 나눈다. 묶음 사이에 시각적 경계가 없으면
+// 목록이 길어질수록 어디부터 다른 회사인지 읽히지 않는다.
+.pf-group {
+  margin: 0 0 40px;
+
+  + .pf-group {
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+}
+.pf-group-title {
+  margin: 0 0 4px;
+  padding-left: 12px;
+  border-left: 4px solid var(--accent);
+  color: var(--heading);
+  font-size: 22px;
+  text-align: left;
+}
+.pf-group-note {
+  margin: 0 0 14px;
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: left;
+}
+.pf-group-tags {
+  display: block;
+  margin: 6px 0 4px;
+
+  .tag {
+    display: inline-block;
+    margin: 2px 4px 2px 0;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--code-bg);
+    color: var(--muted);
+    font-size: 12px;
+    text-decoration: none;
+
+    .term { display: inline-block; padding: 1px 6px; }
+    &:hover { color: var(--link-hover); }
+  }
+}
+
 // ---------------------------------------------------------------- 포트폴리오 본문
 // 프로젝트 글이 쓰는 클래스는 셋뿐이다: pf-hero, pf-panel, pf-sub.
 .pf-hero {
