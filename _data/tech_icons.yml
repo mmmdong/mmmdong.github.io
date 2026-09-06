@@ -55,6 +55,12 @@
   # max.applovin.com 은 MAX 대시보드다. 로그인 화면으로 넘어가는 게 정상이고,
   # 문서 허브(support.applovin.com/en/max)보다 이쪽을 쓰기로 했다.
   url: https://max.applovin.com/
+# PlayFab 전용 글리프는 공개 집합에 없고, 상위 브랜드인 Azure 글리프는 데이터에서
+# 빠지는 중이다(마이크로소프트 상표 아이콘 정리). 모노그램 배지를 만들어 쓴다.
+# 색은 Azure 브랜드 블루(#0078D4). 흰 글자와 4.53:1 이라 낮출 필요가 없었다.
+- name: Azure PlayFab
+  file: playfab.png
+  url: https://learn.microsoft.com/gaming/playfab/
 - name: 뒤끝 SDK
   file: backnd.png
   url: https://backnd.com/
