@@ -25,6 +25,15 @@
   --shadow:      rgba(0, 0, 0, .18);
   --menu-bg:     #222222;   // 네비는 라이트에서도 어두운 패널이다 (테마 원본)
   --menu-text:   #ffffff;
+
+  // 카테고리 구분선. 색만으로 뜻을 전하지는 않는다 — 제목 글자가 그 일을 하고
+  // 이건 훑을 때 경계를 빨리 찾게 돕는 보조 신호다. 그래도 안 보이면 의미가
+  // 없으므로 바탕 대비 3:1 이상으로 잡았다(측정값은 contrast.py 가 게이트한다).
+  --cat-rpg:     #C0392B;
+  --cat-casual:  #B7791F;
+  --cat-social:  #1F6FB2;
+  --cat-etc:     #6B6F76;
+  --cat-common:  #2E7D6B;
 }
 
 html[data-theme="dark"] {
@@ -44,6 +53,13 @@ html[data-theme="dark"] {
   // 한 단계 밝게 잡아 떠 보이게 한다.
   --menu-bg:     #333b45;
   --menu-text:   #e6edf3;
+
+  // 라이트와 같은 색을 쓰면 어두운 바탕에서 묻힌다. 채도를 낮추고 밝기를 올렸다.
+  --cat-rpg:     #FF8A7A;
+  --cat-casual:  #E8B84B;
+  --cat-social:  #6FB6F1;
+  --cat-etc:     #A0A8B4;
+  --cat-common:  #5FCBAE;
 }
 
 // ---------------------------------------------------------------- 다크 오버라이드
@@ -282,12 +298,28 @@ path.fa-secondary { opacity: .4; }
   + .pf-group { margin-top: 40px; }
 }
 .pf-group-title {
-  margin: 0 0 4px;
-  padding-left: 12px;
-  border-left: 4px solid var(--accent);
+  margin: 0 0 6px;
+  padding-left: 16px;
+  // 카테고리마다 색이 다르다. 지정이 없으면 기존 강조색으로 떨어진다 —
+  // 새 카테고리를 yml 에 추가했는데 색을 안 정해도 바가 사라지지 않게.
+  border-left: 6px solid var(--accent);
   color: var(--heading);
-  font-size: 22px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
   text-align: left;
+}
+
+// 색은 묶음 id 로 고른다. 레이아웃이 section 에 pf-group--{id} 를 붙인다.
+.pf-group--rpg    .pf-group-title { border-left-color: var(--cat-rpg); }
+.pf-group--casual .pf-group-title { border-left-color: var(--cat-casual); }
+.pf-group--social .pf-group-title { border-left-color: var(--cat-social); }
+.pf-group--etc    .pf-group-title { border-left-color: var(--cat-etc); }
+.pf-group--common .pf-group-title { border-left-color: var(--cat-common); }
+
+@media screen and (max-width: 480px) {
+  .pf-group-title { font-size: 24px; padding-left: 12px; border-left-width: 5px; }
 }
 .pf-group-note {
   margin: 0 0 14px;
