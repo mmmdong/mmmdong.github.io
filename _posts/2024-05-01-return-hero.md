@@ -16,6 +16,8 @@ stats:
   - {k: 평점, v: "3.3 (AOS) · 4.1 (iOS)"}
   - {k: 다운로드, v: "10K+"}
   - {k: 플랫폼, v: "Android · iOS"}
+stores:
+  - {name: "App Store", url: "https://apps.apple.com/kr/app/id6468865341"}
 toc: true
 comments: false
 feature: assets/img/portfolio/return-hero.jpg
