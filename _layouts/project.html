@@ -17,7 +17,15 @@ layout: compress
             <div class="content">
                 <div class="post-title">
                     <h1>{{ page.title }}</h1>
-                    <a class="btn zoombtn" href="{{site.url}}">
+                    {%- comment -%}
+                    site.url 뒤의 슬래시는 장식이 아니다. 로컬 미리보기 설정
+                    (_config_docker.yml)은 url 을 빈 문자열로 두는데, 그러면
+                    href="{{site.url}}" 가 href="" 로 렌더된다. 빈 URL 은 현재
+                    문서를 가리키므로(RFC 3986) 버튼을 눌러도 같은 페이지가
+                    다시 뜬다 — 눌러도 아무 일도 안 하는 것처럼 보인다.
+                    라이브에서는 url 이 절대주소라 우연히 동작했다.
+                    {%- endcomment -%}
+                    <a class="btn zoombtn" href="{{ site.url }}/">
                         <i class="fa fa-home"></i>
                     </a>
                 </div>
