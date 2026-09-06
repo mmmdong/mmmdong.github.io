@@ -40,27 +40,8 @@ comments: false
 {% for item in site.data.tech_stack %}- {{ item }}
 {% endfor %}
 
-## 학력
-
-{% comment %} 아래 항목을 실제 내용으로 교체할 것.
-   형식: **학교명** 학과 · 재학기간 · 학위 {% endcomment %}
-- 학교명 · 학과 · 재학기간 · 학위
-
-## 자격증 · 수상
-
-{% comment %} 아래 항목을 실제 내용으로 교체할 것.
-   형식: **자격증명** · 발급기관 · 취득일 {% endcomment %}
-- 자격증명 · 발급기관 · 취득일
-
 ## 개인 프로젝트
 
 - Unity 입문기 개인 프로젝트 — MergeCube, Cubic Music
 - C++ / WinAPI 모작 — HELLTAKER, River City Girls, The Witch's House
 - 상세: [Side Projects]({{ site.baseurl }}/portfolio/side-projects/)
-
-## Contact
-
-- **Email** · [{{ site.email }}](mailto:{{ site.email }})
-- **Phone** · [{{ site.phone }}](tel:{{ site.phone | remove: '-' }})
-- **GitHub** · [github.com/{{ site.github-url }}](https://github.com/{{ site.github-url }})
-- **Notion** · [Unity Programmer &mdash; Kim Dong Hyun]({{ site.notion }})
