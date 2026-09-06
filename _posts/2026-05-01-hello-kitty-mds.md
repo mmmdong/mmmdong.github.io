@@ -5,7 +5,7 @@ permalink: /portfolio/hello-kitty-mds/
 slug: hello-kitty-mds
 date: 2026-05-01
 project: true
-group: merge
+group: casual
 order: 1
 icons:
   - {file: hello-kitty-mds.png, alt: "헬로키티 마이 드림 스토어 앱 아이콘"}
