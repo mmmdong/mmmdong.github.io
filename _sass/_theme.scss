@@ -126,6 +126,15 @@ html[data-theme="dark"] {
   &:hover { background-color: var(--code-bg); }
 }
 
+// 프로필 사진. 테마 원본이 width/height 를 150px 로 못박아 놓고 object-fit 이
+// 없어서, 정사각이 아닌 사진이 들어오면 기본값(fill)으로 눌려 들어간다.
+// 실제로 896x1108 인물 사진이 가로로 23.7% 압축돼 세로로 찌그러져 있었다.
+// 사진을 정사각으로 잘라도 다음에 다른 사진을 넣으면 같은 일이 나므로 여기서 막는다.
+.img-circle {
+  object-fit: cover;
+  object-position: center top;
+}
+
 // 맨위로 버튼. jquery.goup 이 containerColor 를 인라인 style 로 박기 때문에
 // !important 가 없으면 이긴다. 화살표는 border 삼각형이라 border-color 로 칠한다.
 .goup-container {
