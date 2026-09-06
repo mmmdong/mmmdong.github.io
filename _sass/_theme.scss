@@ -20,7 +20,7 @@
   --muted:       #616161;   // 원본 #8c8b8b 은 3.0:1. 패널 바탕(#e8e8e8) 위에서도 4.5 를 넘겨야 한다
   --code-bg:     #e8e8e8;
   --border:      #c9cad0;   // 장식용 구분선. WCAG 1.4.11 대상 아님
-  --border-ui:   #8e9096;   // 입력창·버튼 등 UI 컴포넌트 경계. 3:1 이상 유지
+  --border-ui:   #8e9096;   // 버튼·아이콘 판 등 UI 컴포넌트 경계. 3:1 이상 유지
   --accent:      #B33A2B;
   --shadow:      rgba(0, 0, 0, .18);
   --menu-bg:     #222222;   // 네비는 라이트에서도 어두운 패널이다 (테마 원본)
@@ -597,31 +597,6 @@ path.fa-secondary { opacity: .4; }
   text-decoration: underline;
   text-decoration-color: var(--accent);
   text-underline-offset: 3px;
-}
-
-// ---------------------------------------------------------------- 검색
-.site-search { margin: 0 0 24px; }
-.site-search input {
-  width: 100%;
-  padding: 9px 12px;
-  border: 1px solid var(--border-ui);
-  border-radius: 4px;
-  background: var(--surface);
-  color: var(--text);
-  font-size: 15px;
-}
-.site-search input::placeholder { color: var(--muted); }
-#search-results {
-  list-style: none;
-  margin: 10px 0 0;
-  padding: 0;
-
-  li {
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-  }
-  a { font-weight: 600; }
-  p { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
 }
 
 // ---------------------------------------------------------------- 프로젝트 묶음
