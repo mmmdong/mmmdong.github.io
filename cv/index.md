@@ -57,11 +57,6 @@ comments: false
 - ⭐ 최고 4.4 · 📥 최대 500K+ · 🌎 Global
 - 스택: C#, Firebase, Unity IAP, AppLovin MAX
 
-## 기술 스택
-
-{% for item in site.data.tech_stack %}- {{ item }}
-{% endfor %}
-
 ## 개인 프로젝트
 
 - **[Side Projects]({{ site.baseurl }}/portfolio/side-projects/)** — Unity 습작과 C++ / WinAPI 모작
