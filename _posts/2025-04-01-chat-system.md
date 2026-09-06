@@ -7,6 +7,8 @@ date: 2025-04-01
 project: true
 group: common
 order: 1
+icons:
+  - {file: backnd.png, alt: "Backnd (뒤끝)"}
 tags: [BackEnd-SDK, Socket, UniTask, PlayFab, CSharp]
 excerpt: "공통 모듈. 뒤끝 SDK 기반 채널별 실시간 메시징."
 toc: true
