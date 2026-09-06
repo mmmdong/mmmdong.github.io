@@ -1,0 +1,16 @@
+{%- comment -%}
+랜딩의 기술 스택 줄. 목록은 _data/tech_icons.yml 이 정한다.
+
+이름은 화면에 글자로 내지 않는다. 그래서 alt 를 반드시 채운다 — 여기서는
+로고가 장식이 아니라 유일한 정보이고, 이미지가 안 뜨거나 화면을 못 보는
+방문자에게는 alt 가 그 자리에 남는 전부다. title 은 마우스를 올렸을 때의
+확인용이지 alt 의 대체가 아니다(터치 기기에는 뜨지 않는다).
+
+alt 는 <img> 에, title 은 <a> 에 둔다. 링크가 이름을 읽히는 주체이므로
+보조기술이 "Unity, 링크" 로 한 번만 읽는다.
+{%- endcomment -%}
+<ul class="tech-icons">
+{%- for t in site.data.tech_icons -%}
+<li class="tech-item"><a class="tech-link" href="{{ t.url }}" title="{{ t.name }}" target="_blank" rel="noopener noreferrer"><img class="tech-icon" src="{{ site.url }}/assets/img/icons/{{ t.file }}" alt="{{ t.name }}" width="38" height="38" loading="lazy"></a></li>
+{%- endfor -%}
+</ul>

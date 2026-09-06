@@ -17,6 +17,15 @@ Unity 3D/2D 게임 개발자 김동현 포트폴리오.
   파일 헤더에 출처와 사용법이 있습니다.
 - `assets/js/toc-scrollspy.js`, `assets/js/theme-toggle.js` — 자체 작성.
 
+### 아이콘
+
+- `assets/img/icons/csharp.svg`, `claude.svg` — [Simple Icons](https://simpleicons.org),
+  **CC0**. 글리프는 그대로 두고 브랜드 색만 채웠습니다.
+- `unity.png`, `applovin.png`, `backnd.png` — 각 사의 공식 로고. 상표는 각
+  소유자의 것이고, 기술 스택 표시 용도로만 씁니다.
+- `omc.png`, `cpp.png` — 공개 로고가 없어 직접 만든 모노그램 배지입니다.
+- 앱 아이콘 6종은 해당 게임의 실제 출시 아이콘입니다.
+
 ## 구조
 
 | 경로 | 내용 |
@@ -67,6 +76,50 @@ URL 로 직접 들어가야만 보이므로, 새 글에는 잊지 말고 넣으�
 `/projects/` 안에서의 위치는 `group`(`_data/project_groups.yml` 의 id)과 `order`
 가 정합니다. 사전에 없는 `group` 값을 쓰면 목록 맨 아래 '기타' 로 떨어집니다 —
 조용히 사라지지 않게 하려는 장치입니다.
+
+### 랜딩의 기술 스택 아이콘
+
+`_data/tech_icons.yml` 이 단일 출처입니다. 항목을 넣고 빼는 데는 이 파일만
+고치면 되고, 순서도 여기가 정합니다.
+
+넣는 기준은 **고유 로고가 있는가** 하나입니다. R3 · UniTask · 디자인 패턴처럼
+로고가 없는 항목까지 그려 넣으면 아이콘이 브랜드 표시가 아니라 장식이 됩니다.
+그런 항목은 `_data/tech_stack.yml` 의 문장 목록에 남아 `/about/` · `/cv/` 에서
+렌더됩니다 — 상세 스택의 단일 출처는 그쪽입니다.
+
+이름은 화면에 글자로 나오지 않고 `alt` · `title` 로만 들어갑니다. 그래서
+`name` 을 비우면 이미지가 안 뜨거나 화면을 못 보는 방문자에게 남는 것이
+없습니다. 검증 스크립트가 `alt` 가 비어 있지 않은지, 그리고 그 값이
+`tech_icons.yml` 의 `name` 과 같은지 확인합니다.
+
+로고는 흰 바탕을 전제로 그려져 있어(Unity 는 검은 큐브, C# 은 짙은 보라)
+`--logo-plate` 판 위에 올립니다. 이 토큰만 두 테마에서 같은 값입니다.
+
+`oh-my-claudecode` 는 공개 로고가 없어 `cpp.png` 와 같은 방식의 모노그램 배지를
+만들어 씁니다(`omc.png`). Claude Code 는 전용 글리프가 픽셀아트 캐릭터라
+작은 크기에서 뭉개져, 형태가 남는 Claude 본 마크를 씁니다.
+
+### 외부 링크는 새 탭에서 연다
+
+레이아웃이 만드는 링크(네비 · 소셜 · 기술 스택 아이콘)는 태그에 직접
+`target="_blank" rel="noopener noreferrer"` 를 적어둡니다.
+
+본문은 `_includes/content.html` 이 한 번에 바꿉니다. 링크마다
+`{: target="_blank"}` 를 붙이는 방식은 새 글을 쓸 때마다 빠뜨리기 쉽고,
+GitHub Pages classic 은 플러그인을 돌리지 않아 `jekyll-target-blank` 같은 것도
+못 씁니다. 그래서 레이아웃이 `{{ content }}` 대신 이 include 를 통과시킵니다.
+
+`rel` 을 함께 붙이는 이유는 `noopener` 가 없으면 새 탭이 `window.opener` 로
+이쪽 문서를 건드릴 수 있기 때문입니다. 최신 브라우저는 `target="_blank"` 에
+`noopener` 를 암시하지만 명시해 둡니다.
+
+**한계**: 치환은 여는 태그가 정확히 `<a href="http` 일 때만 걸립니다. 원시
+HTML 에 속성을 앞에 붙여 쓰면(`<a class="x" href="http...`) 빠져나갑니다.
+검증 스크립트가 산출물에서 `target` 없는 외부 링크를 세므로 그런 누락은
+게이트에서 걸립니다 — 잡히면 속성 순서를 바꾸면 됩니다.
+
+배포 설정에서는 `site.url` 이 절대주소라 본문에 `{{ site.url }}/...` 로 적은
+내부 링크도 `http` 로 시작합니다. include 가 그 경우만 되돌립니다.
 
 ### 레이아웃에서 링크를 쓸 때
 
