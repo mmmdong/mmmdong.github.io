@@ -19,11 +19,20 @@ Unity 3D/2D 게임 개발자 김동현 포트폴리오.
 
 ### 아이콘
 
-- `assets/img/icons/csharp.svg`, `claude.svg` — [Simple Icons](https://simpleicons.org),
-  **CC0**. 글리프는 그대로 두고 브랜드 색만 채웠습니다.
+- `csharp.svg` · `java.svg` · `git.svg` · `jenkins.svg` · `spine.svg` ·
+  `steam.svg` · `r3.svg` · `claude.svg` — [Simple Icons](https://simpleicons.org),
+  **CC0**. 글리프는 그대로 두고 브랜드 색만 채웠습니다. 색은 눈대중이 아니라
+  Simple Icons 데이터 파일의 hex 값입니다.
+  - `java.svg` 는 OpenJDK 글리프(Duke)입니다. Java 로고는 상표 문제로 공개
+    아이콘 집합에 없어 사실상의 대역을 씁니다.
+  - `r3.svg` 는 ReactiveX 마크입니다. R3 는 전용 로고가 없고 Rx 계열 구현이라
+    계열 표식을 씁니다.
 - `unity.png`, `applovin.png`, `backnd.png` — 각 사의 공식 로고. 상표는 각
   소유자의 것이고, 기술 스택 표시 용도로만 씁니다.
-- `omc.png`, `cpp.png` — 공개 로고가 없어 직접 만든 모노그램 배지입니다.
+- `omc.png`, `unitask.png`, `cpp.png` — 공개 로고가 없어 직접 만든 모노그램
+  배지입니다. 바탕색은 흰 글자 대비 4.5:1 을 넘기도록 낮춰서 정합니다
+  (`omc` 는 OMC 소셜 이미지에서, `unitask` 는 배포자 Cysharp 의 아바타에서
+  대표색을 뽑았습니다).
 - 앱 아이콘 6종은 해당 게임의 실제 출시 아이콘입니다.
 
 ## 구조
