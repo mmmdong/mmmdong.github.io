@@ -13,16 +13,6 @@ layout: compress
     {% include nav.html %}
     <!-- Header -->
     <header class="header flex" role="banner">
-        {%- comment -%}
-        연락처는 카드 밖 위쪽에 둔다. .header 가 flex-wrap 이라 100% 를 차지하는
-        형제를 앞에 두면 카드 위 한 줄로 접힌다. 좁은 화면에서는 .header 가
-        display:block 으로 바뀌므로 그대로 위에 쌓인다.
-
-        여기 글자는 카드(--surface)가 아니라 페이지 바탕(--page-bg) 위에 있다.
-        본문용 색을 그대로 쓰면 라이트 테마의 붉은 바탕에서 읽히지 않으므로
-        전용 토큰(--page-text)을 쓴다.
-        {%- endcomment -%}
-        <div class="page-contact">{% include contact-line.html %}</div>
         <div class="container animated fadeIn">
             <div class="row">
                     <a href="{{ site.url }}/">
@@ -47,22 +37,34 @@ layout: compress
                          Projects
                          </a>
                          {%- comment -%}
-                         코드 저장소. 글자가 아니라 아이콘이라 이름이 없으므로
-                         aria-label 을 준다 — 없으면 보조기술이 URL 을 읽는다.
-                         .btn 을 그대로 쓰는 이유는 옆의 글자 버튼들과 높이·여백이
-                         저절로 맞기 때문이다.
+                         코드 저장소와 Notion 포트폴리오. 글자가 아니라 아이콘이라
+                         이름이 없으므로 aria-label 을 준다 — 없으면 보조기술이 URL 을
+                         읽는다. .btn 을 그대로 쓰는 이유는 옆의 글자 버튼들과
+                         높이·여백이 저절로 맞기 때문이다.
+
+                         GitHub 는 테마가 동봉한 Font Awesome 4.7 의 웹폰트 '글자' 라
+                         크기도 색도 저절로 따라온다. Notion 은 그 집합에 없어서
+                         Simple Icons(CC0) 의 공식 마크를 인라인 SVG 로 직접 넣는다.
+                         파일로 빼지 않은 이유는 fill 때문이다 — img 로 넣으면 색이
+                         파일 안에 고정되어 다크에서 검은 마크가 되지만, 인라인이면
+                         currentColor 로 옆의 글리프와 같은 색을 따라간다(_theme.scss).
                          {%- endcomment -%}
                          <a class="btn zoombtn btn-icon" href="{{ site.code-repo }}"
                             title="portfolio-code" aria-label="portfolio-code 저장소"
                             target="_blank" rel="noopener noreferrer">
                          <i class="fa fa-github" aria-hidden="true"></i>
                          </a>
+                         <a class="btn zoombtn btn-icon" href="{{ site.notion }}"
+                            title="Notion 포트폴리오" aria-label="Notion 포트폴리오"
+                            target="_blank" rel="noopener noreferrer">
+                         <svg class="btn-glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>
+                         </a>
                  </h3>
             </div>
         </div>
         {%- comment -%}
-        기술 스택 레일도 카드 밖이다. 연락처와 마주 보게 위아래로 하나씩 둔다.
-        .header 가 flex-wrap 이라 100% 를 차지하는 형제는 각각 한 줄로 접힌다.
+        기술 스택 레일은 카드 밖 아래다. .header 가 flex-wrap 이라 100% 를 차지하는
+        형제는 한 줄을 통째로 차지하며 카드 아래로 접힌다.
         {%- endcomment -%}
         <div class="page-rail">{% include tech-icons.html %}</div>
     </header>
