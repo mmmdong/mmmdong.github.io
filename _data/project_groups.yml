@@ -1,11 +1,26 @@
 # /projects/ 의 나열 순서. 이 파일의 순서가 곧 화면 순서이고,
 # 묶음 안의 순서는 각 글 front matter 의 order 가 정한다.
 #
-# name 을 비우면 묶음 제목을 렌더하지 않는다. 앞쪽 프로젝트들은 각자
-# 독립 제품이라 제목 위에 회사명을 한 겹 더 얹지 않는다.
+# 장르로 나눈다. 앞서 회사별 묶음은 걷어냈다 — 제품마다 회사가 달라
+# 읽는 사람에게 정보가 되지 않았다. 장르는 '무엇을 만들어 봤나' 를 바로 보여준다.
+#
+# name 을 비우면 묶음 제목을 렌더하지 않는다.
 
-- id: main
-  name:
+- id: rpg
+  name: RPG
+  note: 방치형 RPG 3종 · 상용 출시 · 팀 프로젝트
+
+- id: casual
+  name: Casual
+  note: 하이퍼캐주얼 · 1인 개발
+
+- id: social
+  name: Social
+  note: AI 대화형 라이프스타일 플랫폼 · 멀티플랫폼
+
+- id: etc
+  name: ETC
+  note: 개인 프로젝트와 습작
 
 - id: common
   name: COMMON Modules

@@ -5,7 +5,7 @@ permalink: /portfolio/return-hero/
 slug: return-hero
 date: 2024-05-01
 project: true
-group: main
+group: rpg
 order: 3
 icons:
   - {file: return-hero.png, alt: "귀환병 전기 앱 아이콘"}

@@ -5,8 +5,8 @@ permalink: /portfolio/hyper-casual/
 slug: hyper-casual
 date: 2023-12-01
 project: true
-group: main
-order: 4
+group: casual
+order: 1
 icons:
   - {file: hyper-casual.png, alt: "MondayOFF"}
 tags: [Unity, CSharp, Firebase, IAP, AppLovin-MAX]
