@@ -29,7 +29,7 @@ layout: compress
                         <i class="fa fa-home"></i>
                     </a>
                 </div>
-                {{ content }}
+                {% include content.html %}
                 {%- comment -%}
                 회사별 묶음. 순서는 _data/project_groups.yml 이 정한다 —
                 그룹 순서도, 그룹 안의 순서(front matter 의 order)도 데이터에 있다.

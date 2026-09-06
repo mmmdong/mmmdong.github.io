@@ -1,0 +1,39 @@
+# Home 랜딩의 기술 스택 아이콘. 여기 적힌 순서가 화면 순서다.
+#
+# 넣는 기준은 '고유 로고가 있는가' 하나다. R3 · UniTask · 디자인 패턴처럼
+# 로고가 없는 항목까지 억지로 그려 넣으면, 아이콘이 브랜드 표시가 아니라
+# 그냥 장식이 된다. 그런 항목은 _data/tech_stack.yml 의 문장 목록에 남고
+# /about/ · /cv/ 에서 렌더된다 — 그쪽이 상세 스택의 단일 출처다.
+#
+# file 은 assets/img/icons/ 안의 파일이다. 로고는 흰 바탕을 전제로 그려져
+# 있어서 --logo-plate 판 위에 올린다(_sass/_theme.scss 참조).
+# name 은 화면에 글자로 나오지 않고 alt·title 로 들어간다. 그래서 비워두면
+# 이미지가 안 뜨거나 화면을 못 보는 방문자에게 아무것도 안 남는다.
+# url 은 공식 문서/제품 페이지다. 리다이렉트로 튕기지 않는 최종 주소로 적는다.
+- name: "C#"
+  file: csharp.svg
+  url: https://learn.microsoft.com/dotnet/csharp/
+- name: Unity
+  file: unity.png
+  url: https://unity.com/
+- name: AppLovin MAX
+  file: applovin.png
+  # max.applovin.com 은 MAX 대시보드다. 로그인 화면으로 넘어가는 게 정상이고,
+  # 문서 허브(support.applovin.com/en/max)보다 이쪽을 쓰기로 했다.
+  url: https://max.applovin.com/
+- name: 뒤끝 SDK
+  file: backnd.png
+  url: https://backnd.com/
+# Claude Code 전용 글리프(픽셀아트 캐릭터)는 작은 크기에서 주황 덩어리로만
+# 보인다. 이름표를 글자로 내지 않으니 글리프가 어느 브랜드인지 혼자 알려야
+# 하는데 그걸 못 한다. 작은 크기에서도 형태가 남는 Claude 본 마크를 쓴다.
+- name: Claude Code
+  file: claude.svg
+  url: https://claude.com/product/claude-code
+# oh-my-claudecode 는 공개 로고가 없다. 저장소의 마스코트는 픽셀아트 캐릭터라
+# 38px 에서는 붉은 덩어리로만 보여서, cpp.png 와 같은 방식의 모노그램 배지를
+# 만들어 쓴다. 색은 OMC 소셜 이미지의 제목 빨강을 흰 글자가 4.5:1 을 넘길
+# 때까지 낮춘 값이다(#C94745).
+- name: Oh My Claude Code
+  file: omc.png
+  url: https://github.com/Yeachan-Heo/oh-my-claudecode
