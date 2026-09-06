@@ -26,8 +26,10 @@ Unity 3D/2D 게임 개발자 김동현 포트폴리오.
 | `/projects/` | 포트폴리오 목록 (`project: true` 인 글을 자동 나열) |
 | `/portfolio/<slug>/` | 프로젝트 상세 8건 |
 | `/cv/` | 이력 |
-| `/posts/` | 블로그 목록 |
 | `/tags/` | 태그 |
+
+블로그 목록(`/posts/`)은 두지 않습니다. 이 사이트에 실리는 글은 전부
+포트폴리오 프로젝트라 목록이 `/projects/` 와 겹쳤습니다.
 
 ## 빌드
 
@@ -59,7 +61,12 @@ GitHub Pages classic 으로 배포됩니다.
 - 또는 front matter 에 `permalink:` 를 직접 지정
 
 프로젝트 글은 front matter 에 `project: true` 를 넣으면 `/projects/` 목록에 잡힙니다.
-넣지 않으면 `/posts/` 쪽에만 나옵니다.
+**넣지 않으면 어느 목록에도 안 나옵니다** — 블로그 목록을 걷어냈기 때문입니다.
+URL 로 직접 들어가야만 보이므로, 새 글에는 잊지 말고 넣으십시오.
+
+`/projects/` 안에서의 위치는 `group`(`_data/project_groups.yml` 의 id)과 `order`
+가 정합니다. 사전에 없는 `group` 값을 쓰면 목록 맨 아래 '기타' 로 떨어집니다 —
+조용히 사라지지 않게 하려는 장치입니다.
 
 ### 테마에서 걷어낸 것
 
