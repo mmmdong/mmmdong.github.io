@@ -260,6 +260,34 @@ hr.hr-line {
   .tech-icon { width: 34px; height: 34px; }
 }
 
+// ---------------------------------------------------------------- 랜딩 소개 문단
+// /about/ 요약. 이름 다음으로 읽히되 이름을 밀어내지는 않아야 해서 --muted 로
+// 한 단계 낮춘다(--muted 는 4.5:1 게이트 대상이라 흐리게 해도 읽힌다).
+// 가운데 정렬한 긴 줄은 눈이 다음 줄 첫 글자를 못 찾는다. 폭을 묶어 세 줄
+// 안팎으로 끊는다.
+.intro {
+  max-width: 34em;
+  margin: 20px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+  text-align: center;
+  // 단어 중간에서 잘리지 않게 한다. 한글은 어디서든 끊기므로 명시해야 한다.
+  word-break: keep-all;
+
+  // keep-all 도 가운뎃점에서는 끊는다. 괄호 묶음이 반으로 잘리지 않게 한다.
+  .nowrap { white-space: nowrap; }
+}
+
+@media screen and (max-width: 480px) {
+  .intro {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: left;
+  }
+}
+
 // ---------------------------------------------------------------- 테마 토글
 .theme-toggle {
   position: fixed;
