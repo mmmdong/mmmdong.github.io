@@ -307,6 +307,42 @@ hr.hr-line {
   .nowrap { white-space: nowrap; }
 }
 
+// 출시작 이름 줄. 문장에서 빼내 따로 세운다 — 채용 담당자가 가장 먼저 찾는
+// 정보라 문장 속에 묻히면 안 된다.
+.intro-releases {
+  max-width: 34em;
+  margin: 10px auto 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+  text-align: center;
+  word-break: keep-all;
+
+  // 제목이 줄바꿈에 반으로 잘리지 않게 한다. keep-all 은 한글 어절만 지켜서
+  // 'Sweep Coin Tower' 같은 영문 제목은 단어 사이에서 그냥 끊긴다.
+  .t { white-space: nowrap; }
+
+  // 줄 전체가 --muted 인데 링크만 링크색이면 얼룩덜룩해진다. 색은 물려받고,
+  // 누를 수 있다는 신호는 밑줄로 준다 — 여섯 개가 전부 링크라 어차피 한 덩어리다.
+  .t a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-ui);
+  }
+  .t a:hover,
+  .t a:focus-visible { color: var(--link-hover); border-bottom-color: currentColor; }
+
+  .label {
+    margin-right: 8px;
+    padding: 1px 7px;
+    border: 1px solid var(--border-ui);
+    border-radius: 999px;
+    color: var(--text);
+    font-size: 11.5px;
+    white-space: nowrap;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .intro {
     margin-top: 16px;
@@ -314,6 +350,8 @@ hr.hr-line {
     line-height: 1.7;
     text-align: left;
   }
+
+  .intro-releases { font-size: 12px; line-height: 2; }
 }
 
 // ---------------------------------------------------------------- 랜딩 연락처 줄

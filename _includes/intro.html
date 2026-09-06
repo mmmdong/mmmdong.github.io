@@ -1,15 +1,44 @@
 {%- comment -%}
-랜딩의 자기소개 요약. /about/ 본문을 손으로 줄인 것이고, 자동으로 따라가지
-않는다. About 을 크게 고치면 여기도 같이 봐야 한다 — structure.py 가
-'요약이 About 본문보다 짧은지' 만 지켜본다(길이가 역전되면 요약이 아니다).
+랜딩의 자기소개 요약. /about/ 과 /cv/ 를 손으로 줄인 것이고, 자동으로 따라가지
+않는다. 그쪽을 크게 고치면 여기도 같이 봐야 한다.
 
-문장을 세 줄로 끊어 둔 이유는 각 줄이 하나의 답을 하기 때문이다.
-무엇을 만들었는가 / 어디에 강한가 / 어디까지 직접 했는가.
+structure.py 가 지켜보는 것:
+  - 요약이 About 본문보다 짧은지 (길이가 역전되면 그건 요약이 아니다)
+  - 출시작 이름이 전부 /cv/ 에도 있는지 — 여기만 고치고 이력서를 안 고치거나,
+    이름을 잘못 적으면 그때 걸린다
+  - 문장에 적은 개수와 실제 제목 수가 같은지
+  - 제목마다 프로젝트 페이지 링크가 있고 그 대상이 실재하는지
+반대 방향(이력서에 있는데 여기 빠진 것)은 이력서가 문장이라 기계로 못 센다.
+출시작이 늘면 이 파일도 함께 고쳐야 한다.
+
+Eterna AI 는 출시하지 못했으므로 출시작에 넣지 않는다. 그 작업(스팀 연동 ·
+IAP · CI/CD)은 세 번째 문장의 멀티플랫폼 대응으로 남는다.
+
+하이퍼캐주얼 3종은 글 하나에 함께 실려 있어서 같은 페이지의 서로 다른 제목
+앵커로 보낸다. 셋을 같은 URL 로 보내면 눌러 놓고 어느 게임인지 다시 찾아야 한다.
+
+문장은 세 가지에 답한다. 무엇을 만들었는가 / 어디에 강한가 / 어디까지 직접
+했는가. 출시작 이름은 문장 안에 넣지 않고 아래 줄로 뺐다 — 여섯 개를 문장에
+밀어 넣으면 첫 문장이 세 줄이 되고, 채용 담당자가 가장 먼저 찾는 정보가
+오히려 문장 속에 묻힌다.
+
+제목마다 nowrap 을 두르는 이유: keep-all 은 한글 어절만 지킨다.
+'Sweep Coin Tower' 같은 영문 제목은 단어 사이에서 그냥 끊긴다.
 {%- endcomment -%}
 <p class="intro">
-방치형 RPG 3종을 상용 출시하고 라이브 서비스를 운영해 온 Unity 개발자입니다.
+방치형 RPG 3종, 1인 개발 하이퍼캐주얼 3종 — 상용작 6종을 출시하고
+라이브 서비스를 운영해 온 Unity 개발자입니다.
 UI 아키텍처 재구성과 인게임 프레임워크 리팩토링, R3 · UniTask 기반 비동기
 최적화에 강점이 있습니다. 네트워크 통신부터 Spine 연출,
 <span class="nowrap">멀티플랫폼(AOS · iOS · Steam)</span>
 대응까지 개발 전 과정을 직접 수행했습니다.
+</p>
+<p class="intro-releases">
+<span class="label">출시작</span>
+<span class="t"><a href="{{ site.url }}/portfolio/unknown-heroes/">미확인 용사단</a></span> ·
+<span class="t"><a href="{{ site.url }}/portfolio/pixel-heroic-legend/">픽셀 영웅 전설</a></span> ·
+<span class="t"><a href="{{ site.url }}/portfolio/return-hero/">귀환병 전기</a></span> ·
+<span class="t"><a href="{{ site.url }}/portfolio/hyper-casual/#1-dance-mob--clicker-game">Dance Mob</a></span> ·
+<span class="t"><a href="{{ site.url }}/portfolio/hyper-casual/#2-number-store--idle">Number Store</a></span> ·
+<span class="t"><a href="{{ site.url }}/portfolio/hyper-casual/#3-sweep-coin-tower">Sweep Coin Tower</a></span>
 </p>
