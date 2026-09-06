@@ -13,6 +13,16 @@ layout: compress
     {% include nav.html %}
     <!-- Header -->
     <header class="header flex" role="banner">
+        {%- comment -%}
+        연락처는 카드 밖 위쪽에 둔다. .header 가 flex-wrap 이라 100% 를 차지하는
+        형제를 앞에 두면 카드 위 한 줄로 접힌다. 좁은 화면에서는 .header 가
+        display:block 으로 바뀌므로 그대로 위에 쌓인다.
+
+        여기 글자는 카드(--surface)가 아니라 페이지 바탕(--page-bg) 위에 있다.
+        본문용 색을 그대로 쓰면 라이트 테마의 붉은 바탕에서 읽히지 않으므로
+        전용 토큰(--page-text)을 쓴다.
+        {%- endcomment -%}
+        <div class="page-contact">{% include contact-line.html %}</div>
         <div class="container animated fadeIn">
             <div class="row">
                     <a href="{{ site.url }}/">
@@ -24,7 +34,6 @@ layout: compress
 			            </a>
                     </h3>
                     <hr class="hr-line">
-                    {% include tech-icons.html %}
                     {% include intro.html %}
                   <hr class="hr-line">
                   <h3 class="title">
@@ -46,10 +55,13 @@ layout: compress
                          <i class="fa fa-github" aria-hidden="true"></i>
                          </a>
                  </h3>
-                    <hr class="hr-line">
-                    {% include contact-line.html %}
             </div>
         </div>
+        {%- comment -%}
+        기술 스택 레일도 카드 밖이다. 연락처와 마주 보게 위아래로 하나씩 둔다.
+        .header 가 flex-wrap 이라 100% 를 차지하는 형제는 각각 한 줄로 접힌다.
+        {%- endcomment -%}
+        <div class="page-rail">{% include tech-icons.html %}</div>
     </header>
     {% include scripts.html %}
 </body>
