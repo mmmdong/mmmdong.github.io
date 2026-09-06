@@ -148,6 +148,10 @@ HTML 에 속성을 앞에 붙여 쓰면(`<a class="x" href="http...`) 빠져나�
 
 - **Disqus** — 기본값이 원작자 계정(`disqus_shortname`)이라 그대로 두면
   방문자 브라우저에서 남의 댓글 서비스가 로드됩니다. 설정과 호출부를 모두 제거했습니다.
+- **소셜 아이콘 격자**(`_includes/social-links.html`) — 스물다섯 개 서비스를
+  조건부로 그리는 include 였는데 실제로 켜진 것은 두 개였습니다. 랜딩에서는
+  아이콘 대신 연락처를 글자로 적는 편이 짧고 확실해서 걷어냈습니다
+  (`_includes/contact-line.html`).
 - **Google Analytics** 스니펫 — 쓰지 않습니다.
 - **MathJax** — `post.html` · `page.html` 이 `cdn.mathjax.org` 를 부르고 있었습니다.
   그 호스트는 서비스가 종료됐습니다. `mathjax: false` 로 꺼두기만 하면 설정 한 줄로
