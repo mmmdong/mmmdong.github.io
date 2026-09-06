@@ -197,7 +197,11 @@ hr.hr-line {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin: 18px 0 0;
+  // 줄바꿈 위치를 폭으로 정한다. 카드 폭에 그냥 맡기면 열세 개가 11 + 2 로
+  // 접혀서 둘째 줄이 부스러기처럼 남는다. 한 줄에 일곱 개가 들어가는 폭으로
+  // 묶어 7 + 6 이 되게 한다 (38px * 7 + 10px * 6 = 326px).
+  max-width: 330px;
+  margin: 18px auto 0;
   padding: 0;
   list-style: none;
 }
@@ -243,7 +247,8 @@ hr.hr-line {
 }
 
 @media screen and (max-width: 480px) {
-  .tech-icons { gap: 8px; }
+  // 34px * 7 + 8px * 6 = 286px. 좁은 화면에서도 7 + 6 을 유지한다.
+  .tech-icons { gap: 8px; max-width: 292px; }
   .tech-icon { width: 34px; height: 34px; }
 }
 

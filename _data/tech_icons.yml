@@ -1,21 +1,55 @@
 # Home 랜딩의 기술 스택 아이콘. 여기 적힌 순서가 화면 순서다.
+# 순서는 언어 → 엔진 → 라이브러리 → 툴체인 → 플랫폼·SDK → AI 워크플로.
 #
-# 넣는 기준은 '고유 로고가 있는가' 하나다. R3 · UniTask · 디자인 패턴처럼
-# 로고가 없는 항목까지 억지로 그려 넣으면, 아이콘이 브랜드 표시가 아니라
-# 그냥 장식이 된다. 그런 항목은 _data/tech_stack.yml 의 문장 목록에 남고
-# /about/ · /cv/ 에서 렌더된다 — 그쪽이 상세 스택의 단일 출처다.
+# 넣는 기준은 '알아볼 만한 표식을 만들 수 있는가' 다. 공식 로고가 있으면 그걸
+# 쓰고, 없으면 cpp.png 와 같은 방식의 모노그램 배지를 만든다. 억지로 그린
+# 장식은 넣지 않는다 — 디자인 패턴·Web 통신처럼 표식이 성립하지 않는 항목은
+# _data/tech_stack.yml 의 문장 목록에 남고 /about/ · /cv/ 에서 렌더된다.
+# 그쪽이 상세 스택의 단일 출처다.
 #
 # file 은 assets/img/icons/ 안의 파일이다. 로고는 흰 바탕을 전제로 그려져
 # 있어서 --logo-plate 판 위에 올린다(_sass/_theme.scss 참조).
 # name 은 화면에 글자로 나오지 않고 alt·title 로 들어간다. 그래서 비워두면
 # 이미지가 안 뜨거나 화면을 못 보는 방문자에게 아무것도 안 남는다.
 # url 은 공식 문서/제품 페이지다. 리다이렉트로 튕기지 않는 최종 주소로 적는다.
+#
+# 글리프는 Simple Icons(CC0)에서 가져와 브랜드 색만 채웠다. 색은 눈대중이
+# 아니라 Simple Icons 데이터 파일의 hex 값 그대로다.
 - name: "C#"
   file: csharp.svg
   url: https://learn.microsoft.com/dotnet/csharp/
+# Java 는 상표 문제로 공개 아이콘 집합에 없다. 사실상의 대역인 OpenJDK 글리프
+# (Duke)를 쓰고 이름은 Java 로 둔다.
+- name: Java
+  file: java.svg
+  url: https://www.java.com/
 - name: Unity
   file: unity.png
   url: https://unity.com/
+# R3 는 UniRx 의 후속이자 Rx 계열 구현이다. 전용 로고가 없어 계열을 나타내는
+# ReactiveX 마크를 쓴다.
+- name: R3 (UniRx)
+  file: r3.svg
+  url: https://github.com/Cysharp/R3
+# UniTask 도 공개 로고가 없다. 모노그램 배지를 만들고, 색은 배포자인 Cysharp 의
+# GitHub 아바타에서 뽑은 대표 유채색이다(#1E5A78, 흰 글자 대비 7.53:1).
+- name: UniTask
+  file: unitask.png
+  url: https://github.com/Cysharp/UniTask
+- name: Spine
+  file: spine.svg
+  url: https://esotericsoftware.com/
+- name: Git
+  file: git.svg
+  url: https://git-scm.com/
+- name: Jenkins
+  file: jenkins.svg
+  url: https://www.jenkins.io/
+# 스팀은 스토어가 아니라 개발자용 Steamworks 를 건다 — 여기 실린 작업이
+# 플랫폼 연동이라서다.
+- name: Steam (Steamworks)
+  file: steam.svg
+  url: https://partner.steamgames.com/
 - name: AppLovin MAX
   file: applovin.png
   # max.applovin.com 은 MAX 대시보드다. 로그인 화면으로 넘어가는 게 정상이고,
