@@ -33,6 +33,7 @@ feature: assets/img/portfolio/hello-kitty-mds.jpg
     <tr><td><strong>담당 역할</strong></td><td>라이브 이벤트 컨텐츠 5종 클라이언트 구현 참여 (64개 파일 / 24,179 라인)</td></tr>
     <tr><td><strong>성과</strong></td><td>⭐ 4.3 (AOS) · 4.1 (iOS) &nbsp;|&nbsp; 📥 100만+ &nbsp;|&nbsp; 🌎 Global</td></tr>
     <tr><td><strong>링크</strong></td><td><a href="https://play.google.com/store/apps/details?id=com.actgames.HelloKittyMDS&hl=ko">Google Play Store</a> &middot; <a href="https://apps.apple.com/kr/app/id6736896540">App Store</a></td></tr>
+    <tr><td><strong>코드</strong></td><td><a href="https://github.com/mmmdong/portfolio-code/tree/main/hello-kitty-mds">GitHub</a> — 라이브 이벤트 5종 (64개 파일)</td></tr>
   </table>
 </div>
 
