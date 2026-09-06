@@ -38,6 +38,9 @@ email:              clxlzl1234@gmail.com
 phone:              "010-6299-6530"
 notion:             https://www.notion.so/mmmdong/Unity-Programmer-Kim-Dong-Hyun-33c08b60233e805f929ad17f7caf3207
 github-url:         mmmdong
+# 깃허브 링크는 전부 코드 저장소로 보낸다. 프로필 첫 화면에는 이 포트폴리오와
+# 무관한 저장소도 섞여 있어서, 채용 담당자가 처음 보는 것이 코드가 아니게 된다.
+code-repo:          https://github.com/mmmdong/portfolio-code
 
 # Plugins
 # 'gems:' 는 Jekyll 3.5 에서 'plugins:' 로 바뀐 옛 키다.

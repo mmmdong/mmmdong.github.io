@@ -10,6 +10,6 @@ tel: 은 하이픈을 빼야 일부 단말이 인식한다.
 <p class="contact-line">
 {%- if site.email %}<a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif -%}
 {%- if site.phone %} <span class="sep">·</span> <a href="tel:{{ site.phone | remove: '-' }}">{{ site.phone }}</a>{% endif -%}
-{%- if site.github-url %} <span class="sep">·</span> <a href="https://github.com/{{ site.github-url }}" target="_blank" rel="noopener noreferrer">GitHub</a>{% endif -%}
+{%- if site.code-repo %} <span class="sep">·</span> <a href="{{ site.code-repo }}" target="_blank" rel="noopener noreferrer">GitHub</a>{% endif -%}
 {%- if site.notion %} <span class="sep">·</span> <a href="{{ site.notion }}" target="_blank" rel="noopener noreferrer">Notion</a>{% endif -%}
 </p>
