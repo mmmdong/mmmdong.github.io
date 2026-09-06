@@ -6,6 +6,10 @@
 #
 # name 을 비우면 묶음 제목을 렌더하지 않는다.
 
+- id: merge
+  name: Merge
+  note: 산리오 IP 머지 퍼즐 · 상용 서비스 라이브 이벤트 개발
+
 - id: rpg
   name: RPG
   note: 방치형 RPG 3종 · 상용 출시 · 팀 프로젝트
