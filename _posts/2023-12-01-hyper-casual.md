@@ -90,8 +90,7 @@ feature: assets/img/portfolio/mondayoff.jpg
 
 <div class="pf-sub">
   <strong>플랫폼</strong> AOS / iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 2.7 (AOS) · 2.8 (iOS) · 📥 <strong>500K+</strong> · 🌎 Global<br/>
-  <strong>링크</strong> <a href="https://play.google.com/store/apps/details?id=com.mondayoff.numberstoreidle&hl=ko-KR">Google Play</a> ·
-  <a href="https://apps.apple.com/us/app/number-store-idle/id6458929630">App Store</a>
+  <strong>링크</strong> <a href="https://apps.apple.com/us/app/number-store-idle/id6458929630">App Store</a>
 </div>
 
 ### 개요
@@ -130,8 +129,7 @@ feature: assets/img/portfolio/mondayoff.jpg
 
 <div class="pf-sub">
   <strong>플랫폼</strong> AOS / iOS &nbsp;|&nbsp; <strong>성과</strong> ⭐ 3.4 (AOS) · <strong>4.4 (iOS)</strong> · 📥 100K+ · 🌎 Global<br/>
-  <strong>링크</strong> <a href="https://play.google.com/store/apps/details?id=com.mondayoff.cointower&hl=ko-KR">Google Play</a> ·
-  <a href="https://apps.apple.com/us/app/sweep-coin-tower/id6446337932">App Store</a>
+  <strong>링크</strong> <a href="https://apps.apple.com/us/app/sweep-coin-tower/id6446337932">App Store</a>
 </div>
 
 ### 개요

@@ -97,7 +97,7 @@ layout: compress
                                 {% if post.stores %}
                                 <ul class="pf-stores">
                                 {%- for s in post.stores -%}
-                                <li><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{% if s.app %}<span class="app">{{ s.app }}</span>{% endif %}<span class="store">{{ s.name }}</span></a></li>
+                                <li><a href="{{ s.url | escape }}" target="_blank" rel="noopener noreferrer">{% if s.app %}<span class="app">{{ s.app }}</span>{% endif %}<span class="store">{{ s.name }}</span></a></li>
                                 {%- endfor -%}
                                 </ul>
                                 {% endif %}

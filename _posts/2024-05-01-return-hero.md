@@ -32,7 +32,7 @@ feature: assets/img/portfolio/return-hero.jpg
     <tr><td><strong>사용 언어 · 스택</strong></td><td>C#, UniTask, Azure PlayFab, IAP, AppLovin MAX</td></tr>
     <tr><td><strong>담당 역할</strong></td><td>월드보스 시스템 신규 개발 및 서비스 안정화 유지보수</td></tr>
     <tr><td><strong>성과</strong></td><td>⭐ 3.3 (AOS) · 4.1 (iOS) &nbsp;|&nbsp; 📥 10K+ &nbsp;|&nbsp; 🌎 Global<br/>인앱 매출 <strong>약 8% 상승</strong>(랭킹 보상 안정화) · <strong>약 5% 상승</strong>(월드보스)</td></tr>
-    <tr><td><strong>링크</strong></td><td><a href="https://play.google.com/store/apps/details?id=com.dreamplay.returnhero.google&hl=ko">Google Play Store</a></td></tr>
+    <tr><td><strong>링크</strong></td><td><a href="https://apps.apple.com/kr/app/id6468865341">App Store</a></td></tr>
     <tr><td><strong>코드</strong></td><td><a href="https://github.com/mmmdong/portfolio-code/tree/main/return-hero">GitHub</a> — 월드보스 · 랭킹 정산 (4개 파일)</td></tr>
   </table>
 </div>
