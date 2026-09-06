@@ -437,6 +437,79 @@ hr.hr-line {
   html.no-js & { display: none; }
 }
 
+// ---------------------------------------------------------------- CV 위계
+// 대제목 > 문단(회사) > 프로젝트 > 설명. 네 단이다.
+//
+// 테마는 h2 · h3 에 크기를 주지 않아서 브라우저 기본값(1.5em / 1.17em)에
+// 기대고 있었고, 프로젝트와 설명은 마크다운에서 똑같은 '- ' 목록이라 아예
+// 같은 크기였다. 그래서 네 단이 두 단처럼 보였다.
+//
+// .cv 로 페이지를 한정한다 — /about/ 도 같은 레이아웃(page)을 쓴다.
+// 클래스는 front matter 의 page_class 가 붙인다.
+.cv {
+  // 테마의 .content 는 text-align: justify 다. 한글은 하이픈으로 끊지 않아서
+  // 양끝맞춤을 하면 어절 사이가 벌어져 줄마다 간격이 들쭉날쭉해진다. 프로젝트
+  // 줄처럼 긴 줄에서 특히 심하다. 왼쪽 맞춤으로 되돌린다.
+  text-align: left;
+  word-break: keep-all;
+
+  h2 {
+    margin: 46px 0 18px;
+    padding-top: 30px;
+    // 문단 사이 구분선. 대제목은 굵게, 회사는 얇게 — 선의 굵기가 층을
+    // 한 번 더 말해 준다.
+    border-top: 2px solid var(--border);
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  // 첫 대제목 위에는 나눌 것이 없다. 제목 바로 아래에 선이 하나 뜬다.
+  h2:first-of-type {
+    margin-top: 8px;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  h3 {
+    margin: 32px 0 10px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  // 대제목 바로 다음 회사에는 선을 겹쳐 긋지 않는다.
+  h2 + h3 {
+    margin-top: 14px;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  li { font-size: 13.5px; line-height: 1.85; }
+
+  // 프로젝트 줄. 마크다운의 {: .cv-project} 가 붙인다 — kramdown 은 이 표시를
+  // 항목이 아니라 목록에 건다. 그래서 선택자도 <ul> 기준이다.
+  ul.cv-project > li {
+    margin-bottom: 2px;
+    font-size: 15.5px;
+    line-height: 1.7;
+
+    a { font-weight: 600; }
+  }
+
+  // 프로젝트 목록과 설명 목록 사이가 붙어 있으면 층이 안 보인다.
+  ul + ul { margin-top: 10px; }
+}
+
+@media screen and (max-width: 480px) {
+  .cv {
+    h2 { margin-top: 34px; padding-top: 22px; font-size: 22px; }
+    h3 { margin-top: 24px; padding-top: 16px; font-size: 17px; }
+    li { font-size: 13px; }
+    ul.cv-project > li { font-size: 14.5px; }
+  }
+}
+
 // ---------------------------------------------------------------- 목차
 aside.toc {
   margin: 0 0 28px;

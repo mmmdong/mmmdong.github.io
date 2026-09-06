@@ -14,7 +14,12 @@ layout: compress
     <!-- Header -->
     <header class="header" role="banner">
         <div class="wrapper animated fadeIn">
-            <div class="content">
+            {%- comment -%}
+            page_class 는 페이지별 스타일을 붙일 자리다. /cv/ 의 글자 크기
+            사다리와 구분선이 여기에 걸린다 — /about/ 도 같은 레이아웃을 쓰므로
+            페이지를 한정하지 않으면 그쪽까지 바뀐다.
+            {%- endcomment -%}
+            <div class="content{% if page.page_class %} {{ page.page_class }}{% endif %}">
                 <div class="post-title {% if page.feature %} feature {% endif %}">
                     <h1>{{ page.title }}</h1>
                     {%- comment -%}
