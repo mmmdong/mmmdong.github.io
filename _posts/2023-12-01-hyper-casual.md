@@ -6,11 +6,11 @@ slug: hyper-casual
 date: 2023-12-01
 project: true
 group: casual
-order: 1
+order: 2
 icons:
   - {file: hyper-casual.png, alt: "MondayOFF"}
 tags: [Unity, CSharp, Firebase, IAP, AppLovin-MAX]
-excerpt: "하이퍼캐주얼 3종을 기획부터 클라이언트까지 1인 개발. 대량 오브젝트 환경에서 오브젝트 풀링과 드로우콜 억제, 이벤트 기반 연산으로 성능을 잡았습니다."
+excerpt: "하이퍼캐주얼 3종을 기획부터 클라이언트까지 담당했습니다. 대량 오브젝트 환경에서 오브젝트 풀링과 드로우콜 억제, 이벤트 기반 연산으로 성능을 잡았습니다."
 stats:
   - {k: 출시, v: "3종 · 글로벌"}
   - {k: 평점, v: "최고 4.4"}
@@ -27,7 +27,7 @@ feature: assets/img/portfolio/mondayoff.jpg
 
 <div class="pf-panel">
   <table>
-    <tr><td><strong>프로젝트 유형</strong></td><td>상용 출시 · <strong>1인 개발</strong>(기획 및 클라이언트 전담) · 3종</td></tr>
+    <tr><td><strong>프로젝트 유형</strong></td><td>상용 출시 · <strong>기획 및 클라이언트 전담</strong> · 3종</td></tr>
     <tr><td><strong>기간</strong></td><td>2022.10 ~ 2023.12</td></tr>
     <tr><td><strong>사용 소프트웨어</strong></td><td>Unity, Git, Miro, Slack</td></tr>
     <tr><td><strong>사용 언어 · 스택</strong></td><td>C#, Firebase, Unity IAP, AppLovin MAX</td></tr>

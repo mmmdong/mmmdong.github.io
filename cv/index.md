@@ -74,7 +74,7 @@ ACT Games 와 퍼플오션이 통째로 빠져 있었다 — 사이트와 이력
 
 ### 먼데이오프 유한책임회사
 
-**2022.10 ~ 2023.12** · 하이퍼 · 하이브리드 캐주얼 4종 개발 / 3종 글로벌 출시 · 1인 개발 (기획 · 클라이언트 전담)
+**2022.10 ~ 2023.12** · 하이퍼 · 하이브리드 캐주얼 4종 개발 / 3종 글로벌 출시 · 기획 · 클라이언트 전담
 
 - **[Dance Mob]({{ site.baseurl }}/portfolio/hyper-casual/#1-dance-mob--clicker-game)** · **[Number Store]({{ site.baseurl }}/portfolio/hyper-casual/#2-number-store--idle)** · **[Sweep Coin Tower]({{ site.baseurl }}/portfolio/hyper-casual/#3-sweep-coin-tower)** — 하이퍼캐주얼 3종 글로벌 출시
 {: .cv-project}
