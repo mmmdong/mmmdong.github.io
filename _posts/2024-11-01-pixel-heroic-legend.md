@@ -10,7 +10,12 @@ order: 2
 icons:
   - {file: pixel-heroic-legend.png, alt: "픽셀 영웅 전설 앱 아이콘"}
 tags: [Unity, CSharp, R3, UniTask, PlayFab, BackEnd-Chat]
-excerpt: "방치형 파티 RPG. 인게임 프레임워크 리팩터링. R3 상태 제어 기반 전투 코어 엔진과 PVP 전 과정 구현."
+excerpt: "방치형 파티 RPG. 인게임 프레임워크를 리팩터링했습니다. R3 상태 제어 기반 전투 코어 엔진과 PVP 전 과정, 채팅 시스템을 구현했습니다."
+stats:
+  - {k: 출시, v: "2024.11"}
+  - {k: 평점, v: "4.6 (AOS) · 4.0 (iOS)"}
+  - {k: 다운로드, v: "50K+"}
+  - {k: 플랫폼, v: "Android · iOS"}
 toc: true
 comments: false
 feature: assets/img/portfolio/pixel-hero.jpg

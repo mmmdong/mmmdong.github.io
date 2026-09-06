@@ -10,7 +10,12 @@ order: 3
 icons:
   - {file: return-hero.png, alt: "귀환병 전기 앱 아이콘"}
 tags: [Unity, CSharp, UniTask, PlayFab, CloudScript]
-excerpt: "방치형 캐주얼 RPG. 랭킹 보상 정산 자동화와 월드보스 신규 컨텐츠."
+excerpt: "방치형 캐주얼 RPG 의 라이브 운영. 월드보스를 신규 개발하고 랭킹 보상 정산을 자동화해, 인앱 매출을 각각 약 5% · 8% 끌어올렸습니다."
+stats:
+  - {k: 운영, v: "2024.03 ~ 05"}
+  - {k: 평점, v: "3.3 (AOS) · 4.1 (iOS)"}
+  - {k: 다운로드, v: "10K+"}
+  - {k: 플랫폼, v: "Android · iOS"}
 toc: true
 comments: false
 feature: assets/img/portfolio/return-hero.jpg

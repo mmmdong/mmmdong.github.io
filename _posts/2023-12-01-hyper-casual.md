@@ -10,7 +10,12 @@ order: 1
 icons:
   - {file: hyper-casual.png, alt: "MondayOFF"}
 tags: [Unity, CSharp, Firebase, IAP, AppLovin-MAX]
-excerpt: "하이퍼캐주얼 3종 1인 개발. 대량 오브젝트 환경의 성능 최적화."
+excerpt: "하이퍼캐주얼 3종을 기획부터 클라이언트까지 1인 개발. 대량 오브젝트 환경에서 오브젝트 풀링과 드로우콜 억제, 이벤트 기반 연산으로 성능을 잡았습니다."
+stats:
+  - {k: 출시, v: "3종 · 글로벌"}
+  - {k: 평점, v: "최고 4.4"}
+  - {k: 다운로드, v: "최대 500K+"}
+  - {k: 플랫폼, v: "Android · iOS"}
 toc: true
 comments: false
 feature: assets/img/portfolio/mondayoff.jpg
