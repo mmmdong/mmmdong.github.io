@@ -5,8 +5,8 @@ permalink: /portfolio/side-projects/
 slug: side-projects
 date: 2021-12-01
 project: true
-group: main
-order: 6
+group: etc
+order: 1
 icons:
   - {file: cpp.png, alt: "C++"}
   - {file: unity.png, alt: "Unity"}

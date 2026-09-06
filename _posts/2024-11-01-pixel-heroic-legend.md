@@ -5,7 +5,7 @@ permalink: /portfolio/pixel-heroic-legend/
 slug: pixel-heroic-legend
 date: 2024-11-01
 project: true
-group: main
+group: rpg
 order: 2
 icons:
   - {file: pixel-heroic-legend.png, alt: "픽셀 영웅 전설 앱 아이콘"}

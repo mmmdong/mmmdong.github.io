@@ -5,7 +5,7 @@ permalink: /portfolio/unknown-heroes/
 slug: unknown-heroes
 date: 2025-04-01
 project: true
-group: main
+group: rpg
 order: 1
 icons:
   - {file: unknown-heroes.png, alt: "미확인 용사단 앱 아이콘"}
