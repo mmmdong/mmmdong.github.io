@@ -16,6 +16,10 @@ stats:
   - {k: 평점, v: "최고 4.4"}
   - {k: 다운로드, v: "최대 500K+"}
   - {k: 플랫폼, v: "Android · iOS"}
+stores:
+  - {app: "Dance Mob", name: "App Store", url: "https://apps.apple.com/us/app/dance-mob-clicker-game/id6447021543"}
+  - {app: "Number Store Idle", name: "App Store", url: "https://apps.apple.com/us/app/number-store-idle/id6458929630"}
+  - {app: "Sweep Coin Tower", name: "App Store", url: "https://apps.apple.com/us/app/sweep-coin-tower/id6446337932"}
 toc: true
 comments: false
 feature: assets/img/portfolio/mondayoff.jpg

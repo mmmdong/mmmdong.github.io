@@ -82,6 +82,25 @@ layout: compress
                                 {%- endfor -%}
                                 </ul>
                                 {% endif %}
+                                {%- comment -%}
+                                플랫폼별 스토어 링크. 살아있는 주소만 front matter 에
+                                적혀 있다 — 구글 플레이는 미확인 용사단만 남았고 나머지는
+                                내려갔다. 죽은 링크를 카드에 걸면 채용담당이 그걸 누른다.
+
+                                target/rel 을 여기서 직접 붙이는 이유: 외부 링크를 새 탭으로
+                                바꾸는 _includes/content.html 은 글 본문({{ content }})만
+                                훑는다. 레이아웃이 직접 찍는 이 마크업은 거기에 걸리지 않는다.
+
+                                app 은 한 카드가 여러 앱을 묶을 때만 쓴다(하이퍼캐주얼 3종).
+                                없으면 스토어 이름만 낸다.
+                                {%- endcomment -%}
+                                {% if post.stores %}
+                                <ul class="pf-stores">
+                                {%- for s in post.stores -%}
+                                <li><a href="{{ s.url }}" target="_blank" rel="noopener noreferrer">{% if s.app %}<span class="app">{{ s.app }}</span>{% endif %}<span class="store">{{ s.name }}</span></a></li>
+                                {%- endfor -%}
+                                </ul>
+                                {% endif %}
                                 {% if post.tags %}
                                 <span class="pf-group-tags">
                                 {% for tag in post.tags %}<a href="{{ site.url }}/tags/#{{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>{% endfor %}

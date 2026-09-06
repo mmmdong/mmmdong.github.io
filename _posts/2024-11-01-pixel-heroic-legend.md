@@ -16,6 +16,8 @@ stats:
   - {k: 평점, v: "4.6 (AOS) · 4.0 (iOS)"}
   - {k: 다운로드, v: "50K+"}
   - {k: 플랫폼, v: "Android · iOS"}
+stores:
+  - {name: "App Store", url: "https://apps.apple.com/kr/app/id6529533655"}
 toc: true
 comments: false
 feature: assets/img/portfolio/pixel-hero.jpg
