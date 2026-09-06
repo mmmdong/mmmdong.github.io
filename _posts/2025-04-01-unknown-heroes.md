@@ -10,7 +10,12 @@ order: 1
 icons:
   - {file: unknown-heroes.png, alt: "미확인 용사단 앱 아이콘"}
 tags: [Unity, CSharp, UniRx, UniTask, PlayFab, BackEnd-Chat]
-excerpt: "하이브리드 방치형 RPG. UI 아키텍처 재구성 및 전체 관할. DFS 가챠 확률 산출, UniRx 반응형 UI 리팩터링, 슬롯머신 감정 시스템."
+excerpt: "하이브리드 방치형 RPG. UI 아키텍처를 재구성해 전체를 관할했습니다. DFS 로 가챠 확률을 산출하고, UniRx 반응형 UI 로 리팩터링하고, 슬롯머신 감정 시스템을 설계했습니다."
+stats:
+  - {k: 출시, v: "2025.04"}
+  - {k: 평점, v: "3.3 (AOS) · 4.3 (iOS)"}
+  - {k: 다운로드, v: "10K+"}
+  - {k: 플랫폼, v: "Android · iOS"}
 toc: true
 comments: false
 feature: assets/img/portfolio/miunhwa-heroes.jpg

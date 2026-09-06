@@ -437,6 +437,45 @@ hr.hr-line {
   html.no-js & { display: none; }
 }
 
+// ---------------------------------------------------------------- 카드 출시 아웃풋
+// /projects/ 카드의 평점 · 다운로드 · 플랫폼. 이름과 값을 한 칩에 붙여 낸다 —
+// 숫자만 늘어놓으면 4.6 이 평점인지 버전인지 알 수 없다.
+.pf-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 10px;
+  padding: 0;
+  list-style: none;
+
+  li {
+    // 카드 목록의 li 규칙(배경 · 여백 · 폰트)을 그대로 물려받으면 칩이
+    // 카드처럼 보인다. 여기서 되돌린다.
+    display: inline-flex;
+    align-items: baseline;
+    gap: 5px;
+    margin: 0;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--code-bg);
+    font-size: 12px;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .k { color: var(--muted); }
+  .v { color: var(--text); font-weight: 600; }
+}
+
+@media screen and (max-width: 480px) {
+  .pf-stats {
+    gap: 5px;
+
+    li { padding: 2px 7px; font-size: 11.5px; }
+  }
+}
+
 // ---------------------------------------------------------------- CV 위계
 // 대제목 > 문단(회사) > 프로젝트 > 설명. 네 단이다.
 //

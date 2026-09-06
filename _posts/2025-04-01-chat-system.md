@@ -10,7 +10,11 @@ order: 1
 icons:
   - {file: backnd.png, alt: "Backnd (뒤끝)"}
 tags: [BackEnd-SDK, Socket, UniTask, PlayFab, CSharp]
-excerpt: "공통 모듈. 뒤끝 SDK 기반 채널별 실시간 메시징."
+excerpt: "공통 모듈. 뒤끝 SDK(Socket) 기반 채널별 실시간 메시징 — 접속과 재연결, 채널 전환, 보상 수령 흐름까지 두 프로젝트에 이식했습니다."
+stats:
+  - {k: 성격, v: "공통 모듈"}
+  - {k: 적용, v: "2개 프로젝트"}
+  - {k: 코드, v: "8개 파일"}
 toc: true
 comments: false
 ---

@@ -11,7 +11,11 @@ icons:
   - {file: cpp.png, alt: "C++"}
   - {file: unity.png, alt: "Unity"}
 tags: [Unity, CSharp, UniRx, Cpp, WinAPI, FMOD]
-excerpt: "Unity 입문기 개인 프로젝트와 C++ / WinAPI 모작 5건."
+excerpt: "Unity 입문기 습작 2건과 C++ / WinAPI 모작 3건. 엔진 없이 렌더링과 충돌, 상태 관리를 직접 구현해 본 기록입니다."
+stats:
+  - {k: 성격, v: "개인 프로젝트"}
+  - {k: 규모, v: "5건"}
+  - {k: 스택, v: "C++ · Unity"}
 toc: true
 comments: false
 ---
