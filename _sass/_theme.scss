@@ -301,6 +301,41 @@ path.fa-secondary { opacity: .4; }
   a:hover { color: var(--link-hover); }
 }
 
+// 목록의 제목 줄. 아이콘을 제목 왼쪽에 세운다. 제목이 길어 줄바꿈돼도
+// 아이콘은 줄어들지 않고(flex: 0 0 auto) 제목만 접힌다.
+.pf-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  > a { min-width: 0; }
+}
+
+.pf-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.pf-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  // 아이콘마다 바탕이 다르다 — 도트 아트, 흰 바탕 로고, 어두운 판. 경계가 없으면
+  // 어떤 것은 배경에 녹고 어떤 것은 떠 보인다. 얇은 테두리로 기준을 맞춘다.
+  border: 1px solid var(--border);
+  background: var(--surface);
+  object-fit: contain;
+  vertical-align: middle;
+  flex: 0 0 auto;
+}
+
+@media screen and (max-width: 480px) {
+  .pf-icon { width: 26px; height: 26px; }
+  .pf-title-row { gap: 8px; }
+}
+
 .pf-group-tags {
   display: block;
   margin: 6px 0 4px;

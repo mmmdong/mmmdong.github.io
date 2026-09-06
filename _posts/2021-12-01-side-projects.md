@@ -7,6 +7,9 @@ date: 2021-12-01
 project: true
 group: main
 order: 6
+icons:
+  - {file: cpp.png, alt: "C++"}
+  - {file: unity.png, alt: "Unity"}
 tags: [Unity, CSharp, UniRx, Cpp, WinAPI, FMOD]
 excerpt: "Unity 입문기 개인 프로젝트와 C++ / WinAPI 모작 5건."
 toc: true

@@ -7,6 +7,8 @@ date: 2024-05-01
 project: true
 group: main
 order: 3
+icons:
+  - {file: return-hero.png, alt: "귀환병 전기 앱 아이콘"}
 tags: [Unity, CSharp, UniTask, PlayFab, CloudScript]
 excerpt: "방치형 캐주얼 RPG. 랭킹 보상 정산 자동화와 월드보스 신규 컨텐츠."
 toc: true

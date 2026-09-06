@@ -7,6 +7,8 @@ date: 2024-11-01
 project: true
 group: main
 order: 2
+icons:
+  - {file: pixel-heroic-legend.png, alt: "픽셀 영웅 전설 앱 아이콘"}
 tags: [Unity, CSharp, R3, UniTask, PlayFab, BackEnd-Chat]
 excerpt: "방치형 파티 RPG. 인게임 프레임워크 리팩터링. R3 상태 제어 기반 전투 코어 엔진과 PVP 전 과정 구현."
 toc: true
