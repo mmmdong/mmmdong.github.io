@@ -671,6 +671,9 @@ path.fa-secondary { opacity: .4; }
 }
 
 // 색은 묶음 id 로 고른다. 레이아웃이 section 에 pf-group--{id} 를 붙인다.
+// social 은 지금 _data/project_groups.yml 에 묶음이 없어 렌더되지 않는다.
+// 규칙과 색을 남겨 두는 이유: 팔레트는 다섯 색이 함께 대비를 맞춘 한 벌이고
+// (contrast.py 가 --cat-social 도 게이트한다), 묶음이 다시 생기면 그대로 쓴다.
 .pf-group--rpg    .pf-group-title { border-left-color: var(--cat-rpg); }
 .pf-group--casual .pf-group-title { border-left-color: var(--cat-casual); }
 .pf-group--social .pf-group-title { border-left-color: var(--cat-social); }
