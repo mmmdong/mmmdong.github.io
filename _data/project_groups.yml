@@ -14,6 +14,10 @@
   name: Casual
   note: 산리오 IP 머지 퍼즐 라이브 서비스 · 하이퍼캐주얼 글로벌 출시
 
+- id: social
+  name: Social
+  note: AI 대화형 라이프스타일 플랫폼 · 멀티플랫폼
+
 - id: etc
   name: ETC
   note: 개인 프로젝트와 습작
