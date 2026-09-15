@@ -39,3 +39,10 @@ resultCoupon.txt
 # 로컬 검증 산출물
 _site/
 .jekyll-cache/
+
+# 재직 중인 회사의 프로젝트. 파일은 로컬에만 두고 저장소에 올리지 않는다.
+# 로컬 빌드(_config_docker.yml)에서는 그대로 보인다.
+_posts/2026-05-01-hello-kitty-mds.md
+images/portfolio/hello-kitty-mds/
+assets/img/portfolio/hello-kitty-mds.jpg
+assets/img/icons/hello-kitty-mds.png
