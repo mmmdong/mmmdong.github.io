@@ -12,7 +12,9 @@
 
 - id: casual
   name: Casual
-  note: 산리오 IP 머지 퍼즐 라이브 서비스 · 하이퍼캐주얼 글로벌 출시
+  note: 하이퍼캐주얼 글로벌 출시
+  # 로컬 빌드에서만 쓰는 문구. 배포본은 위 note 가 나간다.
+  note_local: 산리오 IP 머지 퍼즐 라이브 서비스 · 하이퍼캐주얼 글로벌 출시
 
 - id: social
   name: Social

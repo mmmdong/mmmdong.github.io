@@ -47,7 +47,7 @@ layout: compress
                   {% assign grouped_count = grouped_count | plus: items.size %}
                 <section class="pf-group pf-group--{{ g.id }}{% unless g.name %} pf-group-plain{% endunless %}">
                     {% if g.name %}<h2 class="pf-group-title">{{ g.name }}</h2>{% endif %}
-                    {% if g.note %}<p class="pf-group-note">{{ g.note }}</p>{% endif %}
+                    {% assign _note = g.note %}{% if site.show_act_games and g.note_local %}{% assign _note = g.note_local %}{% endif %}{% if _note %}<p class="pf-group-note">{{ _note }}</p>{% endif %}
                     <div class="post-list">
                         <ul>
                         {% for post in items %}

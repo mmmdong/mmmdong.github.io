@@ -62,3 +62,12 @@ exclude:
   - src
   - CNAME
   - Rakefile
+  # 재직 중인 회사의 상용 프로젝트라 배포본에서 뺀다. 파일은 저장소에 남고,
+  # _config_docker.yml 이 이 exclude 를 통째로 덮어써 로컬 빌드에서만 보인다.
+  - _posts/2026-05-01-hello-kitty-mds.md
+  - images/portfolio/hello-kitty-mds
+  - assets/img/portfolio/hello-kitty-mds.jpg
+  - assets/img/icons/hello-kitty-mds.png
+
+# cv/index.md 의 해당 경력 절은 파일 단위로 뺄 수 없어 이 플래그로 감싼다.
+show_act_games: false

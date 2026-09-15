@@ -1,1 +1,19 @@
 url: ""
+
+# 로컬 확인용. _config.yml 이 배포본에서 뺀 것을 여기서 되살린다 —
+# 두 설정을 겹쳐 쓰므로(--config _config.yml,_config_docker.yml) 뒤가 이긴다.
+show_act_games: true
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - Dockerfile
+  - docker-compose.yaml
+  - _config_docker.yml
+  - node_modules
+  - vendor
+  - _site
+  - src
+  - CNAME
+  - Rakefile
