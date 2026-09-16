@@ -47,11 +47,6 @@ comments: false
 - 매니저가 구현체가 아닌 인터페이스에만 의존하는 DIP 분리로 컨텐츠 간 결합도 제거
 - 운영 중인 본편 공용 코드를 수정하지 않는 additive 설계로 라이브 리스크 차단
 - 스택: C#, UniTask, DOTween, Spine, SocketIO, CSV TableManager, HybridCLR
-{% else %}
-### 현재 재직 중
-
-**2026.05 ~ 재직 중** · 상세 비공개
-
 {% endif %}
 
 ### Voyager Inc.
