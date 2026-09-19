@@ -21,10 +21,3 @@ comments: false
 
 {% for item in site.data.tech_stack %}- {{ item }}
 {% endfor %}
-
-## Contact
-
-- **Email** · [{{ site.email }}](mailto:{{ site.email }})
-- **Phone** · [{{ site.phone }}](tel:{{ site.phone | remove: '-' }})
-- **GitHub** · [portfolio-code]({{ site.code-repo }}) &mdash; 각 프로젝트에서 직접 설계한 핵심 시스템 57개 파일
-- **Notion** · [Unity Programmer &mdash; Kim Dong Hyun]({{ site.notion }})
